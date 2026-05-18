@@ -3,38 +3,26 @@ import {
   GatewayIntentBits,
   Interaction,
   ChatInputCommandInteraction,
+  ChannelType,
 } from "discord.js";
 import { db } from "@workspace/db";
 import { routesTable } from "@workspace/db";
-import type { Route } from "@workspace/db";
 import { or, ilike } from "drizzle-orm";
+import type { Route } from "@workspace/db";
 import { logger } from "../lib/logger";
 import { registerCommands } from "./commands";
 import { addAirport, removeAirport, listAirports } from "./airports";
+import { formatRoute } from "./format";
+import {
+  startScheduler,
+  postDailyRoutes,
+  setScheduleChannel,
+  getScheduleChannel,
+  clearScheduleChannel,
+} from "./scheduler";
 
 function pickRandom<T>(arr: T[], n: number): T[] {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
-}
-
-function formatRoute(r: Route): string {
-  const emoji = r.airlineEmoji ? `:${r.airlineEmoji}:` : "";
-  const flight = r.flightNumber ?? "";
-  const prefix = [emoji, flight].filter(Boolean).join(" ");
-
-  const originCity = r.originCity ?? "";
-  const originFlag = r.originFlag ?? "";
-  const originPart = `${originCity}${originFlag ? " " + originFlag : ""}(${r.origin})`;
-
-  const destCity = r.destinationCity ?? "";
-  const destFlag = r.destinationFlag ?? "";
-  const destPart = `${destCity}${destFlag ? " " + destFlag : ""}(${r.destination})`;
-
-  const route = `${originPart} —> ${destPart}`;
-  const aircraft = r.aircraft ?? "";
-  const duration = r.duration ?? "";
-
-  const parts = [prefix, route, aircraft, duration].filter(Boolean);
-  return parts.join(" | ");
 }
 
 async function handleRoutes(interaction: ChatInputCommandInteraction) {
@@ -53,7 +41,7 @@ async function handleRoutes(interaction: ChatInputCommandInteraction) {
     return;
   }
 
-  const picked = pickRandom(matching, Math.min(4, matching.length));
+  const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
   const lines = picked.map((r) => formatRoute(r));
 
   await interaction.editReply(
@@ -96,15 +84,59 @@ async function handleRouteCount(interaction: ChatInputCommandInteraction) {
   await interaction.editReply(`📊 There are **${rows.length}** routes in the database.`);
 }
 
-async function handleInteraction(interaction: Interaction) {
+async function handleSetSchedule(
+  interaction: ChatInputCommandInteraction,
+  client: Client
+) {
+  const channel = interaction.options.getChannel("channel", true);
+  if (channel.type !== ChannelType.GuildText) {
+    await interaction.reply("Please select a text channel.");
+    return;
+  }
+  setScheduleChannel(channel.id);
+  await interaction.reply(
+    `✅ Daily routes will be posted in <#${channel.id}> at **0000Z** every day for each featured airport.\nUse \`/testschedule\` to send a preview now.`
+  );
+  logger.info({ channelId: channel.id }, "Schedule channel set");
+}
+
+async function handleUnsetSchedule(interaction: ChatInputCommandInteraction) {
+  const existing = getScheduleChannel();
+  if (!existing) {
+    await interaction.reply("No schedule is currently set.");
+    return;
+  }
+  clearScheduleChannel();
+  await interaction.reply("🛑 Daily route posts have been stopped.");
+}
+
+async function handleTestSchedule(
+  interaction: ChatInputCommandInteraction,
+  client: Client
+) {
+  const channelId = getScheduleChannel();
+  if (!channelId) {
+    await interaction.reply(
+      "No schedule channel set. Use `/setschedule` first."
+    );
+    return;
+  }
+  await interaction.reply(`Posting today's routes to <#${channelId}> now...`);
+  await postDailyRoutes(client);
+}
+
+async function handleInteraction(interaction: Interaction, client: Client) {
   if (!interaction.isChatInputCommand()) return;
   try {
     switch (interaction.commandName) {
-      case "routes":       await handleRoutes(interaction); break;
-      case "addairport":   await handleAddAirport(interaction); break;
-      case "removeairport":await handleRemoveAirport(interaction); break;
-      case "listairports": await handleListAirports(interaction); break;
-      case "routecount":   await handleRouteCount(interaction); break;
+      case "routes":         await handleRoutes(interaction); break;
+      case "addairport":     await handleAddAirport(interaction); break;
+      case "removeairport":  await handleRemoveAirport(interaction); break;
+      case "listairports":   await handleListAirports(interaction); break;
+      case "routecount":     await handleRouteCount(interaction); break;
+      case "setschedule":    await handleSetSchedule(interaction, client); break;
+      case "unsetschedule":  await handleUnsetSchedule(interaction); break;
+      case "testschedule":   await handleTestSchedule(interaction, client); break;
       default: await interaction.reply("Unknown command.");
     }
   } catch (err) {
@@ -128,9 +160,13 @@ export async function startBot() {
 
   client.once("ready", (c) => {
     logger.info({ tag: c.user.tag }, "Discord bot is ready");
+    startScheduler(client);
   });
 
-  client.on("interactionCreate", handleInteraction);
+  client.on("interactionCreate", (interaction) =>
+    handleInteraction(interaction, client)
+  );
+
   await client.login(token);
   return client;
 }

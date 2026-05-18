@@ -2,13 +2,14 @@ import {
   REST,
   Routes,
   SlashCommandBuilder,
+  ChannelType,
 } from "discord.js";
 import { logger } from "../lib/logger";
 
 export const commands = [
   new SlashCommandBuilder()
     .setName("routes")
-    .setDescription("Pick 4 random routes departing or arriving at a featured airport")
+    .setDescription("Pick 4 random routes departing or arriving at an airport")
     .addStringOption((option) =>
       option
         .setName("airport")
@@ -47,6 +48,28 @@ export const commands = [
   new SlashCommandBuilder()
     .setName("routecount")
     .setDescription("Show total number of routes in the database")
+    .toJSON(),
+
+  new SlashCommandBuilder()
+    .setName("setschedule")
+    .setDescription("Set the channel for daily 0000Z route posts")
+    .addChannelOption((option) =>
+      option
+        .setName("channel")
+        .setDescription("The text channel to post daily routes in")
+        .addChannelTypes(ChannelType.GuildText)
+        .setRequired(true)
+    )
+    .toJSON(),
+
+  new SlashCommandBuilder()
+    .setName("unsetschedule")
+    .setDescription("Stop the daily 0000Z route posts")
+    .toJSON(),
+
+  new SlashCommandBuilder()
+    .setName("testschedule")
+    .setDescription("Trigger today's route post immediately (for testing)")
     .toJSON(),
 ];
 
