@@ -6,30 +6,45 @@ import {
 } from "discord.js";
 import { db } from "@workspace/db";
 import { routesTable } from "@workspace/db";
+import type { Route } from "@workspace/db";
 import { or, ilike } from "drizzle-orm";
 import { logger } from "../lib/logger";
 import { registerCommands } from "./commands";
 import { addAirport, removeAirport, listAirports } from "./airports";
 
 function pickRandom<T>(arr: T[], n: number): T[] {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, n);
+  return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
+}
+
+function formatRoute(r: Route): string {
+  const emoji = r.airlineEmoji ? `:${r.airlineEmoji}:` : "";
+  const flight = r.flightNumber ?? "";
+  const prefix = [emoji, flight].filter(Boolean).join(" ");
+
+  const originCity = r.originCity ?? "";
+  const originFlag = r.originFlag ?? "";
+  const originPart = `${originCity}${originFlag ? " " + originFlag : ""}(${r.origin})`;
+
+  const destCity = r.destinationCity ?? "";
+  const destFlag = r.destinationFlag ?? "";
+  const destPart = `${destCity}${destFlag ? " " + destFlag : ""}(${r.destination})`;
+
+  const route = `${originPart} —> ${destPart}`;
+  const aircraft = r.aircraft ?? "";
+  const duration = r.duration ?? "";
+
+  const parts = [prefix, route, aircraft, duration].filter(Boolean);
+  return parts.join(" | ");
 }
 
 async function handleRoutes(interaction: ChatInputCommandInteraction) {
   const airport = interaction.options.getString("airport", true).toUpperCase().trim();
-
   await interaction.deferReply();
 
   const matching = await db
     .select()
     .from(routesTable)
-    .where(
-      or(
-        ilike(routesTable.origin, airport),
-        ilike(routesTable.destination, airport)
-      )
-    );
+    .where(or(ilike(routesTable.origin, airport), ilike(routesTable.destination, airport)));
 
   if (matching.length === 0) {
     await interaction.editReply(
@@ -39,16 +54,10 @@ async function handleRoutes(interaction: ChatInputCommandInteraction) {
   }
 
   const picked = pickRandom(matching, Math.min(4, matching.length));
-
-  const lines = picked.map((r, i) => {
-    const airline = r.airline ? ` (${r.airline}${r.flightNumber ? " " + r.flightNumber : ""})` : "";
-    const dist = r.distance ? ` — ${r.distance} km` : "";
-    const dur = r.duration ? ` / ${r.duration}` : "";
-    return `**${i + 1}.** ${r.origin} → ${r.destination}${airline}${dist}${dur}`;
-  });
+  const lines = picked.map((r) => formatRoute(r));
 
   await interaction.editReply(
-    `✈️ **4 random routes for ${airport}** (${matching.length} total found):\n\n${lines.join("\n")}`
+    `✈️ **${picked.length} random routes for ${airport}** (${matching.length} total):\n\n${lines.join("\n")}`
   );
 }
 
@@ -89,26 +98,14 @@ async function handleRouteCount(interaction: ChatInputCommandInteraction) {
 
 async function handleInteraction(interaction: Interaction) {
   if (!interaction.isChatInputCommand()) return;
-
   try {
     switch (interaction.commandName) {
-      case "routes":
-        await handleRoutes(interaction);
-        break;
-      case "addairport":
-        await handleAddAirport(interaction);
-        break;
-      case "removeairport":
-        await handleRemoveAirport(interaction);
-        break;
-      case "listairports":
-        await handleListAirports(interaction);
-        break;
-      case "routecount":
-        await handleRouteCount(interaction);
-        break;
-      default:
-        await interaction.reply("Unknown command.");
+      case "routes":       await handleRoutes(interaction); break;
+      case "addairport":   await handleAddAirport(interaction); break;
+      case "removeairport":await handleRemoveAirport(interaction); break;
+      case "listairports": await handleListAirports(interaction); break;
+      case "routecount":   await handleRouteCount(interaction); break;
+      default: await interaction.reply("Unknown command.");
     }
   } catch (err) {
     logger.error({ err, command: interaction.commandName }, "Error handling Discord command");
@@ -123,9 +120,7 @@ async function handleInteraction(interaction: Interaction) {
 
 export async function startBot() {
   const token = process.env["DISCORD_BOT_TOKEN"];
-  if (!token) {
-    throw new Error("DISCORD_BOT_TOKEN is required");
-  }
+  if (!token) throw new Error("DISCORD_BOT_TOKEN is required");
 
   await registerCommands();
 
@@ -136,7 +131,6 @@ export async function startBot() {
   });
 
   client.on("interactionCreate", handleInteraction);
-
   await client.login(token);
   return client;
 }

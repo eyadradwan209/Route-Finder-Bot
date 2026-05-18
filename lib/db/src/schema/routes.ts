@@ -1,14 +1,19 @@
-import { pgTable, text, serial, timestamp, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
 export const routesTable = pgTable("routes", {
   id: serial("id").primaryKey(),
   origin: text("origin").notNull(),
+  originCity: text("origin_city"),
+  originFlag: text("origin_flag"),
   destination: text("destination").notNull(),
+  destinationCity: text("destination_city"),
+  destinationFlag: text("destination_flag"),
   airline: text("airline"),
+  airlineEmoji: text("airline_emoji"),
   flightNumber: text("flight_number"),
-  distance: integer("distance"),
+  aircraft: text("aircraft"),
   duration: text("duration"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });

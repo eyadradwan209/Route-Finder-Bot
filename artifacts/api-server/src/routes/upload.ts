@@ -9,6 +9,14 @@ import type { InsertRoute } from "@workspace/db";
 const router = Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
+function col(row: Record<string, string>, ...keys: string[]): string | null {
+  for (const k of keys) {
+    const v = row[k]?.trim();
+    if (v) return v;
+  }
+  return null;
+}
+
 router.post("/api/routes/upload", upload.single("file"), async (req, res) => {
   if (!req.file) {
     res.status(400).json({ error: "No file uploaded" });
@@ -16,32 +24,28 @@ router.post("/api/routes/upload", upload.single("file"), async (req, res) => {
   }
 
   const csvContent = req.file.buffer.toString("utf-8");
-
   const records: InsertRoute[] = [];
 
   await new Promise<void>((resolve, reject) => {
-    const stream = Readable.from(csvContent);
-    stream
-      .pipe(
-        parse({
-          columns: true,
-          skip_empty_lines: true,
-          trim: true,
-        })
-      )
+    Readable.from(csvContent)
+      .pipe(parse({ columns: true, skip_empty_lines: true, trim: true }))
       .on("data", (row: Record<string, string>) => {
-        const origin = (row["origin"] || row["Origin"] || row["ORIGIN"] || "").toUpperCase().trim();
-        const destination = (row["destination"] || row["Destination"] || row["DESTINATION"] || "").toUpperCase().trim();
-
+        const origin = col(row, "origin", "Origin", "ORIGIN")?.toUpperCase();
+        const destination = col(row, "destination", "Destination", "DESTINATION")?.toUpperCase();
         if (!origin || !destination) return;
 
         records.push({
           origin,
+          originCity: col(row, "origin_city", "originCity", "Origin City"),
+          originFlag: col(row, "origin_flag", "originFlag", "Origin Flag"),
           destination,
-          airline: row["airline"] || row["Airline"] || row["AIRLINE"] || null,
-          flightNumber: row["flight_number"] || row["flightNumber"] || row["FlightNumber"] || row["FLIGHT_NUMBER"] || null,
-          distance: row["distance"] ? parseInt(row["distance"], 10) || null : null,
-          duration: row["duration"] || row["Duration"] || null,
+          destinationCity: col(row, "destination_city", "destinationCity", "Destination City"),
+          destinationFlag: col(row, "destination_flag", "destinationFlag", "Destination Flag"),
+          airline: col(row, "airline", "Airline"),
+          airlineEmoji: col(row, "airline_emoji", "airlineEmoji", "Airline Emoji"),
+          flightNumber: col(row, "flight_number", "flightNumber", "Flight Number"),
+          aircraft: col(row, "aircraft", "Aircraft"),
+          duration: col(row, "duration", "Duration"),
         });
       })
       .on("end", resolve)
@@ -49,16 +53,17 @@ router.post("/api/routes/upload", upload.single("file"), async (req, res) => {
   });
 
   if (records.length === 0) {
-    res.status(400).json({ error: "No valid routes found in CSV. Expected columns: origin, destination (plus optional: airline, flight_number, distance, duration)" });
+    res.status(400).json({
+      error: "No valid routes found. CSV must have at minimum: origin, destination columns.",
+    });
     return;
   }
 
   const chunkSize = 500;
   let inserted = 0;
   for (let i = 0; i < records.length; i += chunkSize) {
-    const chunk = records.slice(i, i + chunkSize);
-    await db.insert(routesTable).values(chunk);
-    inserted += chunk.length;
+    await db.insert(routesTable).values(records.slice(i, i + chunkSize));
+    inserted += records.slice(i, i + chunkSize).length;
   }
 
   res.json({ message: `Successfully imported ${inserted} routes.`, count: inserted });
