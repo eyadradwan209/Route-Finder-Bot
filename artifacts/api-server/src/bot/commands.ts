@@ -12,7 +12,7 @@ export const commands = [
     .addStringOption((option) =>
       option
         .setName("airport")
-        .setDescription("IATA airport code (e.g. JFK, LAX)")
+        .setDescription("ICAO airport code (e.g. KORD, EGLL)")
         .setRequired(true)
     )
     .toJSON(),
@@ -23,7 +23,7 @@ export const commands = [
     .addStringOption((option) =>
       option
         .setName("code")
-        .setDescription("IATA airport code (e.g. JFK)")
+        .setDescription("ICAO airport code (e.g. KORD)")
         .setRequired(true)
     )
     .toJSON(),
@@ -34,7 +34,7 @@ export const commands = [
     .addStringOption((option) =>
       option
         .setName("code")
-        .setDescription("IATA airport code (e.g. JFK)")
+        .setDescription("ICAO airport code (e.g. KORD)")
         .setRequired(true)
     )
     .toJSON(),

@@ -30,9 +30,9 @@ A Discord bot that stores flight routes in a database, lets you import them via 
 
 ## Discord Commands
 
-- `/routes airport:<IATA>` — pick 4 random routes departing or arriving at that airport
-- `/addairport code:<IATA>` — add an airport to featured list
-- `/removeairport code:<IATA>` — remove an airport from featured list
+- `/routes airport:<ICAO>` — pick 4 random routes departing or arriving at that airport
+- `/addairport code:<ICAO>` — add an airport to featured list
+- `/removeairport code:<ICAO>` — remove an airport from featured list
 - `/listairports` — show all featured airports
 - `/routecount` — show total routes in database
 
