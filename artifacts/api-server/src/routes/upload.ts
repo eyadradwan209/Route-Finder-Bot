@@ -17,7 +17,7 @@ function col(row: Record<string, string>, ...keys: string[]): string | null {
   return null;
 }
 
-router.post("/api/routes/upload", upload.single("file"), async (req, res) => {
+router.post("/routes/upload", upload.single("file"), async (req, res) => {
   if (!req.file) {
     res.status(400).json({ error: "No file uploaded" });
     return;
@@ -69,12 +69,12 @@ router.post("/api/routes/upload", upload.single("file"), async (req, res) => {
   res.json({ message: `Successfully imported ${inserted} routes.`, count: inserted });
 });
 
-router.get("/api/routes", async (_req, res) => {
+router.get("/routes", async (_req, res) => {
   const routes = await db.select().from(routesTable).limit(100);
   res.json({ routes, total: routes.length });
 });
 
-router.delete("/api/routes", async (_req, res) => {
+router.delete("/routes", async (_req, res) => {
   await db.delete(routesTable);
   res.json({ message: "All routes deleted." });
 });
