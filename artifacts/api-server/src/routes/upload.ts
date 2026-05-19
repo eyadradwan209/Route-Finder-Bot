@@ -70,7 +70,7 @@ router.post("/routes/upload", upload.single("file"), async (req, res) => {
 });
 
 router.get("/routes", async (_req, res) => {
-  const routes = await db.select().from(routesTable).limit(100);
+  const routes = await db.select().from(routesTable);
   res.json({ routes, total: routes.length });
 });
 
