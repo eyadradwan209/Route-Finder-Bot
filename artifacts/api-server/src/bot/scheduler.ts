@@ -64,7 +64,7 @@ export async function postDailyRoutes(client: Client) {
     const lines = picked.map((r) => formatRoute(r, client));
 
     const note = `\n\n📌 NOTAMs are pinned to the channel`;
-    const message = `<@&1208309349064376320>\n**${dayName}**\n\n${lines.join("\n")}${note}`;
+    const message = `<@&1208309349064376320>\n**${dayName}**\n\n${lines.join("\n\n")}${note}`;
 
     try {
       await channel.send(message);

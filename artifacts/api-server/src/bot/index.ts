@@ -59,7 +59,7 @@ async function handleRoutes(interaction: ChatInputCommandInteraction, client: Cl
   const note = day ? `\n\n📌 NOTAMs are pinned to the channel` : "";
   const header = day ? `**${day}**\n\n` : `✈️ **${picked.length} random routes for ${label}** (${matching.length} total):\n\n`;
 
-  await interaction.editReply(`${header}${lines.join("\n")}${note}`);
+  await interaction.editReply(`${header}${lines.join("\n\n")}${note}`);
 }
 
 async function handleAddAirport(interaction: ChatInputCommandInteraction) {
