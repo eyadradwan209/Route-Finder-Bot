@@ -6,11 +6,11 @@ export function formatRoute(r: Route): string {
   const prefix = [emoji, flight].filter(Boolean).join(" ");
 
   const originCity = r.originCity ?? "";
-  const originFlag = r.originFlag ?? "";
+  const originFlag = r.originFlag ? `:${r.originFlag}:` : "";
   const originPart = `${originCity}${originFlag ? " " + originFlag : ""}(${r.origin})`;
 
   const destCity = r.destinationCity ?? "";
-  const destFlag = r.destinationFlag ?? "";
+  const destFlag = r.destinationFlag ? `:${r.destinationFlag}:` : "";
   const destPart = `${destCity}${destFlag ? " " + destFlag : ""}(${r.destination})`;
 
   const route = `${originPart} —> ${destPart}`;
