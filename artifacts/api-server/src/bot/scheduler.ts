@@ -49,29 +49,32 @@ export async function postDailyRoutes(client: Client) {
   const now = new Date();
   const dayName = DAYS[now.getUTCDay()];
 
-  for (const airport of airports) {
-    const matching = await db
-      .select()
-      .from(routesTable)
-      .where(or(ilike(routesTable.origin, airport), ilike(routesTable.destination, airport)));
+  const conditions = airports.flatMap((code) => [
+    ilike(routesTable.origin, code),
+    ilike(routesTable.destination, code),
+  ]);
 
-    if (matching.length === 0) {
-      logger.info({ airport }, "No routes found for featured airport, skipping");
-      continue;
-    }
+  const matching = await db
+    .select()
+    .from(routesTable)
+    .where(or(...conditions));
 
-    const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
-    const lines = picked.map((r) => formatRoute(r, client));
+  if (matching.length === 0) {
+    logger.info({ airports }, "No routes found for any featured airport");
+    return;
+  }
 
-    const note = `\n\n📌 NOTAMs are pinned to the channel`;
-    const message = `<@&1208309349064376320>\n**${dayName}**\n\n${lines.join("\n\n")}${note}`;
+  const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
+  const lines = picked.map((r) => formatRoute(r, client));
 
-    try {
-      await channel.send(message);
-      logger.info({ airport, dayName, count: picked.length }, "Posted daily routes");
-    } catch (err) {
-      logger.error({ err, airport }, "Failed to send daily routes message");
-    }
+  const note = `\n\n📌 NOTAMs are pinned to the channel`;
+  const message = `<@&1208309349064376320>\n**${dayName}**\n\n${lines.join("\n\n")}${note}`;
+
+  try {
+    await channel.send(message);
+    logger.info({ airports, dayName, count: picked.length }, "Posted daily routes");
+  } catch (err) {
+    logger.error({ err }, "Failed to send daily routes message");
   }
 }
 
