@@ -26,26 +26,37 @@ function pickRandom<T>(arr: T[], n: number): T[] {
 }
 
 async function handleRoutes(interaction: ChatInputCommandInteraction) {
-  const airport = interaction.options.getString("airport", true).toUpperCase().trim();
+  const raw = interaction.options.getString("airport", true);
+  const airports = raw
+    .split(/[\s,]+/)
+    .map((c) => c.toUpperCase().trim())
+    .filter(Boolean);
+
   await interaction.deferReply();
+
+  const conditions = airports.flatMap((code) => [
+    ilike(routesTable.origin, code),
+    ilike(routesTable.destination, code),
+  ]);
 
   const matching = await db
     .select()
     .from(routesTable)
-    .where(or(ilike(routesTable.origin, airport), ilike(routesTable.destination, airport)));
+    .where(or(...conditions));
 
   if (matching.length === 0) {
     await interaction.editReply(
-      `No routes found departing or arriving at **${airport}**. Make sure the airport code is correct and routes have been imported.`
+      `No routes found departing or arriving at **${airports.join(", ")}**. Make sure the airport code is correct and routes have been imported.`
     );
     return;
   }
 
   const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
   const lines = picked.map((r) => formatRoute(r));
+  const label = airports.length === 1 ? airports[0] : airports.join(", ");
 
   await interaction.editReply(
-    `✈️ **${picked.length} random routes for ${airport}** (${matching.length} total):\n\n${lines.join("\n")}`
+    `✈️ **${picked.length} random routes for ${label}** (${matching.length} total):\n\n${lines.join("\n")}`
   );
 }
 
