@@ -13,8 +13,14 @@ export const commands = [
     .addStringOption((option) =>
       option
         .setName("airport")
-        .setDescription("ICAO airport code (e.g. KORD, EGLL)")
+        .setDescription("ICAO airport code(s), comma-separated (e.g. KORD, EGLL)")
         .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("day")
+        .setDescription("What day is this ROTW for? (e.g. Friday)")
+        .setRequired(false)
     )
     .toJSON(),
 

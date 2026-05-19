@@ -54,10 +54,11 @@ async function handleRoutes(interaction: ChatInputCommandInteraction, client: Cl
   const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
   const lines = picked.map((r) => formatRoute(r, client));
   const label = airports.length === 1 ? airports[0] : airports.join(", ");
+  const day = interaction.options.getString("day");
 
-  await interaction.editReply(
-    `✈️ **${picked.length} random routes for ${label}** (${matching.length} total):\n\n${lines.join("\n")}`
-  );
+  const header = day ? `**${day}**\n\n` : `✈️ **${picked.length} random routes for ${label}** (${matching.length} total):\n\n`;
+
+  await interaction.editReply(`${header}${lines.join("\n")}`);
 }
 
 async function handleAddAirport(interaction: ChatInputCommandInteraction) {

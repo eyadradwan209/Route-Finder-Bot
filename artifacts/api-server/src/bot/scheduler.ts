@@ -63,7 +63,7 @@ export async function postDailyRoutes(client: Client) {
     const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
     const lines = picked.map((r) => formatRoute(r, client));
 
-    const message = `**${dayName}**\n\n${lines.join("\n")}`;
+    const message = `<@&1208309349064376320>\n**${dayName}**\n\n${lines.join("\n")}`;
 
     try {
       await channel.send(message);
