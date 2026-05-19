@@ -25,7 +25,7 @@ function pickRandom<T>(arr: T[], n: number): T[] {
   return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
 }
 
-async function handleRoutes(interaction: ChatInputCommandInteraction) {
+async function handleRoutes(interaction: ChatInputCommandInteraction, client: Client) {
   const raw = interaction.options.getString("airport", true);
   const airports = raw
     .split(/[\s,]+/)
@@ -52,7 +52,7 @@ async function handleRoutes(interaction: ChatInputCommandInteraction) {
   }
 
   const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
-  const lines = picked.map((r) => formatRoute(r));
+  const lines = picked.map((r) => formatRoute(r, client));
   const label = airports.length === 1 ? airports[0] : airports.join(", ");
 
   await interaction.editReply(
@@ -140,7 +140,7 @@ async function handleInteraction(interaction: Interaction, client: Client) {
   if (!interaction.isChatInputCommand()) return;
   try {
     switch (interaction.commandName) {
-      case "routes":         await handleRoutes(interaction); break;
+      case "routes":         await handleRoutes(interaction, client); break;
       case "addairport":     await handleAddAirport(interaction); break;
       case "removeairport":  await handleRemoveAirport(interaction); break;
       case "listairports":   await handleListAirports(interaction); break;
