@@ -7,12 +7,12 @@ import {
 } from "discord.js";
 import { db } from "@workspace/db";
 import { routesTable } from "@workspace/db";
-import { or, ilike } from "drizzle-orm";
 import type { Route } from "@workspace/db";
 import { logger } from "../lib/logger";
 import { registerCommands } from "./commands";
 import { addAirport, removeAirport, listAirports } from "./airports";
 import { formatRoute } from "./format";
+import { pickDistributedRoutes } from "./pick";
 import {
   startScheduler,
   postDailyRoutes,
@@ -20,10 +20,6 @@ import {
   getScheduleChannel,
   clearScheduleChannel,
 } from "./scheduler";
-
-function pickRandom<T>(arr: T[], n: number): T[] {
-  return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
-}
 
 async function handleRoutes(interaction: ChatInputCommandInteraction, client: Client) {
   const raw = interaction.options.getString("airport", true);
@@ -34,30 +30,23 @@ async function handleRoutes(interaction: ChatInputCommandInteraction, client: Cl
 
   await interaction.deferReply();
 
-  const conditions = airports.flatMap((code) => [
-    ilike(routesTable.origin, code),
-    ilike(routesTable.destination, code),
-  ]);
+  const picked: Route[] = await pickDistributedRoutes(airports, 4);
 
-  const matching = await db
-    .select()
-    .from(routesTable)
-    .where(or(...conditions));
-
-  if (matching.length === 0) {
+  if (picked.length === 0) {
     await interaction.editReply(
-      `No routes found departing or arriving at **${airports.join(", ")}**. Make sure the airport code is correct and routes have been imported.`
+      `No routes found departing or arriving at **${airports.join(", ")}**. Make sure the airport codes are correct and routes have been imported.`
     );
     return;
   }
 
-  const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
   const lines = picked.map((r) => formatRoute(r, client));
   const label = airports.length === 1 ? airports[0] : airports.join(", ");
   const day = interaction.options.getString("day");
 
   const note = day ? `\n\n📌 NOTAMs are pinned to the channel` : "";
-  const header = day ? `**${day}**\n\n` : `✈️ **${picked.length} random routes for ${label}** (${matching.length} total):\n\n`;
+  const header = day
+    ? `**${day}**\n\n`
+    : `✈️ **${picked.length} random routes for ${label}**:\n\n`;
 
   await interaction.editReply(`${header}${lines.join("\n\n")}${note}`);
 }

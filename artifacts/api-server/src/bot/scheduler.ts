@@ -1,11 +1,8 @@
 import { Client, TextChannel, ChannelType } from "discord.js";
-import { db } from "@workspace/db";
-import { routesTable } from "@workspace/db";
-import type { Route } from "@workspace/db";
-import { or, ilike } from "drizzle-orm";
 import { logger } from "../lib/logger";
 import { listAirports } from "./airports";
 import { formatRoute } from "./format";
+import { pickDistributedRoutes } from "./pick";
 
 let scheduleChannelId: string | null = null;
 let scheduledTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -49,22 +46,13 @@ export async function postDailyRoutes(client: Client) {
   const now = new Date();
   const dayName = DAYS[now.getUTCDay()];
 
-  const conditions = airports.flatMap((code) => [
-    ilike(routesTable.origin, code),
-    ilike(routesTable.destination, code),
-  ]);
+  const picked = await pickDistributedRoutes(airports, 4);
 
-  const matching = await db
-    .select()
-    .from(routesTable)
-    .where(or(...conditions));
-
-  if (matching.length === 0) {
+  if (picked.length === 0) {
     logger.info({ airports }, "No routes found for any featured airport");
     return;
   }
 
-  const picked: Route[] = pickRandom(matching, Math.min(4, matching.length));
   const lines = picked.map((r) => formatRoute(r, client));
 
   const note = `\n\n📌 NOTAMs are pinned to the channel`;

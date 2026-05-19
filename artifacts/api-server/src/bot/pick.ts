@@ -7,6 +7,13 @@ function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
 }
 
+function durationToMinutes(d: string | null): number {
+  if (!d) return Infinity;
+  const match = d.match(/^(\d+):(\d{2})$/);
+  if (!match) return Infinity;
+  return parseInt(match[1], 10) * 60 + parseInt(match[2], 10);
+}
+
 export async function pickDistributedRoutes(airports: string[], total: number): Promise<Route[]> {
   const buckets: Route[][] = [];
 
@@ -30,5 +37,5 @@ export async function pickDistributedRoutes(airports: string[], total: number): 
     i++;
   }
 
-  return result;
+  return result.sort((a, b) => durationToMinutes(a.duration) - durationToMinutes(b.duration));
 }
