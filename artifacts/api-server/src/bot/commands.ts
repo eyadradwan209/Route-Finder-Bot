@@ -9,7 +9,7 @@ import { logger } from "../lib/logger";
 export const commands = [
   new SlashCommandBuilder()
     .setName("routes")
-    .setDescription("Pick 4 random routes departing or arriving at an airport")
+    .setDescription("Pick 5 random routes departing or arriving at an airport")
     .addStringOption((option) =>
       option
         .setName("airport")
