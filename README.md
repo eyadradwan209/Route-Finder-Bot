@@ -81,9 +81,13 @@ Environment Variables
 Create the following environment variables:
 
 DISCORD_BOT_TOKEN=your_bot_token
+
 DISCORD_CLIENT_ID=your_client_id
+
 DATABASE_URL=your_postgres_url
-PORT=3000
+
+PORT=10000
+
 NODE_ENV=production
 
 Running Locally
