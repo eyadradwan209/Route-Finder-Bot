@@ -52,13 +52,42 @@ async function handleRoutes(interaction: ChatInputCommandInteraction, client: Cl
 }
 
 async function handleAddAirport(interaction: ChatInputCommandInteraction) {
-  const code = interaction.options.getString("code", true).toUpperCase().trim();
-  const added = addAirport(code);
-  if (added) {
-    await interaction.reply(`✅ **${code}** added to featured airports.`);
-  } else {
-    await interaction.reply(`**${code}** is already in the featured airports list.`);
+  const raw = interaction.options.getString("code", true);
+
+  const codes = raw
+    .split(",")
+    .map((code) => code.toUpperCase().trim())
+    .filter(Boolean);
+
+  if (codes.length === 0) {
+    await interaction.reply("Please provide at least one airport code.");
+    return;
   }
+
+  const added: string[] = [];
+  const alreadyAdded: string[] = [];
+
+  for (const code of codes) {
+    if (addAirport(code)) {
+      added.push(code);
+    } else {
+      alreadyAdded.push(code);
+    }
+  }
+
+  const messages: string[] = [];
+
+  if (added.length > 0) {
+    messages.push(`✅ Added to featured airports: **${added.join(", ")}**`);
+  }
+
+  if (alreadyAdded.length > 0) {
+    messages.push(
+      `Already in featured airports: **${alreadyAdded.join(", ")}**`
+    );
+  }
+
+  await interaction.reply(messages.join("\n"));
 }
 
 async function handleRemoveAirport(interaction: ChatInputCommandInteraction) {
