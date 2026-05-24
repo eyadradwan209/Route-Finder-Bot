@@ -30,7 +30,7 @@ async function handleRoutes(interaction: ChatInputCommandInteraction, client: Cl
 
   await interaction.deferReply();
 
-  const picked: Route[] = await pickDistributedRoutes(airports, 4);
+  const picked: Route[] = await pickDistributedRoutes(airports, 5);
 
   if (picked.length === 0) {
     await interaction.editReply(
