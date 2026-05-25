@@ -33,7 +33,7 @@ function parseCSVLine(line: string) {
 async function main() {
   const client = new Client({ connectionString: process.env.DATABASE_URL });
   await client.connect();
-
+  await client.query("TRUNCATE TABLE routes RESTART IDENTITY");
   const text = fs.readFileSync(csvPath, "utf8");
   const lines = text.split(/\r?\n/).filter(Boolean);
   const headers = parseCSVLine(lines[0]);
