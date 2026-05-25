@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "import-routes": "tsx ./src/import-routes.ts"
     "hello": "tsx ./src/hello.ts",
     "migrate-routes": "tsx ./src/migrate-routes.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
