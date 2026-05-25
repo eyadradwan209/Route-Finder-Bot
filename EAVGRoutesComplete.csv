@@ -1,0 +1,913 @@
+origin,destination,origin_city,origin_flag,destination_city,destination_flag,airline,airline_emoji,flight_number,aircraft,duration
+VIDP,VOMM,Delhi,flag_in,Chennai,flag_in,Air India,AirIndiaTail,AI439,"Air India Airbus A320, Air India Boeing 777-300ER",2:20
+VOMM,VIDP,Chennai,flag_in,Delhi,flag_in,Air India,AirIndiaTail,AI440,"Air India Airbus A320, Air India Boeing 777-300ER",2:20
+VIDP,VILH,Delhi,flag_in,Leh,flag_in,Air India,AirIndiaTail,AI445,Air India Airbus A320,1:00
+VILH,VIDP,Leh,flag_in,Delhi,flag_in,Air India,AirIndiaTail,AI446,Air India Airbus A320,1:00
+VOMM,VOPB,Chennai,flag_in,Port Blair,flag_in,Air India,AirIndiaTail,AI549,Air India Airbus A321,1:50
+VOPB,VOMM,Port Blair,flag_in,Chennai,flag_in,Air India,AirIndiaTail,AI550,Air India Airbus A321,1:50
+VABB,VOCI,Mumbai,flag_in,Kochi,flag_in,Air India,AirIndiaTail,AI691,Air India Airbus A320,1:30
+VOCI,VABB,Kochi,flag_in,Mumbai,flag_in,Air India,AirIndiaTail,AI692,Air India Airbus A320,1:30
+VIDP,VABB,Delhi,flag_in,Mumbai,flag_in,Air India,AirIndiaTail,AI814,"Air India Airbus A320, Air India Boeing 777-300ER, Generic Airbus A319, Air India Airbus A321, Air India Boeing 777-200LR",1:40
+VABB,VIDP,Mumbai,flag_in,Delhi,flag_in,Air India,AirIndiaTail,AI816,"Air India Airbus A320, Air India Boeing 777-300ER, Generic Airbus A319, Air India Airbus A321, Air India Boeing 777-200LR",1:40
+VIDP,VISR,Delhi,flag_in,Srinagar,flag_in,Air India,AirIndiaTail,AI825,"Air India Airbus A320, Air India Airbus A321",1:10
+VISR,VIDP,Srinagar,flag_in,Delhi,flag_in,Air India,AirIndiaTail,AI826,"Air India Airbus A320, Air India Airbus A321",1:10
+VIDP,VOGO,Delhi,flag_in,Goa,flag_in,Air India,AirIndiaTail,AI881,Air India Airbus A321,2:10
+VOGO,VIDP,Goa,flag_in,Delhi,flag_in,Air India,AirIndiaTail,AI882,Air India Airbus A321,2:10
+RCTP,KLAX,Taipei Taoyuan,flag_tw,Los Angeles,flag_us,EVA Air,EVATail,BR16,EVA Air Boeing 777-300ER,13:50
+KSFO,RCTP,San Francisco,flag_us,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR17,EVA Air Boeing 777-300ER,13:20
+RKSI,RCKH,Seoul Incheon,flag_kr,Kaohsiung,flag_tw,EVA Air,EVATail,BR171,EVA Air Airbus A321,2:25
+RCKH,RKSI,Kaohsiung,flag_tw,Seoul Incheon,flag_kr,EVA Air,EVATail,BR172,EVA Air Airbus A321,2:25
+RCTP,KSFO,Taipei Taoyuan,flag_tw,San Francisco,flag_us,EVA Air,EVATail,BR18,EVA Air Boeing 777-300ER,13:20
+KSEA,RCTP,Seattle,flag_us,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR25,EVA Air Boeing 787-10,10:10
+RCTP,KSEA,Taipei Taoyuan,flag_tw,Seattle,flag_us,EVA Air,EVATail,BR26,EVA Air Boeing 787-10,10:10
+RCTP,YBBN,Taipei Taoyuan,flag_tw,Brisbane,flag_au,EVA Air,EVATail,BR315,"Generic Boeing 787-9, EVA Air Boeing 787-10",8:15
+YBBN,RCTP,Brisbane,flag_au,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR316,"Generic Boeing 787-9, EVA Air Boeing 787-10",8:15
+KLAX,RCTP,Los Angeles,flag_us,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR5,EVA Air Boeing 777-300ER,13:50
+KORD,RCTP,Chicago O Hare,flag_us,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR55,EVA Air Boeing 777-300ER,13:20
+RCTP,KORD,Taipei Taoyuan,flag_tw,Chicago O Hare,flag_us,EVA Air,EVATail,BR56,EVA Air Boeing 777-300ER,13:20
+RCTP,LOWW,Taipei Taoyuan,flag_tw,Vienna,flag_at,EVA Air,EVATail,BR61,"Generic Boeing 787-9, EVA Air Boeing 787-10",13:30
+LOWW,RCTP,Vienna,flag_at,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR62,"Generic Boeing 787-9, EVA Air Boeing 787-10",13:30
+PANC,KJFK,Anchorage,flag_us,New York JFK,flag_us,EVA Air,EVATail,BR634,EVA Air Cargo Boeing 777F,6:10
+KJFK,PANC,New York JFK,flag_us,Anchorage,flag_us,EVA Air,EVATail,BR635,EVA Air Cargo Boeing 777F,6:10
+PANC,RCTP,Anchorage,flag_us,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR651,EVA Air Cargo Boeing 777F,8:30
+RCTP,PANC,Taipei Taoyuan,flag_tw,Anchorage,flag_us,EVA Air,EVATail,BR652,EVA Air Cargo Boeing 777F,8:30
+RCTP,VHHH,Taipei Taoyuan,flag_tw,Hong Kong,flag_hk,EVA Air,EVATail,BR6521,EVA Air Cargo Boeing 777F,1:50
+VHHH,RCTP,Hong Kong,flag_hk,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR6522,EVA Air Cargo Boeing 777F,1:50
+PANC,CYYZ,Anchorage,flag_us,Toronto,flag_ca,EVA Air,EVATail,BR658,EVA Air Cargo Boeing 777F,5:30
+CYYZ,PANC,Toronto,flag_ca,Anchorage,flag_us,EVA Air,EVATail,BR658,EVA Air Cargo Boeing 777F,5:30
+RCTP,EGLL,Taipei Taoyuan,flag_tw,London Heathrow,flag_gb,EVA Air,EVATail,BR67,"EVA Air Boeing 777-300ER, EVA Air Boeing 787-10",15:45
+RCTP,ZUCK,Taipei Taoyuan,flag_tw,Chongqing,flag_cn,EVA Air,EVATail,BR677,EVA Air Cargo Boeing 777F,2:50
+ZUCK,RCTP,Chongqing,flag_cn,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR678,EVA Air Cargo Boeing 777F,2:50
+EGLL,RCTP,London Heathrow,flag_gb,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR68,"EVA Air Boeing 777-300ER, EVA Air Boeing 787-10",15:45
+ZSHC,RCTP,Hangzhou,flag_cn,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR757,EVA Air Boeing 787-10,1:20
+RCTP,ZUTF,Taipei Taoyuan,flag_tw,Chengdu,flag_cn,EVA Air,EVATail,BR757,EVA Air Boeing 787-10,3:10
+RCTP,ZSHC,Taipei Taoyuan,flag_tw,Hangzhou,flag_cn,EVA Air,EVATail,BR758,EVA Air Boeing 787-10,1:20
+ZUTF,RCTP,Chengdu,flag_cn,Taipei Taoyuan,flag_tw,EVA Air,EVATail,BR766,EVA Air Boeing 787-10,3:10
+TTCP,TBPB,Tobago,flag_tt,Barbados,flag_bb,Caribbean Airlines,Caribbeantail,BW212,Generic Bombardier Dash 8-Q400,0:40
+TBPB,TTCP,Barbados,flag_bb,Tobago,flag_tt,Caribbean Airlines,Caribbeantail,BW213,Generic Bombardier Dash 8-Q400,0:40
+TTPP,TBPB,Port of Spain,flag_tt,Barbados,flag_bb,Caribbean Airlines,Caribbeantail,BW216,Generic Bombardier Dash 8-Q400,0:55
+TBPB,TTPP,Barbados,flag_bb,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW217,Generic Bombardier Dash 8-Q400,0:55
+TTPP,TNCM,Port of Spain,flag_tt,Sint Maarten,flag_sx,Caribbean Airlines,Caribbeantail,BW256,Caribbean Airlines Boeing 737-8 MAX,1:40
+TNCM,TTPP,Sint Maarten,flag_sx,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW257,Caribbean Airlines Boeing 737-8 MAX,1:40
+TTPP,SVMI,Port of Spain,flag_tt,Caracas,flag_ve,Caribbean Airlines,Caribbeantail,BW300,Generic Bombardier Dash 8-Q400,1:30
+SVMI,TTPP,Caracas,flag_ve,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW301,Generic Bombardier Dash 8-Q400,1:30
+TTPP,MKJP,Port of Spain,flag_tt,Kingston,flag_jm,Caribbean Airlines,Caribbeantail,BW414A,Caribbean Airlines Boeing 737-8 MAX,2:30
+MKJP,TTPP,Kingston,flag_jm,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW415A,Caribbean Airlines Boeing 737-8 MAX,2:30
+TAPA,TTPP,Antigua,flag_ag,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW418,Caribbean Airlines Boeing 737-8 MAX,2:10
+TTPP,TAPA,Port of Spain,flag_tt,Antigua,flag_ag,Caribbean Airlines,Caribbeantail,BW419,Caribbean Airlines Boeing 737-8 MAX,2:10
+TTCP,KJFK,Tobago,flag_tt,New York JFK,flag_us,Caribbean Airlines,Caribbeantail,BW422,Caribbean Airlines Boeing 737-8 MAX,5:00
+KJFK,TTCP,New York JFK,flag_us,Tobago,flag_tt,Caribbean Airlines,Caribbeantail,BW423,Caribbean Airlines Boeing 737-8 MAX,5:00
+TTPP,TLPC,Port of Spain,flag_tt,St. Lucia,flag_lc,Caribbean Airlines,Caribbeantail,BW434,Generic Bombardier Dash 8-Q400,1:00
+TTPP,SYCJ,Port of Spain,flag_tt,Georgetown,flag_gy,Caribbean Airlines,Caribbeantail,BW435,Caribbean Airlines Boeing 737-8 MAX,0:55
+TLPC,TTPP,St. Lucia,flag_lc,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW435,Generic Bombardier Dash 8-Q400,1:00
+SYCJ,TTPP,Georgetown,flag_gy,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW463,Caribbean Airlines Boeing 737-8 MAX,0:55
+TTPP,KFLL,Port of Spain,flag_tt,Fort Lauderdale,flag_us,Caribbean Airlines,Caribbeantail,BW480,Caribbean Airlines Boeing 737-8 MAX,3:40
+KFLL,TTPP,Fort Lauderdale,flag_us,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW481,Caribbean Airlines Boeing 737-8 MAX,3:40
+MKJP,KJFK,Kingston,flag_jm,New York JFK,flag_us,Caribbean Airlines,Caribbeantail,BW5,Caribbean Airlines Boeing 737-8 MAX,3:30
+TVSA,KJFK,Kingstown,flag_vc,New York JFK,flag_us,Caribbean Airlines,Caribbeantail,BW552,Caribbean Airlines Boeing 737-8 MAX,5:00
+KJFK,TVSA,New York JFK,flag_us,Kingstown,flag_vc,Caribbean Airlines,Caribbeantail,BW553,Caribbean Airlines Boeing 737-8 MAX,5:00
+KJFK,MKJP,New York JFK,flag_us,Kingston,flag_jm,Caribbean Airlines,Caribbeantail,BW6,Caribbean Airlines Boeing 737-8 MAX,3:30
+TTPP,CYYZ,Port of Spain,flag_tt,Toronto,flag_ca,Caribbean Airlines,Caribbeantail,BW600,Caribbean Airlines Boeing 737-8 MAX,5:35
+CYYZ,TTPP,Toronto,flag_ca,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW601,Caribbean Airlines Boeing 737-8 MAX,5:35
+SYCJ,CYYZ,Georgetown,flag_gy,Toronto,flag_ca,Caribbean Airlines,Caribbeantail,BW616,Caribbean Airlines Boeing 737-8 MAX,6:30
+CYYZ,SYCJ,Toronto,flag_ca,Georgetown,flag_gy,Caribbean Airlines,Caribbeantail,BW617,Caribbean Airlines Boeing 737-8 MAX,6:30
+TTPP,SMJP,Port of Spain,flag_tt,Paramaribo,flag_sr,Caribbean Airlines,Caribbeantail,BW883,Caribbean Airlines Boeing 737-8 MAX,1:20
+SMJP,TTPP,Paramaribo,flag_sr,Port of Spain,flag_tt,Caribbean Airlines,Caribbeantail,BW884,Caribbean Airlines Boeing 737-8 MAX,1:20
+RCKH,RJTT,Kaohsiung,flag_tw,Tokyo Haneda,flag_jp,China Airlines,ChinaAirlinestail,CI102,Generic Airbus A321,3:00
+RJTT,RCKH,Tokyo Haneda,flag_jp,Kaohsiung,flag_tw,China Airlines,ChinaAirlinestail,CI103,Generic Airbus A321,3:00
+RCTP,RJCC,Taipei Taoyuan,flag_tw,Sapporo,flag_jp,China Airlines,ChinaAirlinestail,CI130,China Airlines Boeing 777-300ER,3:15
+RJCC,RCTP,Sapporo,flag_jp,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI131,China Airlines Boeing 777-300ER,3:15
+KSFO,RCTP,San Francisco,flag_us,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI3,"China Airlines Airbus A350, China Airlines Boeing 747-400, Generic Boeing 767-300",10:30
+RCTP,KSFO,Taipei Taoyuan,flag_tw,San Francisco,flag_us,China Airlines,ChinaAirlinestail,CI4,"China Airlines Airbus A350, China Airlines Boeing 747-400, Generic Boeing 767-300",10:30
+RCTP,YSSY,Taipei Taoyuan,flag_tw,Sydney,flag_au,China Airlines,ChinaAirlinestail,CI51,China Airlines Airbus A350,8:55
+YSSY,RCTP,Sydney,flag_au,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI52,China Airlines Airbus A350,8:55
+RCTP,ZGGG,Taipei Taoyuan,flag_tw,Guangzhou,flag_cn,China Airlines,ChinaAirlinestail,CI521,China Airlines Airbus A330-300,1:40
+ZGGG,RCTP,Guangzhou,flag_cn,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI522,China Airlines Airbus A330-300,1:40
+RCTP,ZGSZ,Taipei Taoyuan,flag_tw,Shenzhen,flag_cn,China Airlines,ChinaAirlinestail,CI527,China Airlines Airbus A330-300,1:25
+ZGSZ,RCTP,Shenzhen,flag_cn,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI528,China Airlines Airbus A330-300,1:25
+RCTP,VHHH,Taipei Taoyuan,flag_tw,Hong Kong,flag_hk,China Airlines,ChinaAirlinestail,CI601,"China Airlines Airbus A350, China Airlines Boeing 777-300ER, Generic Airbus A321, Generic Boeing 737-800, China Airlines Airbus A330-300",1:25
+VHHH,RCTP,Hong Kong,flag_hk,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI602,"China Airlines Airbus A350, China Airlines Boeing 777-300ER, Generic Airbus A321, Generic Boeing 737-800, China Airlines Airbus A330-300",1:25
+RCKH,RPLL,Kaohsiung,flag_tw,Manila,flag_ph,China Airlines,ChinaAirlinestail,CI711,Generic Boeing 737-800,1:30
+RPLL,RCKH,Manila,flag_ph,Kaohsiung,flag_tw,China Airlines,ChinaAirlinestail,CI712,Generic Boeing 737-800,1:30
+RCTP,WMKK,Taipei Taoyuan,flag_tw,Kuala Lumpur,flag_my,China Airlines,ChinaAirlinestail,CI721,China Airlines Boeing 777-300ER,4:10
+WMKK,RCTP,Kuala Lumpur,flag_my,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI722,China Airlines Boeing 777-300ER,4:10
+RCTP,EHAM,Taipei Taoyuan,flag_tw,Amsterdam,flag_nl,China Airlines,ChinaAirlinestail,CI73,China Airlines Boeing 777-300ER,14:50
+EHAM,RCTP,Amsterdam,flag_nl,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI74,China Airlines Boeing 777-300ER,14:50
+RCTP,LIRF,Taipei Taoyuan,flag_tw,Rome,flag_it,China Airlines,ChinaAirlinestail,CI75,China Airlines Airbus A350,14:05
+RCKH,WSSS,Kaohsiung,flag_tw,Singapore,flag_sg,China Airlines,ChinaAirlinestail,CI757,Generic Boeing 737-800,4:05
+WSSS,RCKH,Singapore,flag_sg,Kaohsiung,flag_tw,China Airlines,ChinaAirlinestail,CI758,Generic Boeing 737-800,4:05
+LIRF,RCTP,Rome,flag_it,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI76,China Airlines Airbus A350,14:05
+RCTP,VVTS,Taipei Taoyuan,flag_tw,Ho Chi Minh City,flag_vn,China Airlines,ChinaAirlinestail,CI781,"China Airlines Airbus A350, China Airlines Airbus A330-300",2:55
+VVTS,RCTP,Ho Chi Minh City,flag_vn,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI782,"China Airlines Airbus A350, China Airlines Airbus A330-300",2:55
+RCTP,EGLL,Taipei Taoyuan,flag_tw,London Heathrow,flag_gb,China Airlines,ChinaAirlinestail,CI81,China Airlines Airbus A350,15:15
+EGLL,RCTP,London Heathrow,flag_gb,Taipei Taoyuan,flag_tw,China Airlines,ChinaAirlinestail,CI82,China Airlines Airbus A350,15:15
+OMAA,NZAA,Abu Dhabi,flag_ae,Auckland,flag_nz,Etihad Airways,EYtail,EY1017,Etihad Airways Airbus A380,15:00
+NZAA,OMAA,Auckland,flag_nz,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY1018,Etihad Airways Airbus A380,15:00
+OMAA,CYYZ,Abu Dhabi,flag_ae,Toronto,flag_ca,Etihad Airways,EYtail,EY140,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",13:30
+CYYZ,OMAA,Toronto,flag_ca,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY141,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",13:30
+OMAA,EGCC,Abu Dhabi,flag_ae,Manchester,flag_gb,Etihad Airways,EYtail,EY21,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",7:18
+EGCC,OMAA,Manchester,flag_gb,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY22,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",7:18
+OMAA,LFPG,Abu Dhabi,flag_ae,Paris Charles de Gaulle,flag_fr,Etihad Airways,EYtail,EY37,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",6:45
+LFPG,OMAA,Paris Charles de Gaulle,flag_fr,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY38,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",6:45
+OMAA,YSSY,Abu Dhabi,flag_ae,Sydney,flag_au,Etihad Airways,EYtail,EY454,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",13:15
+YSSY,OMAA,Sydney,flag_au,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY455,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",13:15
+OMAA,YMML,Abu Dhabi,flag_ae,Melbourne,flag_au,Etihad Airways,EYtail,EY460,"Etihad Airways Boeing 777-300ER, Etihad Airways Boeing 787-9",12:45
+YMML,OMAA,Melbourne,flag_au,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY461,"Etihad Airways Boeing 777-300ER, Etihad Airways Boeing 787-9",12:45
+OMAA,KDFW,Abu Dhabi,flag_ae,Dallas Fort Worth,flag_us,Etihad Airways,EYtail,EY5005,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",16:00
+KDFW,OMAA,Dallas Fort Worth,flag_us,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY5006,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER",16:00
+OMAA,KATL,Abu Dhabi,flag_ae,Atlanta,flag_us,Etihad Airways,EYtail,EY5013,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER, Etihad Airways - Formula One Airbus A340-600",14:30
+KATL,OMAA,Atlanta,flag_us,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY5014,"Etihad Airways Boeing 787-10, Etihad Airways Boeing 777-300ER, Etihad Airways - Formula One Airbus A340-600",14:30
+OMAA,FACT,Abu Dhabi,flag_ae,Cape Town,flag_za,Etihad Airways,EYtail,EY5015,Etihad Airways Boeing 787-10,10:00
+FACT,OMAA,Cape Town,flag_za,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY5016,Etihad Airways Boeing 787-10,10:00
+YBBN,OMAA,Brisbane,flag_au,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY5054,Etihad Airways Boeing 777-300ER,10:00
+OMAA,YBBN,Abu Dhabi,flag_ae,Brisbane,flag_au,Etihad Airways,EYtail,EY5055,Etihad Airways Boeing 777-300ER,10:00
+OMAA,EDDF,Abu Dhabi,flag_ae,Frankfurt,flag_de,Etihad Airways,EYtail,EY7,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10",6:25
+EDDF,OMAA,Frankfurt,flag_de,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY8,"Etihad Airways Airbus A380, Etihad Airways Boeing 787-10",6:25
+OMAA,LIRF,Abu Dhabi,flag_ae,Rome,flag_it,Etihad Airways,EYtail,EY83,Etihad Airways Boeing 787-10,5:50
+LIRF,OMAA,Rome,flag_it,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY84,Etihad Airways Boeing 787-10,5:50
+OMAA,RJTT,Abu Dhabi,flag_ae,Tokyo Haneda,flag_jp,Etihad Airways,EYtail,EY871,Etihad Airways Boeing 787-10,9:10
+RJTT,OMAA,Tokyo Haneda,flag_jp,Abu Dhabi,flag_ae,Etihad Airways,EYtail,EY878,Etihad Airways Boeing 787-10,9:10
+EGSS,LKPR,London Stansted,flag_gb,Prague,flag_cz,Ryanair,Ryanairtail,FR1013,Ryanair Boeing 737-800,1:35
+LKPR,EGSS,Prague,flag_cz,London Stansted,flag_gb,Ryanair,Ryanairtail,FR1014,Ryanair Boeing 737-800,1:35
+EIDW,LHBP,Dublin,flag_ie,Budapest,flag_hu,Ryanair,Ryanairtail,FR1023,Ryanair Boeing 737-800,2:40
+LHBP,EIDW,Budapest,flag_hu,Dublin,flag_ie,Ryanair,Ryanairtail,FR1024,Ryanair Boeing 737-800,2:40
+EIDW,LFMN,Dublin,flag_ie,Nice,flag_fr,Ryanair,Ryanairtail,FR1958,Ryanair Boeing 737-800,2:20
+LFMN,EIDW,Nice,flag_fr,Dublin,flag_ie,Ryanair,Ryanairtail,FR1959,Ryanair Boeing 737-800,2:20
+EGSS,LEAL,London Stansted,flag_gb,Alicante,flag_es,Ryanair,Ryanairtail,FR2586,Ryanair Boeing 737-800,2:10
+LEAL,EGSS,Alicante,flag_es,London Stansted,flag_gb,Ryanair,Ryanairtail,FR2587,Ryanair Boeing 737-800,2:10
+EGSS,LOWS,London Stansted,flag_gb,Salzburg,flag_at,Ryanair,Ryanairtail,FR304,Ryanair Boeing 737-800,1:35
+LOWS,EGSS,Salzburg,flag_at,London Stansted,flag_gb,Ryanair,Ryanairtail,FR305,Ryanair Boeing 737-800,1:35
+LPMA,EIDW,Madeira,flag_pt,Dublin,flag_ie,Ryanair,Ryanairtail,FR363,Ryanair Boeing 737-800,3:15
+EIDW,LPMA,Dublin,flag_ie,Madeira,flag_pt,Ryanair,Ryanairtail,FR364,Ryanair Boeing 737-800,3:15
+GMAD,EIDW,Agadir,flag_ma,Dublin,flag_ie,Ryanair,Ryanairtail,FR3994,Ryanair Boeing 737-800,3:25
+EIDW,GMAD,Dublin,flag_ie,Agadir,flag_ma,Ryanair,Ryanairtail,FR3995,Ryanair Boeing 737-800,3:25
+ESSA,EGSS,Stockholm Arlanda,flag_se,London Stansted,flag_gb,Ryanair,Ryanairtail,FR4692,Ryanair Boeing 737-800,1:55
+EGSS,ESSA,London Stansted,flag_gb,Stockholm Arlanda,flag_se,Ryanair,Ryanairtail,FR4693,Ryanair Boeing 737-800,1:55
+EIDW,GCTS,Dublin,flag_ie,Tenerife South,flag_es,Ryanair,Ryanairtail,FR5555,Ryanair Boeing 737-800,3:50
+GCTS,EIDW,Tenerife South,flag_es,Dublin,flag_ie,Ryanair,Ryanairtail,FR5556,Ryanair Boeing 737-800,3:50
+EGSS,LIRP,London Stansted,flag_gb,Pisa,flag_it,Ryanair,Ryanairtail,FR584,Ryanair Boeing 737-800,1:45
+LIRP,EGSS,Pisa,flag_it,London Stansted,flag_gb,Ryanair,Ryanairtail,FR585,Ryanair Boeing 737-800,1:45
+EIDW,EIKY,Dublin,flag_ie,Kerry,flag_ie,Ryanair,Ryanairtail,FR611,Ryanair Boeing 737-800,0:35
+EIKY,EIDW,Kerry,flag_ie,Dublin,flag_ie,Ryanair,Ryanairtail,FR612,Ryanair Boeing 737-800,0:35
+EGSS,LFML,London Stansted,flag_gb,Marseille,flag_fr,Ryanair,Ryanairtail,FR6541,Ryanair Boeing 737-800,1:30
+LFML,EGSS,Marseille,flag_fr,London Stansted,flag_gb,Ryanair,Ryanairtail,FR6542,Ryanair Boeing 737-800,1:30
+EIDW,EBBR,Dublin,flag_ie,Brussels,flag_be,Ryanair,Ryanairtail,FR657,Ryanair Boeing 737-800,1:18
+EBBR,EIDW,Brussels,flag_be,Dublin,flag_ie,Ryanair,Ryanairtail,FR658,Ryanair Boeing 737-800,1:18
+LOWW,EGSS,Vienna,flag_at,London Stansted,flag_gb,Ryanair,Ryanairtail,FR729,Ryanair Boeing 737-800,1:50
+EGSS,LOWW,London Stansted,flag_gb,Vienna,flag_at,Ryanair,Ryanairtail,FR730,Ryanair Boeing 737-800,1:50
+EIKN,EGSS,Knock,flag_ie,London Stansted,flag_gb,Ryanair,Ryanairtail,FR804,Ryanair Boeing 737-800,1:05
+EGSS,EIKN,London Stansted,flag_gb,Knock,flag_ie,Ryanair,Ryanairtail,FR805,Ryanair Boeing 737-800,1:05
+SBGR,SVMI,Sao Paulo,flag_br,Caracas,flag_ve,GOL,GOLTail,G37210,GOL Boeing 737-8 MAX,5:30
+SVMI,SBGR,Caracas,flag_ve,Sao Paulo,flag_br,GOL,GOLTail,G37211,GOL Boeing 737-8 MAX,5:30
+KMCO,SBBR,Orlando,flag_us,Brasilia,flag_br,GOL,GOLTail,G37601,GOL Boeing 737-8 MAX,7:45
+SBBR,KMCO,Brasilia,flag_br,Orlando,flag_us,GOL,GOLTail,G37602,GOL Boeing 737-8 MAX,7:45
+TNCA,SBGR,Aruba,flag_aw,Sao Paulo,flag_br,GOL,GOLTail,G37715,GOL Boeing 737-8 MAX,5:50
+SBGR,TNCA,Sao Paulo,flag_br,Aruba,flag_aw,GOL,GOLTail,G37716,GOL Boeing 737-8 MAX,5:50
+SBGR,MDPC,Sao Paulo,flag_br,Punta Cana,flag_do,GOL,GOLTail,G37730,GOL Boeing 737-8 MAX,6:35
+MDPC,SBGR,Punta Cana,flag_do,Sao Paulo,flag_br,GOL,GOLTail,G37731,GOL Boeing 737-8 MAX,6:35
+SBBR,SKBO,Brasilia,flag_br,Bogota,flag_co,GOL,GOLTail,G38242,GOL Boeing 737-8 MAX,5:00
+SKBO,SBBR,Bogota,flag_co,Brasilia,flag_br,GOL,GOLTail,G38243,GOL Boeing 737-8 MAX,5:00
+WIJJ,WIDD,Jambi,flag_id,Batam,flag_id,Garuda Indonesia,GarudaTail,GA7152,Garuda Indonesia CRJ-1000,1:20
+WIDD,WIJJ,Batam,flag_id,Jambi,flag_id,Garuda Indonesia,GarudaTail,GA7153,Garuda Indonesia CRJ-1000,1:20
+WIII,YPPH,Jakarta,flag_id,Perth,flag_au,Garuda Indonesia,GarudaTail,GA724,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-300",4:50
+YPPH,WIII,Perth,flag_au,Jakarta,flag_id,Garuda Indonesia,GarudaTail,GA725,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-300",4:50
+WARR,WAHH,Surabaya,flag_id,Yogyakarta,flag_id,Garuda Indonesia,GarudaTail,GA7308,Garuda Indonesia CRJ-1000,1:10
+WAHH,WARR,Yogyakarta,flag_id,Surabaya,flag_id,Garuda Indonesia,GarudaTail,GA7309,Garuda Indonesia CRJ-1000,1:10
+WADD,ZHCC,Denpasar Bali,flag_id,Zhengzhou,flag_cn,Garuda Indonesia,GarudaTail,GA800,Garuda Indonesia Boeing 737-800,5:50
+ZHCC,WADD,Zhengzhou,flag_cn,Denpasar Bali,flag_id,Garuda Indonesia,GarudaTail,GA801,Garuda Indonesia Boeing 737-800,5:50
+WIII,VVTS,Jakarta,flag_id,Ho Chi Minh City,flag_vn,Garuda Indonesia,GarudaTail,GA8340,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-900",2:50
+VVTS,WIII,Ho Chi Minh City,flag_vn,Jakarta,flag_id,Garuda Indonesia,GarudaTail,GA8350,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-900",2:50
+WADD,RKSI,Denpasar Bali,flag_id,Seoul Incheon,flag_kr,Garuda Indonesia,GarudaTail,GA870,"Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",6:35
+RKSI,WADD,Seoul Incheon,flag_kr,Denpasar Bali,flag_id,Garuda Indonesia,GarudaTail,GA871,"Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",6:35
+WIII,EHAM,Jakarta,flag_id,Amsterdam,flag_nl,Garuda Indonesia,GarudaTail,GA88,"Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",14:20
+WADD,RJAA,Denpasar Bali,flag_id,Tokyo Narita,flag_jp,Garuda Indonesia,GarudaTail,GA880,"Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",6:50
+RJAA,WADD,Tokyo Narita,flag_jp,Denpasar Bali,flag_id,Garuda Indonesia,GarudaTail,GA881,"Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",6:50
+EHAM,WIII,Amsterdam,flag_nl,Jakarta,flag_id,Garuda Indonesia,GarudaTail,GA89,"Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",14:20
+WIII,ZGGG,Jakarta,flag_id,Guangzhou,flag_cn,Garuda Indonesia,GarudaTail,GA898,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",4:50
+ZGGG,WIII,Guangzhou,flag_cn,Jakarta,flag_id,Garuda Indonesia,GarudaTail,GA899,"Garuda Indonesia Boeing 737-800, Garuda Indonesia Airbus A330-300, Garuda Indonesia Airbus A330-900, Garuda Indonesia Boeing 777-300ER",4:50
+WADD,VCBI,Denpasar Bali,flag_id,Colombo,flag_lk,Garuda Indonesia,GarudaTail,GA9840 A,Garuda Indonesia Airbus A330-900,4:50
+VCBI,VRMM,Colombo,flag_lk,Male,flag_mv,Garuda Indonesia,GarudaTail,GA9840 B,Garuda Indonesia Airbus A330-900,1:40
+VRMM,VCBI,Male,flag_mv,Colombo,flag_lk,Garuda Indonesia,GarudaTail,GA9850 A,Garuda Indonesia Airbus A330-900,1:40
+VCBI,WADD,Colombo,flag_lk,Denpasar Bali,flag_id,Garuda Indonesia,GarudaTail,GA9850 B,Garuda Indonesia Airbus A330-900,4:50
+WIII,EGGP,Jakarta,flag_id,Liverpool,flag_gb,Garuda Indonesia,GarudaTail,GA990,Garuda Indonesia Airbus A330-300,14:30
+EGGP,WIII,Liverpool,flag_gb,Jakarta,flag_id,Garuda Indonesia,GarudaTail,GA991,Garuda Indonesia Airbus A330-300,14:30
+OBBI,VRMM,Bahrain,flag_bh,Male,flag_mv,Gulf Air,GulfAirtail,GF144 A,Gulf Air Airbus A321,4:20
+VRMM,VCBI,Male,flag_mv,Colombo,flag_lk,Gulf Air,GulfAirtail,GF144 B,Gulf Air Airbus A321,1:10
+VCBI,VRMM,Colombo,flag_lk,Male,flag_mv,Gulf Air,GulfAirtail,GF145 A,Gulf Air Airbus A321,1:10
+VRMM,OBBI,Male,flag_mv,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF145 B,Gulf Air Airbus A321,4:35
+OBBI,RPLL,Bahrain,flag_bh,Manila,flag_ph,Gulf Air,GulfAirtail,GF154,Gulf Air Boeing 787-9,8:00
+RPLL,OBBI,Manila,flag_ph,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF155,Gulf Air Boeing 787-9,9:15
+OBBI,WSSS,Bahrain,flag_bh,Singapore,flag_sg,Gulf Air,GulfAirtail,GF165,Gulf Air Boeing 787-9,7:30
+WSSS,OBBI,Singapore,flag_sg,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF166,Gulf Air Boeing 787-9,7:35
+OBBI,OEJN,Bahrain,flag_bh,Jeddah,flag_sa,Gulf Air,GulfAirtail,GF171,"Gulf Air Airbus A321, Generic Airbus A320",2:15
+OEJN,OBBI,Jeddah,flag_sa,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF172,"Gulf Air Airbus A321, Generic Airbus A320",2:00
+OBBI,OEMA,Bahrain,flag_bh,Medina,flag_sa,Gulf Air,GulfAirtail,GF179,Generic Airbus A320,2:00
+OEMA,OBBI,Medina,flag_sa,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF180,Generic Airbus A320,1:50
+OBBI,EGBB,Bahrain,flag_bh,Birmingham,flag_gb,Gulf Air,GulfAirtail,GF2010,Gulf Air Boeing 787-9,6:30
+EGBB,OBBI,Birmingham,flag_gb,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF2011,Gulf Air Boeing 787-9,6:00
+OBBI,VOHS,Bahrain,flag_bh,Hyderabad,flag_in,Gulf Air,GulfAirtail,GF274,Gulf Air Airbus A321,3:34
+VOHS,OBBI,Hyderabad,flag_in,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF275,Gulf Air Airbus A321,4:15
+OBBI,VOBL,Bahrain,flag_bh,Bengaluru,flag_in,Gulf Air,GulfAirtail,GF280,Gulf Air Airbus A321,3:50
+VOBL,OBBI,Bengaluru,flag_in,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF281,Gulf Air Airbus A321,4:30
+OBBI,VOGO,Bahrain,flag_bh,Goa,flag_in,Gulf Air,GulfAirtail,GF284,Gulf Air Airbus A321,3:10
+VOGO,OBBI,Goa,flag_in,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF285,Gulf Air Airbus A321,3:10
+EGCC,OBBI,Manchester,flag_gb,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF4,Gulf Air Boeing 787-9,6:30
+OBBI,EGCC,Bahrain,flag_bh,Manchester,flag_gb,Gulf Air,GulfAirtail,GF5,Gulf Air Boeing 787-9,6:40
+OBBI,OMDB,Bahrain,flag_bh,Dubai,flag_ae,Gulf Air,GulfAirtail,GF500,"Gulf Air Airbus A321, Generic Airbus A320, Gulf Air Boeing 787-9",0:50
+OMDB,OBBI,Dubai,flag_ae,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF501,"Gulf Air Airbus A321, Generic Airbus A320, Gulf Air Boeing 787-9",1:00
+OBBI,VOMM,Bahrain,flag_bh,Chennai,flag_in,Gulf Air,GulfAirtail,GF52,Gulf Air Airbus A321,4:00
+VOMM,OBBI,Chennai,flag_in,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF53,Gulf Air Airbus A321,4:35
+OBBI,VABB,Bahrain,flag_bh,Mumbai,flag_in,Gulf Air,GulfAirtail,GF56,Gulf Air Airbus A321,3:30
+VABB,OBBI,Mumbai,flag_in,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF57,Gulf Air Airbus A321,3:30
+HECA,OBBI,Cairo,flag_eg,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF70,"Gulf Air Airbus A321, Generic Airbus A320",2:30
+OBBI,HECA,Bahrain,flag_bh,Cairo,flag_eg,Gulf Air,GulfAirtail,GF71,"Gulf Air Airbus A321, Generic Airbus A320",3:00
+OBBI,DIAP,Bahrain,flag_bh,Abidjan,flag_ci,Gulf Air,GulfAirtail,GF731,Gulf Air Boeing 787-9,9:00
+DIAP,OBBI,Abidjan,flag_ci,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF732,Gulf Air Boeing 787-9,8:45
+OBBI,GOBD,Bahrain,flag_bh,Dakar,flag_sn,Gulf Air,GulfAirtail,GF733,Gulf Air Boeing 787-9,9:30
+GOBD,OBBI,Dakar,flag_sn,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF734,Gulf Air Boeing 787-9,9:15
+OBBI,FNLU,Bahrain,flag_bh,Luanda,flag_ao,Gulf Air,GulfAirtail,GF735,Gulf Air Boeing 787-9,8:00
+FNLU,OBBI,Luanda,flag_ao,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF736,Gulf Air Boeing 787-9,8:00
+OBBI,FQMA,Bahrain,flag_bh,Maputo,flag_mz,Gulf Air,GulfAirtail,GF745,Gulf Air Boeing 787-9,8:30
+FQMA,OBBI,Maputo,flag_mz,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF746,Gulf Air Boeing 787-9,8:15
+OPKC,OBBI,Karachi,flag_pk,Bahrain,flag_bh,Gulf Air,GulfAirtail,GF753,"Gulf Air Airbus A321, Generic Airbus A320",2:40
+VIDP,VEBD,Delhi,flag_in,Bagdogra,flag_in,Air India Express,AirIndiaTail,IX1713,Air India Express Boeing 737-800,1:40
+VEBD,VIDP,Bagdogra,flag_in,Delhi,flag_in,Air India Express,AirIndiaTail,IX1714,Air India Express Boeing 737-800,1:40
+VABB,VISR,Mumbai,flag_in,Srinagar,flag_in,Air India Express,AirIndiaTail,IX1993,Air India Express Boeing 737-800,2:10
+VISR,VABB,Srinagar,flag_in,Mumbai,flag_in,Air India Express,AirIndiaTail,IX1994,Air India Express Boeing 737-800,2:10
+KJFK,KFLL,New York JFK,flag_us,Fort Lauderdale,flag_us,JetBlue,VBTail,JBU1,JetBlue Airbus A321,3:07
+TJSJ,TIST,San Juan,flag_pr,St. Thomas,flag_vi,JetBlue,VBTail,JBU1036,JetBlue Airbus A320,0:34
+KLGA,KTPA,New York LaGuardia,flag_us,Tampa,flag_us,JetBlue,VBTail,JBU1517,JetBlue Airbus A320,2:54
+KBOS,KSAV,Boston,flag_us,Savannah,flag_us,JetBlue,VBTail,JBU1749,"JetBlue Airbus A321, JetBlue Airbus A320, JetBlue Airbus A220-300",2:10
+KSAV,KBOS,Savannah,flag_us,Boston,flag_us,JetBlue,VBTail,JBU1750,"JetBlue Airbus A321, JetBlue Airbus A320, JetBlue Airbus A220-300",1:55
+KRDU,KTPA,Raleigh Durham,flag_us,Tampa,flag_us,JetBlue,VBTail,JBU1975,JetBlue E190,1:57
+KTPA,KRDU,Tampa,flag_us,Raleigh Durham,flag_us,JetBlue,VBTail,JBU1976,JetBlue E190,1:48
+KFLL,KJFK,Fort Lauderdale,flag_us,New York JFK,flag_us,JetBlue,VBTail,JBU2,JetBlue Airbus A321,2:56
+KLAX,KSEA,Los Angeles,flag_us,Seattle,flag_us,JetBlue,VBTail,JBU2006,JetBlue Airbus A320,2:47
+KSEA,KLAX,Seattle,flag_us,Los Angeles,flag_us,JetBlue,VBTail,JBU2007,JetBlue Airbus A320,2:36
+KBPI,KLAX,Big Piney,flag_us,Los Angeles,flag_us,JetBlue,VBTail,JBU2009,JetBlue Airbus A321,6:33
+KLAX,KBPI,Los Angeles,flag_us,Big Piney,flag_us,JetBlue,VBTail,JBU2010,JetBlue Airbus A321,4:52
+KBOS,TXKF,Boston,flag_us,Bermuda,flag_bm,JetBlue,VBTail,JBU203,JetBlue Airbus A320,2:06
+TXKF,KBOS,Bermuda,flag_bm,Boston,flag_us,JetBlue,VBTail,JBU204,JetBlue Airbus A320,2:21
+KJFK,KLAX,New York JFK,flag_us,Los Angeles,flag_us,JetBlue,VBTail,JBU23,JetBlue Airbus A321,6:11
+KLAX,KJFK,Los Angeles,flag_us,New York JFK,flag_us,JetBlue,VBTail,JBU24,JetBlue Airbus A321,5:18
+KEWR,KMCO,Newark,flag_us,Orlando,flag_us,JetBlue,VBTail,JBU27,JetBlue Airbus A320,2:43
+KFLL,TNCM,Fort Lauderdale,flag_us,Sint Maarten,flag_sx,JetBlue,VBTail,JBU2761,JetBlue Airbus A320,2:53
+KMCO,KEWR,Orlando,flag_us,Newark,flag_us,JetBlue,VBTail,JBU28,JetBlue Airbus A320,2:42
+TJSJ,MDPC,San Juan,flag_pr,Punta Cana,flag_do,JetBlue,VBTail,JBU31,JetBlue E190,0:52
+KTPA,KLGA,Tampa,flag_us,New York LaGuardia,flag_us,JetBlue,VBTail,JBU316,JetBlue Airbus A320,2:27
+KFLL,KSLC,Fort Lauderdale,flag_us,Salt Lake City,flag_us,JetBlue,VBTail,JBU319,JetBlue Airbus A320,5:26
+MDPC,TJSJ,Punta Cana,flag_do,San Juan,flag_pr,JetBlue,VBTail,JBU32,JetBlue E190,0:41
+KSLC,KFLL,Salt Lake City,flag_us,Fort Lauderdale,flag_us,JetBlue,VBTail,JBU320,JetBlue Airbus A320,4:24
+KBOS,LFPG,Boston,flag_us,Paris Charles de Gaulle,flag_fr,JetBlue,VBTail,JBU33,JetBlue Airbus A321,6:30
+LFPG,KBOS,Paris Charles de Gaulle,flag_fr,Boston,flag_us,JetBlue,VBTail,JBU34,JetBlue Airbus A321,7:45
+KBDL,KBPI,Hartford,flag_us,Big Piney,flag_us,JetBlue,VBTail,JBU541,JetBlue E190,3:13
+KBPI,KBDL,Big Piney,flag_us,Hartford,flag_us,JetBlue,VBTail,JBU542,JetBlue E190,2:49
+KJFK,CYVR,New York JFK,flag_us,Vancouver,flag_ca,JetBlue,VBTail,JBU603,JetBlue Airbus A321,5:10
+CYVR,KJFK,Vancouver,flag_ca,New York JFK,flag_us,JetBlue,VBTail,JBU604,JetBlue Airbus A321,5:00
+EGPH,KJFK,Edinburgh,flag_gb,New York JFK,flag_us,JetBlue,VBTail,JBU72,JetBlue Airbus A321,7:15
+KJFK,EGPH,New York JFK,flag_us,Edinburgh,flag_gb,JetBlue,VBTail,JBU73,JetBlue Airbus A321,6:20
+TNCM,KFLL,Sint Maarten,flag_sx,Fort Lauderdale,flag_us,JetBlue,VBTail,JBU762,JetBlue Airbus A320,3:14
+TIST,TJSJ,St. Thomas,flag_vi,San Juan,flag_pr,JetBlue,VBTail,JBU808,JetBlue Airbus A320,0:42
+KEWR,MBPV,Newark,flag_us,Providenciales,flag_tc,JetBlue,VBTail,JBU867,JetBlue Airbus A320,2:37
+MBPV,KEWR,Providenciales,flag_tc,Newark,flag_us,JetBlue,VBTail,JBU868,JetBlue Airbus A320,4:37
+KALB,KFLL,Albany,flag_us,Fort Lauderdale,flag_us,JetBlue,VBTail,JBU87,JetBlue Airbus A320,3:22
+KFLL,KALB,Fort Lauderdale,flag_us,Albany,flag_us,JetBlue,VBTail,JBU88,JetBlue Airbus A320,3:01
+MRLB,KLAX,Liberia,flag_cr,Los Angeles,flag_us,JetBlue,VBTail,JBU979,JetBlue Airbus A321,6:17
+KLAX,MRLB,Los Angeles,flag_us,Liberia,flag_cr,JetBlue,VBTail,JBU980,JetBlue Airbus A321,5:20
+HKJK,KJFK,Nairobi,flag_ke,New York JFK,flag_us,Kenya Airways,kenyaVA,KQ002,Kenya Airways Boeing 787-8,14:47
+KJFK,HKJK,New York JFK,flag_us,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ003,Kenya Airways Boeing 787-8,14:47
+HKJK,EGLL,Nairobi,flag_ke,London Heathrow,flag_gb,Kenya Airways,kenyaVA,KQ100,Kenya Airways Boeing 787-8,8:47
+EGLL,HKJK,London Heathrow,flag_gb,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ101,Kenya Airways Boeing 787-8,8:47
+HKJK,LFPG,Nairobi,flag_ke,Paris Charles de Gaulle,flag_fr,Kenya Airways,kenyaVA,KQ112,Kenya Airways Boeing 787-8,8:24
+LFPG,HKJK,Paris Charles de Gaulle,flag_fr,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ113,Kenya Airways Boeing 787-8,8:24
+HKJK,VABB,Nairobi,flag_ke,Mumbai,flag_in,Kenya Airways,kenyaVA,KQ202,Kenya Airways Boeing 737-800,5:43
+VABB,HKJK,Mumbai,flag_in,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ205,Kenya Airways Boeing 737-800,5:43
+HKJK,FSIA,Nairobi,flag_ke,Victoria,flag_sc,Kenya Airways,kenyaVA,KQ250,Kenya Airways E190,2:46
+FSIA,HKJK,Victoria,flag_sc,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ251,Kenya Airways E190,2:46
+HKJK,FMCH,Nairobi,flag_ke,Moroni,flag_km,Kenya Airways,kenyaVA,KQ264,Kenya Airways E190,1:55
+FMCH,HKJK,Moroni,flag_km,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ265,Kenya Airways E190,1:55
+HKJK,FIMP,Nairobi,flag_ke,Mauritius,flag_mu,Kenya Airways,kenyaVA,KQ270,"Kenya Airways Boeing 737-800, Kenya Airways E190",4:00
+FIMP,HKJK,Mauritius,flag_mu,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ271,"Kenya Airways Boeing 737-800, Kenya Airways E190",4:00
+HKJK,OMDB,Nairobi,flag_ke,Dubai,flag_ae,Kenya Airways,kenyaVA,KQ310,Kenya Airways Boeing 737-800,4:42
+OMDB,HKJK,Dubai,flag_ae,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ311,Kenya Airways Boeing 737-800,4:42
+HKJK,HJJJ,Nairobi,flag_ke,Juba,flag_ss,Kenya Airways,kenyaVA,KQ352,Kenya Airways E190,1:23
+HJJJ,HKJK,Juba,flag_ss,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ353,Kenya Airways E190,1:23
+HKJK,HAAB,Nairobi,flag_ke,Addis Ababa,flag_et,Kenya Airways,kenyaVA,KQ400,Kenya Airways E190,1:37
+HAAB,HKJK,Addis Ababa,flag_et,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ401,Kenya Airways E190,1:37
+HKJK,HUEN,Nairobi,flag_ke,Entebbe,flag_ug,Kenya Airways,kenyaVA,KQ418,Kenya Airways E190,0:52
+HUEN,HKJK,Entebbe,flag_ug,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ419,Kenya Airways E190,0:52
+HKJK,DNMM,Nairobi,flag_ke,Lagos,flag_ng,Kenya Airways,kenyaVA,KQ532,Kenya Airways Boeing 737-800,4:45
+DNMM,HKJK,Lagos,flag_ng,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ533,Kenya Airways Boeing 737-800,4:45
+HKJK,FWKI,Nairobi,flag_ke,Lilongwe,flag_mw,Kenya Airways,kenyaVA,KQ756(A),Kenya Airways E190,2:01
+FWKI,FQNP,Lilongwe,flag_mw,Nampula,flag_mz,Kenya Airways,kenyaVA,KQ756(B),Kenya Airways E190,0:57
+FQNP,HKJK,Nampula,flag_mz,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ756(C),Kenya Airways E190,2:07
+HKJK,FACT,Nairobi,flag_ke,Cape Town,flag_za,Kenya Airways,kenyaVA,KQ784,Kenya Airways Boeing 737-800,5:09
+FACT,HKJK,Cape Town,flag_za,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ785,Kenya Airways Boeing 737-800,5:09
+HKJK,VTBS,Nairobi,flag_ke,Bangkok,flag_th,Kenya Airways,kenyaVA,KQ886(A),Kenya Airways Boeing 787-8,8:40
+VTBS,ZGGG,Bangkok,flag_th,Guangzhou,flag_cn,Kenya Airways,kenyaVA,KQ886(B),Kenya Airways Boeing 787-8,2:22
+ZGGG,VTBS,Guangzhou,flag_cn,Bangkok,flag_th,Kenya Airways,kenyaVA,KQ887(A),Kenya Airways Boeing 787-8,2:22
+VTBS,HKJK,Bangkok,flag_th,Nairobi,flag_ke,Kenya Airways,kenyaVA,KQ887(B),Kenya Airways Boeing 787-8,8:40
+LFMN,EDDF,Nice,flag_fr,Frankfurt,flag_de,Lufthansa,Luftytail,LH1059,"Lufthansa Airbus A320, Lufthansa Airbus A321",1:30
+EDDF,LFMN,Frankfurt,flag_de,Nice,flag_fr,Lufthansa,Luftytail,LH1064,"Lufthansa Airbus A320, Lufthansa Airbus A321",1:30
+EDDF,EPWA,Frankfurt,flag_de,Warsaw,flag_pl,Lufthansa,Luftytail,LH1346,"Lufthansa Airbus A320, Generic E190",1:50
+EPWA,EDDF,Warsaw,flag_pl,Frankfurt,flag_de,Lufthansa,Luftytail,LH1347,"Lufthansa Airbus A320, Generic E190",1:50
+EDDM,EDDK,Munich,flag_de,Cologne,flag_de,Lufthansa,Luftytail,LH1984,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:05
+EDDK,EDDM,Cologne,flag_de,Munich,flag_de,Lufthansa,Luftytail,LH1985,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:05
+EDDM,EDDH,Munich,flag_de,Hamburg,flag_de,Lufthansa,Luftytail,LH2070,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:20
+EDDH,EDDM,Hamburg,flag_de,Munich,flag_de,Lufthansa,Luftytail,LH2071,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:20
+EDDF,EDDH,Frankfurt,flag_de,Hamburg,flag_de,Lufthansa,Luftytail,LH22,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:05
+EDDM,LFMN,Munich,flag_de,Nice,flag_fr,Lufthansa,Luftytail,LH2272,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321",1:25
+LFMN,EDDM,Nice,flag_fr,Munich,flag_de,Lufthansa,Luftytail,LH2273,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321",1:25
+EDDH,EDDF,Hamburg,flag_de,Frankfurt,flag_de,Lufthansa,Luftytail,LH23,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",1:05
+EDDF,HECA,Frankfurt,flag_de,Cairo,flag_eg,Lufthansa,Luftytail,LH584,Lufthansa Airbus A321,4:10
+HECA,EDDF,Cairo,flag_eg,Frankfurt,flag_de,Lufthansa,Luftytail,LH585,Lufthansa Airbus A321,4:10
+EDDM,HECA,Munich,flag_de,Cairo,flag_eg,Lufthansa,Luftytail,LH586,Lufthansa Airbus A320,3:45
+HECA,EDDM,Cairo,flag_eg,Munich,flag_de,Lufthansa,Luftytail,LH587,Lufthansa Airbus A320,3:45
+EDDF,EDDL,Frankfurt,flag_de,Dusseldorf,flag_de,Lufthansa,Luftytail,LH84,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",0:45
+EDDL,EDDF,Dusseldorf,flag_de,Frankfurt,flag_de,Lufthansa,Luftytail,LH87,"Lufthansa Airbus A319, Lufthansa Airbus A320, Lufthansa Airbus A321, Lufthansa CityLine CRJ-900",0:45
+HESN,HEBL,Aswan,flag_eg,Abu Simbel,flag_eg,EgyptAir,EgyptAir,MS145,EgyptAir Boeing 737-800,0:45
+HEBL,HESN,Abu Simbel,flag_eg,Aswan,flag_eg,EgyptAir,EgyptAir,MS146,EgyptAir Boeing 737-800,0:45
+HECA,HEBA,Cairo,flag_eg,Alexandria Borg El Arab,flag_eg,EgyptAir,EgyptAir,MS180,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:30
+HEBA,HECA,Alexandria Borg El Arab,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS181,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:30
+HECA,HEMA,Cairo,flag_eg,Marsa Alam,flag_eg,EgyptAir,EgyptAir,MS184,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:00
+HEMA,HECA,Marsa Alam,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS185,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:00
+HECA,HESG,Cairo,flag_eg,Sohag,flag_eg,EgyptAir,EgyptAir,MS186,EgyptAir Boeing 737-800,0:50
+HESG,HECA,Sohag,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS187,EgyptAir Boeing 737-800,0:50
+HECA,HESH,Cairo,flag_eg,Sharm El Sheikh,flag_eg,EgyptAir,EgyptAir,MS20,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:40
+HESH,HECA,Sharm El Sheikh,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS21,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:40
+HECA,GMFO,Cairo,flag_eg,Oujda,flag_ma,EgyptAir,EgyptAir,MS3007,EgyptAir Airbus A330-300,4:45
+GMFO,HECA,Oujda,flag_ma,Cairo,flag_eg,EgyptAir,EgyptAir,MS3008,EgyptAir Airbus A330-300,4:45
+HECA,GMMW,Cairo,flag_eg,Nador,flag_ma,EgyptAir,EgyptAir,MS3435,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",4:40
+GMMW,HECA,Nador,flag_ma,Cairo,flag_eg,EgyptAir,EgyptAir,MS3436,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",4:40
+HECA,HEGN,Cairo,flag_eg,Hurghada,flag_eg,EgyptAir,EgyptAir,MS42,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:40
+HELX,OEJN,Luxor,flag_eg,Jeddah,flag_sa,EgyptAir,EgyptAir,MS4283,EgyptAir Boeing 737-800,2:00
+OEJN,HELX,Jeddah,flag_sa,Luxor,flag_eg,EgyptAir,EgyptAir,MS4284,EgyptAir Boeing 737-800,2:00
+HEGN,HECA,Hurghada,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS43,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",0:40
+HESN,OEJN,Aswan,flag_eg,Jeddah,flag_sa,EgyptAir,EgyptAir,MS4437,EgyptAir Boeing 737-800,1:30
+OEJN,HESH,Jeddah,flag_sa,Sharm El Sheikh,flag_eg,EgyptAir,EgyptAir,MS4438,EgyptAir Boeing 737-800,1:30
+VHHH,VTBS,Hong Kong,flag_hk,Bangkok,flag_th,EgyptAir,EgyptAir,MS510,EgyptAir Airbus A330-300,2:25
+VTBS,VHHH,Bangkok,flag_th,Hong Kong,flag_hk,EgyptAir,EgyptAir,MS511,EgyptAir Airbus A330-300,2:25
+HECA,HKJK,Cairo,flag_eg,Nairobi,flag_ke,EgyptAir,EgyptAir,MS512,EgyptAir Airbus A330-300,4:30
+HKJK,HECA,Nairobi,flag_ke,Cairo,flag_eg,EgyptAir,EgyptAir,MS513,EgyptAir Airbus A330-300,4:30
+HECA,EBOS,Cairo,flag_eg,Oostende,flag_be,EgyptAir,EgyptAir,MS520,EgyptAir Airbus A330-300,4:20
+EBOS,HECA,Oostende,flag_be,Cairo,flag_eg,EgyptAir,EgyptAir,MS521,EgyptAir Airbus A330-300,4:20
+HECA,EBLG,Cairo,flag_eg,Liege,flag_be,EgyptAir,EgyptAir,MS528,EgyptAir Airbus A330-300,4:15
+EBLG,HECA,Liege,flag_be,Cairo,flag_eg,EgyptAir,EgyptAir,MS529,EgyptAir Airbus A330-300,4:15
+HECA,LIMC,Cairo,flag_eg,Milan Malpensa,flag_it,EgyptAir,EgyptAir,MS532,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:25
+LIMC,HECA,Milan Malpensa,flag_it,Cairo,flag_eg,EgyptAir,EgyptAir,MS533,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:25
+HECA,DNKN,Cairo,flag_eg,Kano,flag_ng,EgyptAir,EgyptAir,MS550,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:55
+DNKN,HECA,Kano,flag_ng,Cairo,flag_eg,EgyptAir,EgyptAir,MS551,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:55
+HECA,DNMM,Cairo,flag_eg,Lagos,flag_ng,EgyptAir,EgyptAir,MS552,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:40
+DNMM,HECA,Lagos,flag_ng,Cairo,flag_eg,EgyptAir,EgyptAir,MS553,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:40
+EBOS,HLLM,Oostende,flag_be,Tripoli,flag_ly,EgyptAir,EgyptAir,MS5566,EgyptAir Airbus A330-300,2:50
+HLLM,EBOS,Tripoli,flag_ly,Oostende,flag_be,EgyptAir,EgyptAir,MS5567,EgyptAir Airbus A330-300,2:50
+HECA,EDDK,Cairo,flag_eg,Cologne,flag_de,EgyptAir,EgyptAir,MS560,EgyptAir Airbus A330-300,4:00
+EDDK,HECA,Cologne,flag_de,Cairo,flag_eg,EgyptAir,EgyptAir,MS561,EgyptAir Airbus A330-300,4:00
+HECA,HELX,Cairo,flag_eg,Luxor,flag_eg,EgyptAir,EgyptAir,MS60,EgyptAir Boeing 737-800,0:50
+HELX,HECA,Luxor,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS61,EgyptAir Boeing 737-800,0:50
+HECA,OKKK,Cairo,flag_eg,Kuwait City,flag_kw,EgyptAir,EgyptAir,MS610,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",2:10
+OKKK,HECA,Kuwait City,flag_kw,Cairo,flag_eg,EgyptAir,EgyptAir,MS611,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",2:10
+HECA,ORBI,Cairo,flag_eg,Baghdad,flag_iq,EgyptAir,EgyptAir,MS627,EgyptAir Boeing 737-800,1:40
+ORBI,HECA,Baghdad,flag_iq,Cairo,flag_eg,EgyptAir,EgyptAir,MS628,EgyptAir Boeing 737-800,1:40
+HECA,OEGS,Cairo,flag_eg,Qassim,flag_sa,EgyptAir,EgyptAir,MS633,EgyptAir Boeing 737-800,1:35
+OEGS,HECA,Qassim,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS634,EgyptAir Boeing 737-800,1:35
+HECA,ORER,Cairo,flag_eg,Erbil,flag_iq,EgyptAir,EgyptAir,MS635,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",2:00
+ORER,HECA,Erbil,flag_iq,Cairo,flag_eg,EgyptAir,EgyptAir,MS636,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",2:00
+HECA,OEMA,Cairo,flag_eg,Medina,flag_sa,EgyptAir,EgyptAir,MS639,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",1:25
+OEMA,HECA,Medina,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS640,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",1:25
+HECA,OEJN,Cairo,flag_eg,Jeddah,flag_sa,EgyptAir,EgyptAir,MS643,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",1:40
+OEJN,HECA,Jeddah,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS644,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",1:40
+HECA,OERK,Cairo,flag_eg,Riyadh,flag_sa,EgyptAir,EgyptAir,MS647,EgyptAir Boeing 737-800,2:10
+OERK,HECA,Riyadh,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS648,EgyptAir Boeing 737-800,2:10
+HEBA,OERK,Alexandria Borg El Arab,flag_eg,Riyadh,flag_sa,EgyptAir,EgyptAir,MS653,EgyptAir Boeing 737-800,2:25
+OERK,HEBA,Riyadh,flag_sa,Alexandria Borg El Arab,flag_eg,EgyptAir,EgyptAir,MS654,EgyptAir Boeing 737-800,2:25
+HEBA,OEJN,Alexandria Borg El Arab,flag_eg,Jeddah,flag_sa,EgyptAir,EgyptAir,MS655,EgyptAir Boeing 737-800,1:55
+OEJN,HEBA,Jeddah,flag_sa,Alexandria Borg El Arab,flag_eg,EgyptAir,EgyptAir,MS656,EgyptAir Boeing 737-800,1:55
+HEBA,OEMA,Alexandria Borg El Arab,flag_eg,Medina,flag_sa,EgyptAir,EgyptAir,MS679,EgyptAir Boeing 737-800,1:40
+OEMA,HEBA,Medina,flag_sa,Alexandria Borg El Arab,flag_eg,EgyptAir,EgyptAir,MS680,EgyptAir Boeing 737-800,1:40
+HECA,OEDF,Cairo,flag_eg,Dammam,flag_sa,EgyptAir,EgyptAir,MS681,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",2:15
+OEDF,HECA,Dammam,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS682,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",2:15
+HEBA,OEDF,Alexandria Borg El Arab,flag_eg,Dammam,flag_sa,EgyptAir,EgyptAir,MS685,EgyptAir Boeing 737-800,2:35
+OEDF,HEBA,Dammam,flag_sa,Alexandria Borg El Arab,flag_eg,EgyptAir,EgyptAir,MS686,EgyptAir Boeing 737-800,2:35
+HECA,OJAI,Cairo,flag_eg,Amman,flag_jo,EgyptAir,EgyptAir,MS701,EgyptAir Boeing 737-800,0:55
+OJAI,HECA,Amman,flag_jo,Cairo,flag_eg,EgyptAir,EgyptAir,MS702,EgyptAir Boeing 737-800,0:55
+HECA,OLBA,Cairo,flag_eg,Beirut,flag_lb,EgyptAir,EgyptAir,MS709,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:00
+OLBA,HECA,Beirut,flag_lb,Cairo,flag_eg,EgyptAir,EgyptAir,MS710,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:00
+HECA,EBBR,Cairo,flag_eg,Brussels,flag_be,EgyptAir,EgyptAir,MS725,EgyptAir Boeing 737-800,4:20
+EBBR,HECA,Brussels,flag_be,Cairo,flag_eg,EgyptAir,EgyptAir,MS726,EgyptAir Boeing 737-800,4:20
+HECA,UUDD,Cairo,flag_eg,Moscow Domodedovo,flag_ru,EgyptAir,EgyptAir,MS727,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",5:15
+UUDD,HECA,Moscow Domodedovo,flag_ru,Cairo,flag_eg,EgyptAir,EgyptAir,MS728,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",5:15
+HECA,EDDB,Cairo,flag_eg,Berlin,flag_de,EgyptAir,EgyptAir,MS731,EgyptAir Boeing 737-800,3:45
+EDDB,HECA,Berlin,flag_de,Cairo,flag_eg,EgyptAir,EgyptAir,MS732,EgyptAir Boeing 737-800,3:45
+HECA,LTFM,Cairo,flag_eg,Istanbul,flag_tr,EgyptAir,EgyptAir,MS735,EgyptAir Boeing 737-800,1:50
+LTFM,HECA,Istanbul,flag_tr,Cairo,flag_eg,EgyptAir,EgyptAir,MS736,EgyptAir Boeing 737-800,1:50
+HECA,LCLK,Cairo,flag_eg,Larnaca,flag_cy,EgyptAir,EgyptAir,MS741,EgyptAir Boeing 737-800,1:00
+LCLK,HECA,Larnaca,flag_cy,Cairo,flag_eg,EgyptAir,EgyptAir,MS742,EgyptAir Boeing 737-800,1:00
+HECA,LGAV,Cairo,flag_eg,Athens,flag_gr,EgyptAir,EgyptAir,MS747,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:40
+LGAV,HECA,Athens,flag_gr,Cairo,flag_eg,EgyptAir,EgyptAir,MS748,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",1:40
+HECA,LHBP,Cairo,flag_eg,Budapest,flag_hu,EgyptAir,EgyptAir,MS751,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",3:05
+LHBP,HECA,Budapest,flag_hu,Cairo,flag_eg,EgyptAir,EgyptAir,MS752,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",3:05
+HECA,LEMD,Cairo,flag_eg,Madrid,flag_es,EgyptAir,EgyptAir,MS753,Generic Boeing 787-9,4:40
+LEMD,HECA,Madrid,flag_es,Cairo,flag_eg,EgyptAir,EgyptAir,MS754,"EgyptAir Boeing 737-800, Generic Boeing 787-9",4:40
+HECA,EHAM,Cairo,flag_eg,Amsterdam,flag_nl,EgyptAir,EgyptAir,MS757,Generic Boeing 787-9,4:15
+EHAM,HECA,Amsterdam,flag_nl,Cairo,flag_eg,EgyptAir,EgyptAir,MS758,Generic Boeing 787-9,4:15
+HECA,EKCH,Cairo,flag_eg,Copenhagen,flag_dk,EgyptAir,EgyptAir,MS759,EgyptAir Boeing 737-800,4:20
+EKCH,HECA,Copenhagen,flag_dk,Cairo,flag_eg,EgyptAir,EgyptAir,MS760,EgyptAir Boeing 737-800,4:20
+HELX,EGLL,Luxor,flag_eg,London Heathrow,flag_gb,EgyptAir,EgyptAir,MS761,EgyptAir Airbus A330-300,5:30
+EGLL,HELX,London Heathrow,flag_gb,Luxor,flag_eg,EgyptAir,EgyptAir,MS762,EgyptAir Airbus A330-300,5:30
+HECA,LEBL,Cairo,flag_eg,Barcelona,flag_es,EgyptAir,EgyptAir,MS767,EgyptAir Boeing 737-800,3:55
+LEBL,HECA,Barcelona,flag_es,Cairo,flag_eg,EgyptAir,EgyptAir,MS768,EgyptAir Boeing 737-800,3:55
+HECA,LSGG,Cairo,flag_eg,Geneva,flag_ch,EgyptAir,EgyptAir,MS771,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:45
+LSGG,HECA,Geneva,flag_ch,Cairo,flag_eg,EgyptAir,EgyptAir,MS772,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:45
+HECA,LSZH,Cairo,flag_eg,Zurich,flag_ch,EgyptAir,EgyptAir,MS773,EgyptAir Boeing 737-800,3:50
+LSZH,HECA,Zurich,flag_ch,Cairo,flag_eg,EgyptAir,EgyptAir,MS774,EgyptAir Boeing 737-800,3:50
+HECA,EIDW,Cairo,flag_eg,Dublin,flag_ie,EgyptAir,EgyptAir,MS775,EgyptAir Boeing 737-800,5:10
+EIDW,HECA,Dublin,flag_ie,Cairo,flag_eg,EgyptAir,EgyptAir,MS776,EgyptAir Boeing 737-800,5:10
+HECA,EGLL,Cairo,flag_eg,London Heathrow,flag_gb,EgyptAir,EgyptAir,MS777,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",4:05
+EGLL,HECA,London Heathrow,flag_gb,Cairo,flag_eg,EgyptAir,EgyptAir,MS778,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",4:05
+HECA,EGCC,Cairo,flag_eg,Manchester,flag_gb,EgyptAir,EgyptAir,MS781,EgyptAir Airbus A330-300,4:55
+EGCC,HECA,Manchester,flag_gb,Cairo,flag_eg,EgyptAir,EgyptAir,MS782,EgyptAir Airbus A330-300,4:55
+HECA,EDDF,Cairo,flag_eg,Frankfurt,flag_de,EgyptAir,EgyptAir,MS785,"EgyptAir Airbus A330-300, EgyptAir Boeing 777-300ER, Generic Boeing 787-9",4:05
+EDDF,HECA,Frankfurt,flag_de,Cairo,flag_eg,EgyptAir,EgyptAir,MS786,"EgyptAir Airbus A330-300, EgyptAir Boeing 777-300ER, Generic Boeing 787-9",4:05
+HECA,EDDM,Cairo,flag_eg,Munich,flag_de,EgyptAir,EgyptAir,MS787,EgyptAir Airbus A220-300,3:40
+EDDM,HECA,Munich,flag_de,Cairo,flag_eg,EgyptAir,EgyptAir,MS788,"EgyptAir Airbus A220-300, EgyptAir Boeing 737-800",3:40
+HECA,LKPR,Cairo,flag_eg,Prague,flag_cz,EgyptAir,EgyptAir,MS789,EgyptAir Boeing 737-800,3:35
+LKPR,HECA,Prague,flag_cz,Cairo,flag_eg,EgyptAir,EgyptAir,MS790,EgyptAir Boeing 737-800,3:35
+HECA,LIRF,Cairo,flag_eg,Rome,flag_it,EgyptAir,EgyptAir,MS791,EgyptAir Boeing 737-800,3:00
+LIRF,HECA,Rome,flag_it,Cairo,flag_eg,EgyptAir,EgyptAir,MS792,EgyptAir Boeing 737-800,3:00
+HECA,LPPT,Cairo,flag_eg,Lisbon,flag_pt,EgyptAir,EgyptAir,MS795,EgyptAir Boeing 737-800,5:20
+LPPT,HECA,Lisbon,flag_pt,Cairo,flag_eg,EgyptAir,EgyptAir,MS796,EgyptAir Boeing 737-800,5:20
+HECA,LOWW,Cairo,flag_eg,Vienna,flag_at,EgyptAir,EgyptAir,MS797,EgyptAir Boeing 737-800,3:10
+LOWW,HECA,Vienna,flag_at,Cairo,flag_eg,EgyptAir,EgyptAir,MS798,EgyptAir Boeing 737-800,3:10
+HECA,LFPG,Cairo,flag_eg,Paris Charles de Gaulle,flag_fr,EgyptAir,EgyptAir,MS799,"EgyptAir Boeing 777-300ER, Generic Boeing 787-9, Generic Airbus A350",4:20
+LFPG,HECA,Paris Charles de Gaulle,flag_fr,Cairo,flag_eg,EgyptAir,EgyptAir,MS800,"EgyptAir Boeing 777-300ER, Generic Boeing 787-9, Generic Airbus A350",4:20
+HESN,HECA,Aswan,flag_eg,Cairo,flag_eg,EgyptAir,EgyptAir,MS81,EgyptAir Boeing 737-800,1:10
+HECA,OETB,Cairo,flag_eg,Tabuk,flag_sa,EgyptAir,EgyptAir,MS811,EgyptAir Boeing 737-800,1:05
+OETB,HECA,Tabuk,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS812,EgyptAir Boeing 737-800,1:05
+HECA,OETF,Cairo,flag_eg,Taif,flag_sa,EgyptAir,EgyptAir,MS815,EgyptAir Boeing 737-800,1:50
+OETF,HECA,Taif,flag_sa,Cairo,flag_eg,EgyptAir,EgyptAir,MS816,EgyptAir Boeing 737-800,1:50
+HECA,HESN,Cairo,flag_eg,Aswan,flag_eg,EgyptAir,EgyptAir,MS82,EgyptAir Boeing 737-800,1:10
+HECA,HLMS,Cairo,flag_eg,Misrata,flag_ly,EgyptAir,EgyptAir,MS827,EgyptAir Boeing 737-800,2:25
+HLMS,HECA,Misrata,flag_ly,Cairo,flag_eg,EgyptAir,EgyptAir,MS828,EgyptAir Boeing 737-800,2:25
+HECA,HLLB,Cairo,flag_eg,Benghazi,flag_ly,EgyptAir,EgyptAir,MS829,EgyptAir Boeing 737-800,1:50
+HLLB,HECA,Benghazi,flag_ly,Cairo,flag_eg,EgyptAir,EgyptAir,MS830,EgyptAir Boeing 737-800,1:50
+HECA,HLLM,Cairo,flag_eg,Tripoli,flag_ly,EgyptAir,EgyptAir,MS831,EgyptAir Boeing 737-800,2:35
+HLLM,HECA,Tripoli,flag_ly,Cairo,flag_eg,EgyptAir,EgyptAir,MS832,EgyptAir Boeing 737-800,2:35
+HECA,HHAS,Cairo,flag_eg,Asmara,flag_er,EgyptAir,EgyptAir,MS833,EgyptAir Airbus A330-300,2:20
+HHAS,HECA,Asmara,flag_er,Cairo,flag_eg,EgyptAir,EgyptAir,MS834,EgyptAir Airbus A330-300,2:20
+HECA,HRYR,Cairo,flag_eg,Kigali,flag_rw,EgyptAir,EgyptAir,MS835 A,EgyptAir Boeing 737-800,5:00
+HRYR,HUEN,Kigali,flag_rw,Entebbe,flag_ug,EgyptAir,EgyptAir,MS835 B,EgyptAir Boeing 737-800,0:40
+HUEN,HECA,Entebbe,flag_ug,Cairo,flag_eg,EgyptAir,EgyptAir,MS835 C,EgyptAir Boeing 737-800,4:40
+HECA,HUEN,Cairo,flag_eg,Entebbe,flag_ug,EgyptAir,EgyptAir,MS837,EgyptAir Boeing 737-800,4:40
+HUEN,HECA,Entebbe,flag_ug,Cairo,flag_eg,EgyptAir,EgyptAir,MS838,EgyptAir Boeing 737-800,4:40
+HECA,FAOR,Cairo,flag_eg,Johannesburg,flag_za,EgyptAir,EgyptAir,MS839,EgyptAir Airbus A330-300,7:55
+FAOR,HECA,Johannesburg,flag_za,Cairo,flag_eg,EgyptAir,EgyptAir,MS840,EgyptAir Airbus A330-300,7:55
+HECA,HTDA,Cairo,flag_eg,Dar es Salaam,flag_tz,EgyptAir,EgyptAir,MS841,EgyptAir Boeing 737-800,5:20
+HECA,FMCH,Cairo,flag_eg,Moroni,flag_km,EgyptAir,EgyptAir,MS841,EgyptAir Boeing 737-800,5:20
+HTDA,HECA,Dar es Salaam,flag_tz,Cairo,flag_eg,EgyptAir,EgyptAir,MS842,EgyptAir Boeing 737-800,5:20
+HECA,DTTA,Cairo,flag_eg,Tunis,flag_tn,EgyptAir,EgyptAir,MS843,"EgyptAir Boeing 737-800, Generic Airbus A321",2:55
+DTTA,HECA,Tunis,flag_tn,Cairo,flag_eg,EgyptAir,EgyptAir,MS844,"EgyptAir Boeing 737-800, Generic Airbus A321",2:55
+HECA,DAAG,Cairo,flag_eg,Algiers,flag_dz,EgyptAir,EgyptAir,MS845,"Generic Airbus A321, EgyptAir Boeing 737-800",3:30
+DAAG,HECA,Algiers,flag_dz,Cairo,flag_eg,EgyptAir,EgyptAir,MS846,"Generic Airbus A321, EgyptAir Boeing 737-800",3:23
+HECA,GMMN,Cairo,flag_eg,Casablanca,flag_ma,EgyptAir,EgyptAir,MS847,"EgyptAir Boeing 737-800, Generic Boeing 787-9",4:50
+GMMN,HECA,Casablanca,flag_ma,Cairo,flag_eg,EgyptAir,EgyptAir,MS848,"EgyptAir Boeing 737-800, Generic Boeing 787-9",4:50
+HECA,HAAB,Cairo,flag_eg,Addis Ababa,flag_et,EgyptAir,EgyptAir,MS851,EgyptAir Boeing 737-800,3:20
+HAAB,HECA,Addis Ababa,flag_et,Cairo,flag_eg,EgyptAir,EgyptAir,MS852,EgyptAir Boeing 737-800,3:20
+HECA,HJJJ,Cairo,flag_eg,Juba,flag_ss,EgyptAir,EgyptAir,MS859,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:15
+HJJJ,HECA,Juba,flag_ss,Cairo,flag_eg,EgyptAir,EgyptAir,MS860,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:15
+HECA,FZAA,Cairo,flag_eg,Kinshasa,flag_cd,EgyptAir,EgyptAir,MS863,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",5:35
+FZAA,HECA,Kinshasa,flag_cd,Cairo,flag_eg,EgyptAir,EgyptAir,MS864,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",5:35
+HECA,HSPN,Cairo,flag_eg,Port Sudan,flag_sd,EgyptAir,EgyptAir,MS865,EgyptAir Boeing 737-800,1:45
+HSPN,HECA,Port Sudan,flag_sd,Cairo,flag_eg,EgyptAir,EgyptAir,MS866,EgyptAir Boeing 737-800,1:45
+HECA,HDAM,Cairo,flag_eg,Djibouti,flag_dj,EgyptAir,EgyptAir,MS873 A,EgyptAir Boeing 737-800,3:05
+HDAM,HCMM,Djibouti,flag_dj,Mogadishu,flag_so,EgyptAir,EgyptAir,MS873 B,EgyptAir Boeing 737-800,1:40
+HCMM,HDAM,Mogadishu,flag_so,Djibouti,flag_dj,EgyptAir,EgyptAir,MS874 A,EgyptAir Boeing 737-800,1:40
+HDAM,HECA,Djibouti,flag_dj,Cairo,flag_eg,EgyptAir,EgyptAir,MS874 B,EgyptAir Boeing 737-800,3:05
+HECA,DNAA,Cairo,flag_eg,Abuja,flag_ng,EgyptAir,EgyptAir,MS877,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:45
+DNAA,HECA,Abuja,flag_ng,Cairo,flag_eg,EgyptAir,EgyptAir,MS878,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:45
+HECA,DGAA,Cairo,flag_eg,Accra,flag_gh,EgyptAir,EgyptAir,MS881,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",5:50
+DGAA,HECA,Accra,flag_gh,Cairo,flag_eg,EgyptAir,EgyptAir,MS882,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",5:50
+HECA,FTTJ,Cairo,flag_eg,N Djamena,flag_td,EgyptAir,EgyptAir,MS885,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:35
+FTTJ,HECA,N Djamena,flag_td,Cairo,flag_eg,EgyptAir,EgyptAir,MS886,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",3:35
+HECA,FKKD,Cairo,flag_eg,Douala,flag_cm,EgyptAir,EgyptAir,MS887,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",5:00
+FKKD,HECA,Douala,flag_cm,Cairo,flag_eg,EgyptAir,EgyptAir,MS888,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, EgyptAir Boeing 777-300ER",5:00
+HECA,OMDB,Cairo,flag_eg,Dubai,flag_ae,EgyptAir,EgyptAir,MS901,"EgyptAir Airbus A330-300, Generic Boeing 787-9, EgyptAir Boeing 737-800",2:45
+OMDB,HECA,Dubai,flag_ae,Cairo,flag_eg,EgyptAir,EgyptAir,MS902,"EgyptAir Airbus A330-300, Generic Boeing 787-9, EgyptAir Boeing 737-800",2:45
+HECA,OMFJ,Cairo,flag_eg,Fujairah,flag_ae,EgyptAir,EgyptAir,MS903,EgyptAir Boeing 737-800,3:00
+OMFJ,HECA,Fujairah,flag_ae,Cairo,flag_eg,EgyptAir,EgyptAir,MS904,EgyptAir Boeing 737-800,3:00
+HECA,OMAA,Cairo,flag_eg,Abu Dhabi,flag_ae,EgyptAir,EgyptAir,MS914,EgyptAir Boeing 737-800,3:05
+OMAA,HECA,Abu Dhabi,flag_ae,Cairo,flag_eg,EgyptAir,EgyptAir,MS915,EgyptAir Boeing 737-800,3:05
+HECA,OBBI,Cairo,flag_eg,Bahrain,flag_bh,EgyptAir,EgyptAir,MS920,EgyptAir Boeing 737-800,2:30
+OBBI,HECA,Bahrain,flag_bh,Cairo,flag_eg,EgyptAir,EgyptAir,MS921,EgyptAir Boeing 737-800,2:30
+HECA,OOMS,Cairo,flag_eg,Muscat,flag_om,EgyptAir,EgyptAir,MS930,EgyptAir Boeing 737-800,3:30
+OOMS,HECA,Muscat,flag_om,Cairo,flag_eg,EgyptAir,EgyptAir,MS931,EgyptAir Boeing 737-800,3:30
+HECA,OTHH,Cairo,flag_eg,Doha,flag_qa,EgyptAir,EgyptAir,MS935,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, Generic Boeing 787-9",2:35
+OTHH,HECA,Doha,flag_qa,Cairo,flag_eg,EgyptAir,EgyptAir,MS936,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800, Generic Boeing 787-9",2:35
+HECA,KORD,Cairo,flag_eg,Chicago O Hare,flag_us,EgyptAir,EgyptAir,MS947,Generic Airbus A350,12:25
+KORD,HECA,Chicago O Hare,flag_us,Cairo,flag_eg,EgyptAir,EgyptAir,MS948,Generic Airbus A350,11:10
+HECA,ZSPD,Cairo,flag_eg,Shanghai Pudong,flag_cn,EgyptAir,EgyptAir,MS951,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",10:00
+ZSPD,HECA,Shanghai Pudong,flag_cn,Cairo,flag_eg,EgyptAir,EgyptAir,MS952,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",10:00
+HECA,ZSHC,Cairo,flag_eg,Hangzhou,flag_cn,EgyptAir,EgyptAir,MS953,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",10:15
+ZSHC,HECA,Hangzhou,flag_cn,Cairo,flag_eg,EgyptAir,EgyptAir,MS954,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",10:15
+HECA,ZBAA,Cairo,flag_eg,Beijing,flag_cn,EgyptAir,EgyptAir,MS955,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",8:55
+ZBAA,HECA,Beijing,flag_cn,Cairo,flag_eg,EgyptAir,EgyptAir,MS956,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",8:55
+HECA,ZGGG,Cairo,flag_eg,Guangzhou,flag_cn,EgyptAir,EgyptAir,MS958,EgyptAir Boeing 777-300ER,8:35
+ZGGG,HECA,Guangzhou,flag_cn,Cairo,flag_eg,EgyptAir,EgyptAir,MS959,EgyptAir Boeing 777-300ER,8:35
+HECA,RJAA,Cairo,flag_eg,Tokyo Narita,flag_jp,EgyptAir,EgyptAir,MS964,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:15
+RJAA,HECA,Tokyo Narita,flag_jp,Cairo,flag_eg,EgyptAir,EgyptAir,MS965,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:15
+HECA,OMSJ,Cairo,flag_eg,Sharjah,flag_ae,EgyptAir,EgyptAir,MS966,"EgyptAir Boeing 737-800, Generic Airbus A320",3:05
+OMSJ,HECA,Sharjah,flag_ae,Cairo,flag_eg,EgyptAir,EgyptAir,MS967,"EgyptAir Boeing 737-800, Generic Airbus A320",3:05
+HECA,VABB,Cairo,flag_eg,Mumbai,flag_in,EgyptAir,EgyptAir,MS968,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:55
+VABB,HECA,Mumbai,flag_in,Cairo,flag_eg,EgyptAir,EgyptAir,MS969,"EgyptAir Airbus A330-300, EgyptAir Boeing 737-800",4:55
+HECA,VGHS,Cairo,flag_eg,Dhaka,flag_bd,EgyptAir,EgyptAir,MS970,Generic Boeing 787-9,6:30
+VGHS,HECA,Dhaka,flag_bd,Cairo,flag_eg,EgyptAir,EgyptAir,MS971,Generic Boeing 787-9,6:30
+HECA,VIDP,Cairo,flag_eg,Delhi,flag_in,EgyptAir,EgyptAir,MS973,"EgyptAir Airbus A330-300, Generic Boeing 787-9",5:55
+VIDP,HECA,Delhi,flag_in,Cairo,flag_eg,EgyptAir,EgyptAir,MS974,"EgyptAir Airbus A330-300, Generic Boeing 787-9",5:55
+HECA,WIII,Cairo,flag_eg,Jakarta,flag_id,EgyptAir,EgyptAir,MS977,Generic Boeing 787-9,9:40
+WIII,HECA,Jakarta,flag_id,Cairo,flag_eg,EgyptAir,EgyptAir,MS978,Generic Boeing 787-9,9:40
+HECA,KIAD,Cairo,flag_eg,Washington Dulles,flag_us,EgyptAir,EgyptAir,MS981,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:25
+KIAD,HECA,Washington Dulles,flag_us,Cairo,flag_eg,EgyptAir,EgyptAir,MS982,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:25
+HECA,KLAX,Cairo,flag_eg,Los Angeles,flag_us,EgyptAir,EgyptAir,MS983,Generic Airbus A350,14:50
+KLAX,HECA,Los Angeles,flag_us,Cairo,flag_eg,EgyptAir,EgyptAir,MS984,Generic Airbus A350,13:45
+HECA,KJFK,Cairo,flag_eg,New York JFK,flag_us,EgyptAir,EgyptAir,MS985,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:20
+KJFK,HECA,New York JFK,flag_us,Cairo,flag_eg,EgyptAir,EgyptAir,MS986,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:20
+HECA,KEWR,Cairo,flag_eg,Newark,flag_us,EgyptAir,EgyptAir,MS987,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:35
+KEWR,HECA,Newark,flag_us,Cairo,flag_eg,EgyptAir,EgyptAir,MS988,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:35
+HECA,CYYZ,Cairo,flag_eg,Toronto,flag_ca,EgyptAir,EgyptAir,MS995,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:15
+CYYZ,HECA,Toronto,flag_ca,Cairo,flag_eg,EgyptAir,EgyptAir,MS996,"Generic Boeing 787-9, EgyptAir Boeing 777-300ER",11:15
+RJBB,RJTT,Osaka Kansai,flag_jp,Tokyo Haneda,flag_jp,ANA,ANAtail,NH100,"ANA Boeing 787-8, ANA Airbus A321, ANA Boeing 777-200ER",1:00
+KIAH,RJTT,Houston,flag_us,Tokyo Haneda,flag_jp,ANA,ANAtail,NH113,ANA Boeing 787-9,13:00
+RJTT,KIAH,Tokyo Haneda,flag_jp,Houston,flag_us,ANA,ANAtail,NH114,ANA Boeing 787-9,13:00
+CYVR,RJTT,Vancouver,flag_ca,Tokyo Haneda,flag_jp,ANA,ANAtail,NH115,ANA Boeing 787-9,8:05
+RJTT,CYVR,Tokyo Haneda,flag_jp,Vancouver,flag_ca,ANA,ANAtail,NH116,ANA Boeing 787-9,8:05
+KSEA,RJTT,Seattle,flag_us,Tokyo Haneda,flag_jp,ANA,ANAtail,NH117,ANA Boeing 787-9,8:20
+RJTT,KSEA,Tokyo Haneda,flag_jp,Seattle,flag_us,ANA,ANAtail,NH118,ANA Boeing 787-9,8:20
+RJOA,RJCC,Hiroshima,flag_jp,Sapporo,flag_jp,ANA,ANAtail,NH1271,"ANA Boeing 737-800, ANA Airbus A321",2:15
+RJCC,RJOA,Sapporo,flag_jp,Hiroshima,flag_jp,ANA,ANAtail,NH1272,"ANA Boeing 737-800, ANA Airbus A321",2:15
+ROAH,RJBB,Naha,flag_jp,Osaka Kansai,flag_jp,ANA,ANAtail,NH1734,"ANA Boeing 787-8, ANA Airbus A321",1:30
+RJBB,ROAH,Osaka Kansai,flag_jp,Naha,flag_jp,ANA,ANAtail,NH1737,"ANA Boeing 787-8, ANA Airbus A321",1:30
+MMMX,RJAA,Mexico City,flag_mx,Tokyo Narita,flag_jp,ANA,ANAtail,NH179,ANA Boeing 787-8,11:00
+RJAA,MMMX,Tokyo Narita,flag_jp,Mexico City,flag_mx,ANA,ANAtail,NH180,ANA Boeing 787-8,11:00
+PHNL,RJAA,Honolulu,flag_us,Tokyo Narita,flag_jp,ANA,ANAtail,NH181,ANA - Kai Airbus A380,6:30
+RJAA,PHNL,Tokyo Narita,flag_jp,Honolulu,flag_us,ANA,ANAtail,NH182,ANA - Kai Airbus A380,6:30
+RJTT,EGLL,Tokyo Haneda,flag_jp,London Heathrow,flag_gb,ANA,ANAtail,NH211,ANA Boeing 777-300ER,12:20
+EGLL,RJTT,London Heathrow,flag_gb,Tokyo Haneda,flag_jp,ANA,ANAtail,NH212,ANA Boeing 777-300ER,12:20
+RJTT,UUEE,Tokyo Haneda,flag_jp,Moscow Sheremetyevo,flag_ru,ANA,ANAtail,NH213,ANA Boeing 777-300ER,8:45
+UUEE,RJTT,Moscow Sheremetyevo,flag_ru,Tokyo Haneda,flag_jp,ANA,ANAtail,NH214,ANA Boeing 777-300ER,8:45
+RJFF,RJTT,Fukuoka,flag_jp,Tokyo Haneda,flag_jp,ANA,ANAtail,NH262,"ANA Boeing 737-800, ANA Boeing 777-200ER",1:35
+RJTT,RJFF,Tokyo Haneda,flag_jp,Fukuoka,flag_jp,ANA,ANAtail,NH263,"ANA Boeing 737-800, ANA Boeing 777-200ER",1:35
+RJTT,RJOO,Tokyo Haneda,flag_jp,Osaka Itami,flag_jp,ANA,ANAtail,NH37,ANA Boeing 787-8,0:47
+RJOO,RJTT,Osaka Itami,flag_jp,Tokyo Haneda,flag_jp,ANA,ANAtail,NH40,ANA Boeing 787-8,0:47
+RJTT,ROAH,Tokyo Haneda,flag_jp,Naha,flag_jp,ANA,ANAtail,NH473,"ANA Boeing 787-8, ANA Boeing 777-200ER",2:30
+ROAH,RJTT,Naha,flag_jp,Tokyo Haneda,flag_jp,ANA,ANAtail,NH474,"ANA Boeing 787-8, ANA Boeing 777-200ER",2:30
+RJGG,RJAA,Nagoya,flag_jp,Tokyo Narita,flag_jp,ANA,ANAtail,NH492,"ANA Boeing 737-800, ANA Airbus A321",0:55
+RJAA,RJGG,Tokyo Narita,flag_jp,Nagoya,flag_jp,ANA,ANAtail,NH495,"ANA Boeing 737-800, ANA Airbus A321",0:55
+KLAX,RJAA,Los Angeles,flag_us,Tokyo Narita,flag_jp,ANA,ANAtail,NH5,ANA Boeing 777-300ER,9:10
+RJBE,RJCC,Kobe,flag_jp,Sapporo,flag_jp,ANA,ANAtail,NH577,ANA Airbus A321,2:00
+RJCC,RJBE,Sapporo,flag_jp,Kobe,flag_jp,ANA,ANAtail,NH578,ANA Airbus A321,2:00
+RJAA,KLAX,Tokyo Narita,flag_jp,Los Angeles,flag_us,ANA,ANAtail,NH6,ANA Boeing 777-300ER,9:10
+RJCC,RJTT,Sapporo,flag_jp,Tokyo Haneda,flag_jp,ANA,ANAtail,NH626,"ANA Boeing 787-8, ANA Boeing 777-200ER",1:35
+RJTT,RJCC,Tokyo Haneda,flag_jp,Sapporo,flag_jp,ANA,ANAtail,NH627,"ANA Boeing 787-8, ANA Boeing 777-200ER",1:35
+KSFO,RJAA,San Francisco,flag_us,Tokyo Narita,flag_jp,ANA,ANAtail,NH7,ANA Boeing 777-300ER,8:30
+RJOO,RJFU,Osaka Itami,flag_jp,Nagasaki,flag_jp,ANA,ANAtail,NH787,ANA Boeing 737-800,1:00
+RJFU,RJOO,Nagasaki,flag_jp,Osaka Itami,flag_jp,ANA,ANAtail,NH788,ANA Boeing 737-800,1:00
+RJAA,KSFO,Tokyo Narita,flag_jp,San Francisco,flag_us,ANA,ANAtail,NH8,ANA Boeing 777-300ER,8:30
+RJAA,WSSS,Tokyo Narita,flag_jp,Singapore,flag_sg,ANA,ANAtail,NH801,"ANA Boeing 777-300ER, ANA Boeing 787-10",6:20
+WSSS,RJAA,Singapore,flag_sg,Tokyo Narita,flag_jp,ANA,ANAtail,NH802,"ANA Boeing 777-300ER, ANA Boeing 787-10",6:20
+RJAA,VABB,Tokyo Narita,flag_jp,Mumbai,flag_in,ANA,ANAtail,NH829,ANA Boeing 787-9,9:30
+VABB,RJAA,Mumbai,flag_in,Tokyo Narita,flag_jp,ANA,ANAtail,NH830,ANA Boeing 787-9,9:30
+RJTT,VIDP,Tokyo Haneda,flag_jp,Delhi,flag_in,ANA,ANAtail,NH837,ANA Boeing 787-9,9:20
+VIDP,RJTT,Delhi,flag_in,Tokyo Haneda,flag_jp,ANA,ANAtail,NH838,ANA Boeing 787-9,9:20
+RJTT,VHHH,Tokyo Haneda,flag_jp,Hong Kong,flag_hk,ANA,ANAtail,NH859,"ANA Boeing 787-9, ANA Boeing 787-10",4:00
+VHHH,RJTT,Hong Kong,flag_hk,Tokyo Haneda,flag_jp,ANA,ANAtail,NH860,"ANA Boeing 787-9, ANA Boeing 787-10",4:00
+RJAA,ZSPD,Tokyo Narita,flag_jp,Shanghai Pudong,flag_cn,ANA,ANAtail,NH919,"ANA Boeing 787-8, ANA Boeing 777-200ER",2:55
+ZSPD,RJAA,Shanghai Pudong,flag_cn,Tokyo Narita,flag_jp,ANA,ANAtail,NH920,"ANA Boeing 787-8, ANA Boeing 777-200ER",2:55
+RJTT,RJBB,Tokyo Haneda,flag_jp,Osaka Kansai,flag_jp,ANA,ANAtail,NH95,"ANA Boeing 787-8, ANA Airbus A321, ANA Boeing 777-200ER",1:00
+RJTT,ZBAA,Tokyo Haneda,flag_jp,Beijing,flag_cn,ANA,ANAtail,NH961,ANA Boeing 777-300ER,3:30
+ZBAA,RJTT,Beijing,flag_cn,Tokyo Haneda,flag_jp,ANA,ANAtail,NH962,ANA Boeing 777-300ER,3:30
+OPIS,UBBB,Islamabad,flag_pk,Baku,flag_az,Pakistan International Airlines,piatail,PK155,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",4:07
+UBBB,OPIS,Baku,flag_az,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK156,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",4:14
+OPIS,LOWW,Islamabad,flag_pk,Vienna,flag_at,Pakistan International Airlines,piatail,PK175,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER",6:45
+LOWW,OPIS,Vienna,flag_at,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK176,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER",6:36
+OPST,OKKK,Sialkot,flag_pk,Kuwait City,flag_kw,Pakistan International Airlines,piatail,PK207,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",6:40
+OKKK,OPST,Kuwait City,flag_kw,Sialkot,flag_pk,Pakistan International Airlines,piatail,PK208,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",5:45
+OPIS,OMSJ,Islamabad,flag_pk,Sharjah,flag_ae,Pakistan International Airlines,piatail,PK253,Pakistan International Airlines Airbus A320,3:00
+OMSJ,OPIS,Sharjah,flag_ae,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK254,Pakistan International Airlines Airbus A320,3:00
+OPPS,OTHH,Peshawar,flag_pk,Doha,flag_qa,Pakistan International Airlines,piatail,PK287,Pakistan International Airlines Airbus A320,3:20
+OTHH,OPPS,Doha,flag_qa,Peshawar,flag_pk,Pakistan International Airlines,piatail,PK288,Pakistan International Airlines Airbus A320,3:20
+OPIS,OOMS,Islamabad,flag_pk,Muscat,flag_om,Pakistan International Airlines,piatail,PK291,Pakistan International Airlines Airbus A320,2:30
+OOMS,OPIS,Muscat,flag_om,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK292,Pakistan International Airlines Airbus A320,2:30
+OPKC,OPIS,Karachi,flag_pk,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK300,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",2:25
+OPIS,OPKC,Islamabad,flag_pk,Karachi,flag_pk,Pakistan International Airlines,piatail,PK301,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR",2:20
+OPIS,OPSD,Islamabad,flag_pk,Skardu,flag_pk,Pakistan International Airlines,piatail,PK451,"Pakistan International Airlines Airbus A320, Generic Bombardier Dash 8-Q400",1:50
+OPSD,OPIS,Skardu,flag_pk,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK452,"Pakistan International Airlines Airbus A320, Generic Bombardier Dash 8-Q400",1:45
+OPKC,EGCC,Karachi,flag_pk,Manchester,flag_gb,Pakistan International Airlines,piatail,PK731,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",8:30
+EGCC,OPKC,Manchester,flag_gb,Karachi,flag_pk,Pakistan International Airlines,piatail,PK732,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",8:30
+OEMA,OPKC,Medina,flag_sa,Karachi,flag_pk,Pakistan International Airlines,piatail,PK743,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",5:00
+OEMA,OPKC,Medina,flag_sa,Karachi,flag_pk,Pakistan International Airlines,piatail,PK744,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",5:00
+OEPA,OEMA,Qaisumah,flag_sa,Medina,flag_sa,Pakistan International Airlines,piatail,PK747,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",5:00
+OEMA,OEPA,Medina,flag_sa,Qaisumah,flag_sa,Pakistan International Airlines,piatail,PK748,"Pakistan International Airlines Airbus A320, Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",5:00
+OPIS,LFPG,Islamabad,flag_pk,Paris Charles de Gaulle,flag_fr,Pakistan International Airlines,piatail,PK749,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",7:00
+LFPG,OPIS,Paris Charles de Gaulle,flag_fr,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK750,"Pakistan International Airlines Boeing 777-200LR, Generic Boeing 777-300ER, Generic Boeing 777-200ER",7:00
+OPIS,EGPF,Islamabad,flag_pk,Glasgow,flag_gb,Pakistan International Airlines,piatail,PK8711,Pakistan International Airlines Boeing 747-200,8:20
+EGPF,OPIS,Glasgow,flag_gb,Islamabad,flag_pk,Pakistan International Airlines,piatail,PK8711,Pakistan International Airlines Boeing 747-200,8:20
+OPKC,KJFK,Karachi,flag_pk,New York JFK,flag_us,Pakistan International Airlines,piatail,PK8713A,Pakistan International Airlines Boeing 747-200,14:20
+KJFK,KIAH,New York JFK,flag_us,Houston,flag_us,Pakistan International Airlines,piatail,PK8713B,Pakistan International Airlines Boeing 747-200,3:35
+KIAH,KJFK,Houston,flag_us,New York JFK,flag_us,Pakistan International Airlines,piatail,PK8713C,Pakistan International Airlines Boeing 747-200,3:10
+KJFK,OPKC,New York JFK,flag_us,Karachi,flag_pk,Pakistan International Airlines,piatail,PK8713D,Pakistan International Airlines Boeing 747-200,12:55
+OPKC,HECA,Karachi,flag_pk,Cairo,flag_eg,Pakistan International Airlines,piatail,PK8743,Philippine Airlines MD-11,5:30
+HECA,OPKC,Cairo,flag_eg,Karachi,flag_pk,Pakistan International Airlines,piatail,PK8744,Pakistan International Airlines DC-10,5:30
+RPLL,PHNL,Manila,flag_ph,Honolulu,flag_us,Philippine Airlines,PRVAtail,PR100,Philippine Airlines Airbus A330-300,10:00
+PHNL,RPLL,Honolulu,flag_us,Manila,flag_ph,Philippine Airlines,PRVAtail,PR101,Philippine Airlines Airbus A330-300,10:30
+RPLL,KSFO,Manila,flag_ph,San Francisco,flag_us,Philippine Airlines,PRVAtail,PR104,"Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A350",12:00
+KSFO,RPLL,San Francisco,flag_us,Manila,flag_ph,Philippine Airlines,PRVAtail,PR105,"Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A350",13:30
+RPLL,KLAX,Manila,flag_ph,Los Angeles,flag_us,Philippine Airlines,PRVAtail,PR112,"Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A350",12:25
+KLAX,RPLL,Los Angeles,flag_us,Manila,flag_ph,Philippine Airlines,PRVAtail,PR113,"Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A350",14:10
+RPLL,CYVR,Manila,flag_ph,Vancouver,flag_ca,Philippine Airlines,PRVAtail,PR116,Philippine Airlines Boeing 777-300ER,11:15
+CYVR,RPLL,Vancouver,flag_ca,Manila,flag_ph,Philippine Airlines,PRVAtail,PR117,Philippine Airlines Boeing 777-300ER,13:15
+RPLL,KSEA,Manila,flag_ph,Seattle,flag_us,Philippine Airlines,PRVAtail,PR124,Philippine Airlines Boeing 777-300ER,11:15
+KSEA,RPLL,Seattle,flag_us,Manila,flag_ph,Philippine Airlines,PRVAtail,PR125,Philippine Airlines Boeing 777-300ER,13:15
+RPLL,RPVF,Manila,flag_ph,Catarman,flag_ph,Philippine Airlines,PRVAtail,PR2079,PAL Express Bombardier Dash 8-Q400,0:50
+RPVF,RPLL,Catarman,flag_ph,Manila,flag_ph,Philippine Airlines,PRVAtail,PR2080,PAL Express Bombardier Dash 8-Q400,0:50
+RPLL,RPVM,Manila,flag_ph,Cebu,flag_ph,Philippine Airlines,PRVAtail,PR2845H,Philippine Airlines Boeing 747-400,0:50
+RPVM,RPLL,Cebu,flag_ph,Manila,flag_ph,Philippine Airlines,PRVAtail,PR2846H,Philippine Airlines Boeing 747-400,0:50
+RPLL,VHHH,Manila,flag_ph,Hong Kong,flag_hk,Philippine Airlines,PRVAtail,PR318,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A321, Philippine Airlines Airbus A350",1:40
+VHHH,RPLL,Hong Kong,flag_hk,Manila,flag_ph,Philippine Airlines,PRVAtail,PR319,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A321, Philippine Airlines Airbus A350",1:50
+RJTT,RPLL,Tokyo Haneda,flag_jp,Manila,flag_ph,Philippine Airlines,PRVAtail,PR423,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A321, Philippine Airlines Airbus A350",4:15
+RPLL,RJTT,Manila,flag_ph,Tokyo Haneda,flag_jp,Philippine Airlines,PRVAtail,PR424,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER, Philippine Airlines Airbus A321, Philippine Airlines Airbus A350",3:50
+RJAA,RPVM,Tokyo Narita,flag_jp,Cebu,flag_ph,Philippine Airlines,PRVAtail,PR433,"Philippine Airlines Airbus A330-300, Philippine Airlines Airbus A321",4:30
+RPVM,RJAA,Cebu,flag_ph,Tokyo Narita,flag_jp,Philippine Airlines,PRVAtail,PR434,"Philippine Airlines Airbus A330-300, Philippine Airlines Airbus A321",4:00
+RPLL,VVTS,Manila,flag_ph,Ho Chi Minh City,flag_vn,Philippine Airlines,PRVAtail,PR591,"Philippine Airlines Airbus A330-300, Philippine Airlines Airbus A350",2:10
+VVTS,RPLL,Ho Chi Minh City,flag_vn,Manila,flag_ph,Philippine Airlines,PRVAtail,PR592,"Philippine Airlines Airbus A330-300, Philippine Airlines Airbus A350",2:25
+RPLL,OMDB,Manila,flag_ph,Dubai,flag_ae,Philippine Airlines,PRVAtail,PR658,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER",8:40
+OMDB,RPLL,Dubai,flag_ae,Manila,flag_ph,Philippine Airlines,PRVAtail,PR659,"Philippine Airlines Airbus A330-300, Philippine Airlines Boeing 777-300ER",8:20
+RPLL,VTBS,Manila,flag_ph,Bangkok,flag_th,Philippine Airlines,PRVAtail,PR834H (A),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",3:30
+VTBS,OPKC,Bangkok,flag_th,Karachi,flag_pk,Philippine Airlines,PRVAtail,PR834H (B),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",5:25
+OPKC,OBBI,Karachi,flag_pk,Bahrain,flag_bh,Philippine Airlines,PRVAtail,PR834H (C),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",2:55
+OBBI,LGAV,Bahrain,flag_bh,Athens,flag_gr,Philippine Airlines,PRVAtail,PR834H (D),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",4:20
+LGAV,LIRF,Athens,flag_gr,Rome,flag_it,Philippine Airlines,PRVAtail,PR834H (E),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",2:10
+LIRF,EDDF,Rome,flag_it,Frankfurt,flag_de,Philippine Airlines,PRVAtail,PR834H (F),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:55
+EDDF,EHAM,Frankfurt,flag_de,Amsterdam,flag_nl,Philippine Airlines,PRVAtail,PR834H (G),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:10
+EHAM,EGKK,Amsterdam,flag_nl,London Gatwick,flag_gb,Philippine Airlines,PRVAtail,PR834H (H),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:10
+EGKK,EHAM,London Gatwick,flag_gb,Amsterdam,flag_nl,Philippine Airlines,PRVAtail,PR835H (A),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:10
+EHAM,EDDF,Amsterdam,flag_nl,Frankfurt,flag_de,Philippine Airlines,PRVAtail,PR835H (B),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:10
+EDDF,LIRF,Frankfurt,flag_de,Rome,flag_it,Philippine Airlines,PRVAtail,PR835H (C),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:55
+LIRF,LGAV,Rome,flag_it,Athens,flag_gr,Philippine Airlines,PRVAtail,PR835H (D),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",1:55
+LGAV,OBBI,Athens,flag_gr,Bahrain,flag_bh,Philippine Airlines,PRVAtail,PR835H (E),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",3:45
+OBBI,OPKC,Bahrain,flag_bh,Karachi,flag_pk,Philippine Airlines,PRVAtail,PR835H (F),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",2:35
+OPKC,VTBS,Karachi,flag_pk,Bangkok,flag_th,Philippine Airlines,PRVAtail,PR835H (G),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",4:50
+VTBS,RPLL,Bangkok,flag_th,Manila,flag_ph,Philippine Airlines,PRVAtail,PR835H (H),"Philippine Airlines Boeing 747-400, Philippine Airlines MD-11",3:15
+OMDB,OERK,Dubai,flag_ae,Riyadh,flag_sa,Riyadh Air,RXVATail,RX001,Generic Boeing 787-9,2:00
+OERK,OMDB,Riyadh,flag_sa,Dubai,flag_ae,Riyadh Air,RXVATail,RX002,Generic Boeing 787-9,1:55
+WSSS,OERK,Singapore,flag_sg,Riyadh,flag_sa,Riyadh Air,RXVATail,RX005,Generic Boeing 787-9,7:55
+OERK,WSSS,Riyadh,flag_sa,Singapore,flag_sg,Riyadh Air,RXVATail,RX006,Generic Boeing 787-9,7:40
+ZBAA,OERK,Beijing,flag_cn,Riyadh,flag_sa,Riyadh Air,RXVATail,RX007,Generic Boeing 787-9,11:30
+OERK,ZBAA,Riyadh,flag_sa,Beijing,flag_cn,Riyadh Air,RXVATail,RX008,Generic Boeing 787-9,9:20
+OERK,ZSPD,Riyadh,flag_sa,Shanghai Pudong,flag_cn,Riyadh Air,RXVATail,RX011,Generic Boeing 787-9,11:50
+ZSPD,OERK,Shanghai Pudong,flag_cn,Riyadh,flag_sa,Riyadh Air,RXVATail,RX012,Generic Boeing 787-9,9:50
+KATL,OERK,Atlanta,flag_us,Riyadh,flag_sa,Riyadh Air,RXVATail,RX013,Generic Boeing 787-9,14:05
+OERK,KATL,Riyadh,flag_sa,Atlanta,flag_us,Riyadh Air,RXVATail,RX014,Generic Boeing 787-9,12:20
+KLAX,OERK,Los Angeles,flag_us,Riyadh,flag_sa,Riyadh Air,RXVATail,RX015,Generic Boeing 787-9,15:05
+OERK,KLAX,Riyadh,flag_sa,Los Angeles,flag_us,Riyadh Air,RXVATail,RX016,Generic Boeing 787-9,15:55
+KJFK,OERK,New York JFK,flag_us,Riyadh,flag_sa,Riyadh Air,RXVATail,RX017,Generic Boeing 787-9,12:00
+OERK,KJFK,Riyadh,flag_sa,New York JFK,flag_us,Riyadh Air,RXVATail,RX018,Generic Boeing 787-9,14:10
+OERK,HECA,Riyadh,flag_sa,Cairo,flag_eg,Riyadh Air,RXVATail,RX019,Generic Boeing 787-9,2:35
+HECA,OERK,Cairo,flag_eg,Riyadh,flag_sa,Riyadh Air,RXVATail,RX020,Generic Boeing 787-9,3:05
+LTFM,OERK,Istanbul,flag_tr,Riyadh,flag_sa,Riyadh Air,RXVATail,RX021,Generic Boeing 787-9,4:15
+OERK,LTFM,Riyadh,flag_sa,Istanbul,flag_tr,Riyadh Air,RXVATail,RX022,Generic Boeing 787-9,4:10
+EGCC,OERK,Manchester,flag_gb,Riyadh,flag_sa,Riyadh Air,RXVATail,RX023,Generic Boeing 787-9,6:00
+OERK,EGCC,Riyadh,flag_sa,Manchester,flag_gb,Riyadh Air,RXVATail,RX024,Generic Boeing 787-9,6:50
+LFPG,OERK,Paris Charles de Gaulle,flag_fr,Riyadh,flag_sa,Riyadh Air,RXVATail,RX025,Generic Boeing 787-9,6:10
+OERK,LFPG,Riyadh,flag_sa,Paris Charles de Gaulle,flag_fr,Riyadh Air,RXVATail,RX026,Generic Boeing 787-9,6:55
+OEJN,OERK,Jeddah,flag_sa,Riyadh,flag_sa,Riyadh Air,RXVATail,RX031,Generic Boeing 787-9,1:35
+OERK,OEJN,Riyadh,flag_sa,Jeddah,flag_sa,Riyadh Air,RXVATail,RX032,Generic Boeing 787-9,1:35
+OERK,OMAA,Riyadh,flag_sa,Abu Dhabi,flag_ae,Riyadh Air,RXVATail,RX033,Generic Boeing 787-9,2:00
+OMAA,OERK,Abu Dhabi,flag_ae,Riyadh,flag_sa,Riyadh Air,RXVATail,RX034,Generic Boeing 787-9,2:10
+OEDF,OERK,Dammam,flag_sa,Riyadh,flag_sa,Riyadh Air,RXVATail,RX035,Generic Boeing 787-9,1:15
+OERK,OEDF,Riyadh,flag_sa,Dammam,flag_sa,Riyadh Air,RXVATail,RX036,Generic Boeing 787-9,1:10
+OEMA,OERK,Medina,flag_sa,Riyadh,flag_sa,Riyadh Air,RXVATail,RX037,Generic Boeing 787-9,1:25
+OERK,OEMA,Riyadh,flag_sa,Medina,flag_sa,Riyadh Air,RXVATail,RX038,Generic Boeing 787-9,1:25
+FAOR,FIMP,Johannesburg,flag_za,Mauritius,flag_mu,South African,SAVATail,SA190,"South African Airways Airbus A330-300, Generic Airbus A320, South African Airways Boeing 737-800",3:30
+FIMP,FAOR,Mauritius,flag_mu,Johannesburg,flag_za,South African,SAVATail,SA191,"South African Airways Airbus A330-300, Generic Airbus A320, South African Airways Boeing 737-800",3:30
+FACT,SBGR,Cape Town,flag_za,Sao Paulo,flag_br,South African,SAVATail,SA226,South African Airways Airbus A330-300,9:30
+SBGR,FACT,Sao Paulo,flag_br,Cape Town,flag_za,South African,SAVATail,SA227,South African Airways Airbus A330-300,9:30
+FAOR,LEMD,Johannesburg,flag_za,Madrid,flag_es,South African,SAVATail,SA232,South African Airways Airbus A340-600,9:30
+LEMD,FAOR,Madrid,flag_es,Johannesburg,flag_za,South African,SAVATail,SA233,South African Airways Airbus A340-600,9:30
+FAOR,EGLL,Johannesburg,flag_za,London Heathrow,flag_gb,South African,SAVATail,SA234,"South African Airways Airbus A340-600, South African Airways Airbus A330-300, South African Airways Boeing 747-200",12:00
+EGLL,FAOR,London Heathrow,flag_gb,Johannesburg,flag_za,South African,SAVATail,SA235,"South African Airways Airbus A340-600, South African Airways Airbus A330-300, South African Airways Boeing 747-200",12:00
+FAOR,EDDF,Johannesburg,flag_za,Frankfurt,flag_de,South African,SAVATail,SA260,"South African Airways Airbus A340-600, South African Airways Airbus A330-300, South African Airways Boeing 747-200",11:00
+EDDF,FAOR,Frankfurt,flag_de,Johannesburg,flag_za,South African,SAVATail,SA261,"South African Airways Airbus A340-600, South African Airways Airbus A330-300, South African Airways Boeing 747-200",11:00
+FAOR,YPPH,Johannesburg,flag_za,Perth,flag_au,South African,SAVATail,SA280,"South African Airways Airbus A330-300, South African Airways Boeing 747-200",9:00
+YPPH,FAOR,Perth,flag_au,Johannesburg,flag_za,South African,SAVATail,SA281,"South African Airways Airbus A330-300, South African Airways Boeing 747-200",9:00
+FAOR,VHHH,Johannesburg,flag_za,Hong Kong,flag_hk,South African,SAVATail,SA286,South African Airways Airbus A340-600,14:00
+VHHH,FAOR,Hong Kong,flag_hk,Johannesburg,flag_za,South African,SAVATail,SA287,South African Airways Airbus A340-600,14:00
+FAOR,FZQA,Johannesburg,flag_za,Lubumbashi,flag_cd,South African,SAVATail,SA50,"Generic Airbus A320, South African Airways Boeing 737-800",2:30
+FZQA,FAOR,Lubumbashi,flag_cd,Johannesburg,flag_za,South African,SAVATail,SA51,"Generic Airbus A320, South African Airways Boeing 737-800",2:30
+FAOR,FNLU,Johannesburg,flag_za,Luanda,flag_ao,South African,SAVATail,SA54,"Generic Airbus A320, South African Airways Boeing 737-800",4:00
+FNLU,FAOR,Luanda,flag_ao,Johannesburg,flag_za,South African,SAVATail,SA55,"Generic Airbus A320, South African Airways Boeing 737-800",4:00
+EBBR,GOBD,Brussels,flag_be,Dakar,flag_sn,Brussels Airlines,Brusselstail,SN205,Brussels Airlines Airbus A330-300,5:50
+GOBD,EBBR,Dakar,flag_sn,Brussels,flag_be,Brussels Airlines,Brusselstail,SN206,Brussels Airlines Airbus A330-300,5:50
+EBBR,EGLL,Brussels,flag_be,London Heathrow,flag_gb,Brussels Airlines,Brusselstail,SN2093,"Generic Airbus A320, Brussels Airlines Airbus A319",0:50
+EGLL,EBBR,London Heathrow,flag_gb,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2094,"Generic Airbus A320, Brussels Airlines Airbus A319",0:50
+EBBR,EKCH,Brussels,flag_be,Copenhagen,flag_dk,Brussels Airlines,Brusselstail,SN2257,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+EKCH,EBBR,Copenhagen,flag_dk,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2258,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+EBBR,DIAP,Brussels,flag_be,Abidjan,flag_ci,Brussels Airlines,Brusselstail,SN229,Brussels Airlines Airbus A330-300,6:40
+DIAP,EBBR,Abidjan,flag_ci,Brussels,flag_be,Brussels Airlines,Brusselstail,SN231,Brussels Airlines Airbus A330-300,6:40
+EBBR,EPWA,Brussels,flag_be,Warsaw,flag_pl,Brussels Airlines,Brusselstail,SN2553,"Generic Airbus A320, Brussels Airlines Airbus A319",1:50
+EPWA,EBBR,Warsaw,flag_pl,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2554,"Generic Airbus A320, Brussels Airlines Airbus A319",1:50
+EBBR,EDDB,Brussels,flag_be,Berlin,flag_de,Brussels Airlines,Brusselstail,SN2579,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+EDDB,EBBR,Berlin,flag_de,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2580,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+EBBR,EDDM,Brussels,flag_be,Munich,flag_de,Brussels Airlines,Brusselstail,SN2641,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+EDDM,EBBR,Munich,flag_de,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2642,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+EBBR,LSZH,Brussels,flag_be,Zurich,flag_ch,Brussels Airlines,Brusselstail,SN2729,"Generic Airbus A320, Brussels Airlines Airbus A319",0:55
+LSZH,EBBR,Zurich,flag_ch,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2730,"Generic Airbus A320, Brussels Airlines Airbus A319",0:55
+EBBR,DGAA,Brussels,flag_be,Accra,flag_gh,Brussels Airlines,Brusselstail,SN277,Brussels Airlines Airbus A330-300,6:10
+DGAA,EBBR,Accra,flag_gh,Brussels,flag_be,Brussels Airlines,Brusselstail,SN278,Brussels Airlines Airbus A330-300,6:10
+EBBR,LKPR,Brussels,flag_be,Prague,flag_cz,Brussels Airlines,Brusselstail,SN2809,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+LKPR,EBBR,Prague,flag_cz,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2810,"Generic Airbus A320, Brussels Airlines Airbus A319",1:00
+EBBR,UDYZ,Brussels,flag_be,Yerevan,flag_am,Brussels Airlines,Brusselstail,SN2899,Generic Airbus A320,4:20
+UDYZ,EBBR,Yerevan,flag_am,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2900,Generic Airbus A320,4:20
+EBBR,LOWW,Brussels,flag_be,Vienna,flag_at,Brussels Airlines,Brusselstail,SN2901,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+LOWW,EBBR,Vienna,flag_at,Brussels,flag_be,Brussels Airlines,Brusselstail,SN2902,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+EBBR,LIPZ,Brussels,flag_be,Venice,flag_it,Brussels Airlines,Brusselstail,SN3201,"Generic Airbus A320, Brussels Airlines Airbus A319",1:30
+LIPZ,EBBR,Venice,flag_it,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3202,"Generic Airbus A320, Brussels Airlines Airbus A319",1:30
+EBBR,LLBG,Brussels,flag_be,Tel Aviv,flag_il,Brussels Airlines,Brusselstail,SN3289,Generic Airbus A320,4:20
+LLBG,EBBR,Tel Aviv,flag_il,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3290,Generic Airbus A320,4:20
+EBBR,LFPG,Brussels,flag_be,Paris Charles de Gaulle,flag_fr,Brussels Airlines,Brusselstail,SN3631,Generic Airbus A320,0:40
+LFPG,EBBR,Paris Charles de Gaulle,flag_fr,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3632,Generic Airbus A320,0:40
+EBBR,LFPO,Brussels,flag_be,Paris Orly,flag_fr,Brussels Airlines,Brusselstail,SN3667,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+LFPO,EBBR,Paris Orly,flag_fr,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3668,"Generic Airbus A320, Brussels Airlines Airbus A319",1:20
+EBBR,LEBL,Brussels,flag_be,Barcelona,flag_es,Brussels Airlines,Brusselstail,SN3703,"Generic Airbus A320, Brussels Airlines Airbus A319",1:40
+LEBL,EBBR,Barcelona,flag_es,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3704,"Generic Airbus A320, Brussels Airlines Airbus A319",1:40
+EBBR,LEMD,Brussels,flag_be,Madrid,flag_es,Brussels Airlines,Brusselstail,SN3721,"Generic Airbus A320, Brussels Airlines Airbus A319",2:00
+LEMD,EBBR,Madrid,flag_es,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3722,"Generic Airbus A320, Brussels Airlines Airbus A319",2:00
+EBBR,LEIB,Brussels,flag_be,Ibiza,flag_es,Brussels Airlines,Brusselstail,SN3777,"Generic Airbus A320, Brussels Airlines Airbus A319",2:00
+LEIB,EBBR,Ibiza,flag_es,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3778,"Generic Airbus A320, Brussels Airlines Airbus A319",2:00
+EBBR,GCTS,Brussels,flag_be,Tenerife South,flag_es,Brussels Airlines,Brusselstail,SN3781,Generic Airbus A320,4:00
+GCTS,EBBR,Tenerife South,flag_es,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3782,Generic Airbus A320,4:00
+EBBR,LPPT,Brussels,flag_be,Lisbon,flag_pt,Brussels Airlines,Brusselstail,SN3815,Generic Airbus A320,2:30
+LPPT,EBBR,Lisbon,flag_pt,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3816,Generic Airbus A320,2:30
+EBBR,LPPR,Brussels,flag_be,Porto,flag_pt,Brussels Airlines,Brusselstail,SN3819,"Generic Airbus A320, Brussels Airlines Airbus A319",2:30
+LPPR,EBBR,Porto,flag_pt,Brussels,flag_be,Brussels Airlines,Brusselstail,SN3820,"Generic Airbus A320, Brussels Airlines Airbus A319",2:30
+EBBR,HKJK,Brussels,flag_be,Nairobi,flag_ke,Brussels Airlines,Brusselstail,SN481,Brussels Airlines Airbus A330-300,8:15
+HKJK,EBBR,Nairobi,flag_ke,Brussels,flag_be,Brussels Airlines,Brusselstail,SN482,Brussels Airlines Airbus A330-300,8:15
+EBBR,KJFK,Brussels,flag_be,New York JFK,flag_us,Brussels Airlines,Brusselstail,SN501,Brussels Airlines Airbus A330-300,7:40
+KJFK,EBBR,New York JFK,flag_us,Brussels,flag_be,Brussels Airlines,Brusselstail,SN502,Brussels Airlines Airbus A330-300,7:40
+EBBR,KIAD,Brussels,flag_be,Washington Dulles,flag_us,Brussels Airlines,Brusselstail,SN515,Brussels Airlines Airbus A330-300,7:40
+KIAD,EBBR,Washington Dulles,flag_us,Brussels,flag_be,Brussels Airlines,Brusselstail,SN516,Brussels Airlines Airbus A330-300,7:40
+WSSS,YMML,Singapore,flag_sg,Melbourne,flag_au,Singapore Airlines,SQtail,SQ207,"Singapore Airlines Boeing 777-300ER, Singapore Airlines Airbus A350",6:50
+YMML,WSSS,Melbourne,flag_au,Singapore,flag_sg,Singapore Airlines,SQtail,SQ208,"Singapore Airlines Boeing 777-300ER, Singapore Airlines Airbus A350",6:50
+WSSS,YSSY,Singapore,flag_sg,Sydney,flag_au,Singapore Airlines,SQtail,SQ221,"Singapore Airlines Boeing 777-300ER, Singapore Airlines Airbus A350, Singapore Airlines Airbus A380",7:10
+YSSY,WSSS,Sydney,flag_au,Singapore,flag_sg,Singapore Airlines,SQtail,SQ222,"Singapore Airlines Boeing 777-300ER, Singapore Airlines Airbus A350, Singapore Airlines Airbus A380",7:10
+WSSS,OMDB,Singapore,flag_sg,Dubai,flag_ae,Singapore Airlines,SQtail,SQ494,Singapore Airlines Airbus A350,6:50
+OMDB,WSSS,Dubai,flag_ae,Singapore,flag_sg,Singapore Airlines,SQtail,SQ495,Singapore Airlines Airbus A350,6:50
+WSSS,VTBS,Singapore,flag_sg,Bangkok,flag_th,Singapore Airlines,SQtail,SQ710,"Singapore Airlines Airbus A350, Singapore Airlines Boeing 787-10",2:00
+VTBS,WSSS,Bangkok,flag_th,Singapore,flag_sg,Singapore Airlines,SQtail,SQ711,"Singapore Airlines Airbus A350, Singapore Airlines Boeing 787-10",2:00
+OEJN,EGCC,Jeddah,flag_sa,Manchester,flag_gb,Saudia,SVAtail,SV123,"Generic Boeing 787-10, Saudia Boeing 787-9",6:02
+EGCC,OEJN,Manchester,flag_gb,Jeddah,flag_sa,Saudia,SVAtail,SV124,"Generic Boeing 787-10, Saudia Boeing 787-9",5:56
+OEJN,LIMC,Jeddah,flag_sa,Milan Malpensa,flag_it,Saudia,SVAtail,SV211,"Generic Airbus A321, Generic Airbus A320, Saudia Airbus A330-300",5:30
+LIMC,OEJN,Milan Malpensa,flag_it,Jeddah,flag_sa,Saudia,SVAtail,SV212,"Generic Airbus A321, Generic Airbus A320, Saudia Airbus A330-300",4:45
+OERK,HECA,Riyadh,flag_sa,Cairo,flag_eg,Saudia,SVAtail,SV311,Saudia Airbus A330-300,2:20
+HECA,OERK,Cairo,flag_eg,Riyadh,flag_sa,Saudia,SVAtail,SV312,Saudia Airbus A330-300,2:17
+HECA,OEJN,Cairo,flag_eg,Jeddah,flag_sa,Saudia,SVAtail,SV330,Saudia Airbus A330-300,2:30
+OEJN,HECA,Jeddah,flag_sa,Cairo,flag_eg,Saudia,SVAtail,SV331,Saudia Airbus A330-300,2:00
+HEAL,OEJN,El Alamein,flag_eg,Jeddah,flag_sa,Saudia,SVAtail,SV344,Generic Airbus A320,2:30
+OEJN,HEAL,Jeddah,flag_sa,El Alamein,flag_eg,Saudia,SVAtail,SV345,Generic Airbus A320,2:50
+OERK,HEAL,Riyadh,flag_sa,El Alamein,flag_eg,Saudia,SVAtail,SV347,Generic Airbus A320,2:40
+HEAL,OERK,El Alamein,flag_eg,Riyadh,flag_sa,Saudia,SVAtail,SV348,Generic Airbus A320,2:40
+OEJN,KLAX,Jeddah,flag_sa,Los Angeles,flag_us,Saudia,SVAtail,SV41,Saudia Boeing 777-300ER,15:36
+KLAX,OEJN,Los Angeles,flag_us,Jeddah,flag_sa,Saudia,SVAtail,SV42,Saudia Boeing 777-300ER,14:51
+OEJN,FIMP,Jeddah,flag_sa,Mauritius,flag_mu,Saudia,SVAtail,SV481,"Generic Boeing 787-10, Saudia Boeing 787-9",6:30
+FIMP,OEJN,Mauritius,flag_mu,Jeddah,flag_sa,Saudia,SVAtail,SV482,"Generic Boeing 787-10, Saudia Boeing 787-9",6:45
+OEJN,CYYZ,Jeddah,flag_sa,Toronto,flag_ca,Saudia,SVAtail,SV61,Saudia Boeing 787-9,12:28
+CYYZ,OEJN,Toronto,flag_ca,Jeddah,flag_sa,Saudia,SVAtail,SV62,Saudia Boeing 787-9,11:30
+OERK,OPIS,Riyadh,flag_sa,Islamabad,flag_pk,Saudia,SVAtail,SV724,Saudia Boeing 777-300ER,3:28
+OPIS,OERK,Islamabad,flag_pk,Riyadh,flag_sa,Saudia,SVAtail,SV725,Saudia Boeing 777-300ER,3:45
+OEMA,WMKK,Medina,flag_sa,Kuala Lumpur,flag_my,Saudia,SVAtail,SV830,"Generic Boeing 787-10, Saudia Boeing 787-9",8:50
+WMKK,OEMA,Kuala Lumpur,flag_my,Medina,flag_sa,Saudia,SVAtail,SV831,"Generic Boeing 787-10, Saudia Boeing 787-9",7:40
+OEJN,VRMM,Jeddah,flag_sa,Male,flag_mv,Saudia,SVAtail,SV838,"Generic Boeing 787-10, Saudia Boeing 787-9",5:30
+VRMM,OEJN,Male,flag_mv,Jeddah,flag_sa,Saudia,SVAtail,SV839,"Generic Boeing 787-10, Saudia Boeing 787-9",5:05
+OEJN,WSSS,Jeddah,flag_sa,Singapore,flag_sg,Saudia,SVAtail,SV856 A,Saudia Boeing 787-9,9:00
+WSSS,WADD,Singapore,flag_sg,Denpasar Bali,flag_id,Saudia,SVAtail,SV856 B,Saudia Boeing 787-9,2:50
+WADD,WSSS,Denpasar Bali,flag_id,Singapore,flag_sg,Saudia,SVAtail,SV857 A,Saudia Boeing 787-9,2:50
+WSSS,OEJN,Singapore,flag_sg,Jeddah,flag_sa,Saudia,SVAtail,SV857 B,Saudia Boeing 787-9,9:10
+RPLL,OERK,Manila,flag_ph,Riyadh,flag_sa,Saudia,SVAtail,SV861,Saudia Boeing 777-300ER,9:10
+OERK,RPLL,Riyadh,flag_sa,Manila,flag_ph,Saudia,SVAtail,SV862,Saudia Boeing 777-300ER,9:24
+LTFM,KJFK,Istanbul,flag_tr,New York JFK,flag_us,Turkish Airlines,TurkishTail,TK1,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 777-300ER",9:50
+LTFM,LYPG,Istanbul,flag_tr,Podgorica,flag_me,Turkish Airlines,TurkishTail,TK1085,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Airbus A320",1:25
+LYPG,LTFM,Podgorica,flag_me,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK1086,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Airbus A320",1:25
+LTFM,LEMG,Istanbul,flag_tr,Malaga,flag_es,Turkish Airlines,TurkishTail,TK1303,Turkish Airlines Airbus A321,4:05
+LEMG,LTFM,Malaga,flag_es,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK1304,Turkish Airlines Airbus A321,4:05
+LTFM,EETN,Istanbul,flag_tr,Tallinn,flag_ee,Turkish Airlines,TurkishTail,TK1421,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX",3:00
+EETN,LTFM,Tallinn,flag_ee,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK1422,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX",3:00
+LTFM,EVRA,Istanbul,flag_tr,Riga,flag_lv,Turkish Airlines,TurkishTail,TK1757,Turkish Airlines Boeing 737-8 MAX,2:40
+EVRA,LTFM,Riga,flag_lv,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK1758,Turkish Airlines Boeing 737-8 MAX,2:40
+KJFK,LTFM,New York JFK,flag_us,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK2,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 777-300ER",9:50
+LTFM,KDTW,Istanbul,flag_tr,Detroit,flag_us,Turkish Airlines,TurkishTail,TK205,Turkish Airlines Boeing 787-9,10:25
+KTDW,LTFM,Amarillo,flag_us,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK206,Turkish Airlines Boeing 787-9,10:25
+LTFM,UAIT,Istanbul,flag_tr,Turkistan,flag_kz,Turkish Airlines,TurkishTail,TK256,Turkish Airlines Boeing 737-900,3:55
+UAIT,LTFM,Turkistan,flag_kz,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK257,Turkish Airlines Boeing 737-900,3:55
+LTFM,LTCC,Istanbul,flag_tr,Diyarbakir,flag_tr,Turkish Airlines,TurkishTail,TK2602,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Turkish Airlines Airbus A320, Generic Airbus A319",1:30
+LTCC,LTFM,Diyarbakir,flag_tr,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK2603,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Turkish Airlines Airbus A320, Generic Airbus A319",1:30
+LTFM,UTTT,Istanbul,flag_tr,Tashkent,,Turkish Airlines,TurkishTail,TK266,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
+UTTT,LTFM,Tashkent,,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK267,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
+LTFM,LTAP,Istanbul,flag_tr,Amasya,flag_tr,Turkish Airlines,TurkishTail,TK2854,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Generic Airbus A319",1:00
+LTAP,LTFM,Amasya,flag_tr,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK2855,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Generic Airbus A319",1:00
+LTFM,KEWR,Istanbul,flag_tr,Newark,flag_us,Turkish Airlines,TurkishTail,TK29,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 787-9",10:10
+KEWR,LTFM,Newark,flag_us,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK30,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 787-9",10:10
+LTFM,UACC,Istanbul,flag_tr,Astana,flag_kz,Turkish Airlines,TurkishTail,TK354,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX",4:50
+UACC,LTFM,Astana,flag_kz,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK355,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX",4:50
+FAOR,FQMA,Johannesburg,flag_za,Maputo,flag_mz,Turkish Airlines,TurkishTail,TK38 B,Turkish Airlines Airbus A330-300,0:50
+FQMA,FAOR,Maputo,flag_mz,Johannesburg,flag_za,Turkish Airlines,TurkishTail,TK39 A,Turkish Airlines Airbus A330-300,0:50
+GUCY,DFFD,Conakry,flag_gn,Ouagadougou,flag_bf,Turkish Airlines,TurkishTail,TK537 A,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 737-8 MAX",1:55
+DFFD,GUCY,Ouagadougou,flag_bf,Conakry,flag_gn,Turkish Airlines,TurkishTail,TK537 B,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 737-8 MAX",1:55
+LTFM,HDAM,Istanbul,flag_tr,Djibouti,flag_dj,Turkish Airlines,TurkishTail,TK659,Turkish Airlines Boeing 737-8 MAX,4:50
+HDAM,LTFM,Djibouti,flag_dj,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK660,Turkish Airlines Boeing 737-8 MAX,4:50
+LTFM,OPKC,Istanbul,flag_tr,Karachi,flag_pk,Turkish Airlines,TurkishTail,TK708,Turkish Airlines Airbus A330-300,5:10
+OPKC,LTFM,Karachi,flag_pk,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK709,Turkish Airlines Airbus A330-300,5:10
+LTFM,FSIA,Istanbul,flag_tr,Victoria,flag_sc,Turkish Airlines,TurkishTail,TK748,Turkish Airlines Airbus A330-300,7:25
+FSIA,LTFM,Victoria,flag_sc,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK749,Turkish Airlines Airbus A330-300,7:25
+LTFM,KSFO,Istanbul,flag_tr,San Francisco,flag_us,Turkish Airlines,TurkishTail,TK79,"Turkish Airlines Boeing 777-300ER, Turkish Airlines Boeing 787-9",13:15
+KSFO,LTFM,San Francisco,flag_us,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK80,"Turkish Airlines Boeing 777-300ER, Turkish Airlines Boeing 787-9",13:15
+LTFM,OMAA,Istanbul,flag_tr,Abu Dhabi,flag_ae,Turkish Airlines,TurkishTail,TK866,Turkish Airlines Airbus A321,4:30
+OMAA,LTFM,Abu Dhabi,flag_ae,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK867,Turkish Airlines Airbus A321,4:30
+LTFM,MPTO,Istanbul,flag_tr,Panama City,flag_pa,Turkish Airlines,TurkishTail,TK903,"Turkish Airlines Boeing 777-300ER, Turkish Airlines Boeing 787-9, Turkish Airlines Airbus A350",13:00
+MPTO,LTFM,Panama City,flag_pa,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK904,"Turkish Airlines Boeing 777-300ER, Turkish Airlines Boeing 787-9, Turkish Airlines Airbus A350",13:00
+LFSB,LIRF,Basel,flag_fr,Rome,flag_it,easyJet,easyjet,U21123,EasyJet Airbus A319,1:20
+LIRF,LFSB,Rome,flag_it,Basel,flag_fr,easyJet,easyjet,U21124,EasyJet Airbus A319,1:20
+LFSB,LGAV,Basel,flag_fr,Athens,flag_gr,easyJet,easyjet,U21145,EasyJet Airbus A320,2:30
+LGAV,LFSB,Athens,flag_gr,Basel,flag_fr,easyJet,easyjet,U21146,EasyJet Airbus A320,2:30
+LSGG,LIPZ,Geneva,flag_ch,Venice,flag_it,easyJet,easyjet,U21327,EasyJet Airbus A319,0:55
+LIPZ,LSGG,Venice,flag_it,Geneva,flag_ch,easyJet,easyjet,U21328,EasyJet Airbus A319,0:55
+LSGG,LGMK,Geneva,flag_ch,Mykonos,flag_gr,easyJet,easyjet,U21487,"EasyJet Airbus A319, EasyJet Airbus A320",2:35
+LGMK,LSGG,Mykonos,flag_gr,Geneva,flag_ch,easyJet,easyjet,U21488,"EasyJet Airbus A319, EasyJet Airbus A320",2:35
+EGCC,EHAM,Manchester,flag_gb,Amsterdam,flag_nl,easyJet,easyjet,U22165,"EasyJet Airbus A319, EasyJet Airbus A320",0:55
+EHAM,EGCC,Amsterdam,flag_nl,Manchester,flag_gb,easyJet,easyjet,U22166,"EasyJet Airbus A319, EasyJet Airbus A320",0:55
+EGCC,LDDU,Manchester,flag_gb,Dubrovnik,flag_hr,easyJet,easyjet,U22243,EasyJet Airbus A320,2:40
+LDDU,EGCC,Dubrovnik,flag_hr,Manchester,flag_gb,easyJet,easyjet,U22244,EasyJet Airbus A320,2:40
+EGGW,LGAV,London Luton,flag_gb,Athens,flag_gr,easyJet,easyjet,U22407,EasyJet Airbus A320,3:10
+LGAV,EGGW,Athens,flag_gr,London Luton,flag_gb,easyJet,easyjet,U22408,EasyJet Airbus A320,3:10
+EGGD,GCTS,Bristol,flag_gb,Tenerife South,flag_es,easyJet,easyjet,U22731,EasyJet Airbus A320,4:00
+GCTS,EGGD,Tenerife South,flag_es,Bristol,flag_gb,easyJet,easyjet,U22732,EasyJet Airbus A320,4:00
+LFPG,EGPF,Paris Charles de Gaulle,flag_fr,Glasgow,flag_gb,easyJet,easyjet,U23124,"EasyJet Airbus A319, EasyJet Airbus A320",1:30
+EGPF,LFPG,Glasgow,flag_gb,Paris Charles de Gaulle,flag_fr,easyJet,easyjet,U23125,"EasyJet Airbus A319, EasyJet Airbus A320",1:30
+LIMC,LGSR,Milan Malpensa,flag_it,Santorini,flag_gr,easyJet,easyjet,U23673,EasyJet Airbus A319,2:20
+LGSR,LIMC,Santorini,flag_gr,Milan Malpensa,flag_it,easyJet,easyjet,U23674,EasyJet Airbus A319,2:20
+LFPG,LPPT,Paris Charles de Gaulle,flag_fr,Lisbon,flag_pt,easyJet,easyjet,U24593,"EasyJet Airbus A319, EasyJet Airbus A320",2:05
+LPPT,LFPG,Lisbon,flag_pt,Paris Charles de Gaulle,flag_fr,easyJet,easyjet,U24594,"EasyJet Airbus A319, EasyJet Airbus A320",2:05
+LFPG,LDSP,Paris Charles de Gaulle,flag_fr,Split,flag_hr,easyJet,easyjet,U24621,EasyJet Airbus A320,1:45
+LDSP,LFPG,Split,flag_hr,Paris Charles de Gaulle,flag_fr,easyJet,easyjet,U24622,EasyJet Airbus A320,1:45
+LEBL,EDDB,Barcelona,flag_es,Berlin,flag_de,easyJet,easyjet,U27173,"EasyJet Airbus A319, EasyJet Airbus A320",2:15
+EDDB,LEBL,Berlin,flag_de,Barcelona,flag_es,easyJet,easyjet,U27174,"EasyJet Airbus A319, EasyJet Airbus A320",2:15
+LPPT,LPMA,Lisbon,flag_pt,Madeira,flag_pt,easyJet,easyjet,U27621,EasyJet Airbus A320,1:25
+LPMA,LPPT,Madeira,flag_pt,Lisbon,flag_pt,easyJet,easyjet,U27622,EasyJet Airbus A320,1:25
+LPPR,LEIB,Porto,flag_pt,Ibiza,flag_es,easyJet,easyjet,U27767,EasyJet Airbus A319,1:20
+LEIB,LPPR,Ibiza,flag_es,Porto,flag_pt,easyJet,easyjet,U27768,EasyJet Airbus A319,1:20
+EHAM,LFMN,Amsterdam,flag_nl,Nice,flag_fr,easyJet,easyjet,U27953,EasyJet Airbus A320,1:45
+LFMN,EHAM,Nice,flag_fr,Amsterdam,flag_nl,easyJet,easyjet,U27954,EasyJet Airbus A320,1:45
+EGKK,EGPH,London Gatwick,flag_gb,Edinburgh,flag_gb,easyJet,easyjet,U2813,"EasyJet Airbus A319, EasyJet Airbus A320",1:00
+EGPH,EGKK,Edinburgh,flag_gb,London Gatwick,flag_gb,easyJet,easyjet,U2814,"EasyJet Airbus A319, EasyJet Airbus A320",1:00
+LOWI,EGKK,Innsbruck,flag_at,London Gatwick,flag_gb,easyJet,easyjet,U28694,"EasyJet Airbus A319, EasyJet Airbus A320",1:40
+EGKK,LOWI,London Gatwick,flag_gb,Innsbruck,flag_at,easyJet,easyjet,U28695,"EasyJet Airbus A319, EasyJet Airbus A320",1:40
+EGKK,LXGB,London Gatwick,flag_gb,Gibraltar,flag_gi,easyJet,easyjet,U28791,EasyJet Airbus A320,2:35
+LXGB,EGKK,Gibraltar,flag_gi,London Gatwick,flag_gb,easyJet,easyjet,U28792,EasyJet Airbus A320,2:35
+LEMD,EGFF,Madrid,flag_es,Cardiff,flag_gb,Air Europa,aireuropa_tail,UX0066,Air Europa Boeing 737-800,2:20
+EGFF,LEMD,Cardiff,flag_gb,Madrid,flag_es,Air Europa,aireuropa_tail,UX0067,Air Europa Boeing 737-800,2:20
+LEMD,LKMT,Madrid,flag_es,Ostrava,flag_cz,Air Europa,aireuropa_tail,UX022,Air Europa Boeing 787-9,2:20
+LKMT,LEMD,Ostrava,flag_cz,Madrid,flag_es,Air Europa,aireuropa_tail,UX023,Air Europa Boeing 787-9,2:20
+LEMD,MMMX,Madrid,flag_es,Mexico City,flag_mx,Air Europa,aireuropa_tail,UX455,Air Europa Boeing 787-9,9:30
+MMMX,LEMD,Mexico City,flag_mx,Madrid,flag_es,Air Europa,aireuropa_tail,UX456,Air Europa Boeing 787-9,9:30
+LEMD,EDDH,Madrid,flag_es,Hamburg,flag_de,Air Europa,aireuropa_tail,UX461,Air Europa Boeing 787-9,2:15
+EDDH,LEMD,Hamburg,flag_de,Madrid,flag_es,Air Europa,aireuropa_tail,UX462,Air Europa Boeing 787-9,2:15
+LEMD,HEGN,Madrid,flag_es,Hurghada,flag_eg,Air Europa,aireuropa_tail,UX465,"Air Europa Boeing 787-9, Air Europa Boeing 737-800",4:15
+HEGN,LEMD,Hurghada,flag_eg,Madrid,flag_es,Air Europa,aireuropa_tail,UX466,"Air Europa Boeing 787-9, Air Europa Boeing 737-800",4:15
+GCLP,LEMD,Gran Canaria,flag_es,Madrid,flag_es,Air Europa,aireuropa_tail,UX5197,"Air Europa Boeing 787-9, Air Europa Boeing 737-800",2:35
+LEMD,HESX,Madrid,flag_es,Giza Sphinx,flag_eg,Air Europa,aireuropa_tail,UX555,Air Europa Boeing 737-800,4:30
+HESX,LEMD,Giza Sphinx,flag_eg,Madrid,flag_es,Air Europa,aireuropa_tail,UX556,Air Europa Boeing 737-800,4:30
+LEMD,EPWA,Madrid,flag_es,Warsaw,flag_pl,Air Europa,aireuropa_tail,UX6,Air Europa Boeing 787-9,3:00
+EPWA,LEMD,Warsaw,flag_pl,Madrid,flag_es,Air Europa,aireuropa_tail,UX7,Air Europa Boeing 787-9,3:00
+MDSD,LEMD,Santo Domingo,flag_do,Madrid,flag_es,Air Europa,aireuropa_tail,UX88,Air Europa Boeing 787-9,7:50
+LEMD,MDSD,Madrid,flag_es,Santo Domingo,flag_do,Air Europa,aireuropa_tail,UX89,Air Europa Boeing 787-9,7:50
+LEMD,GCLP,Madrid,flag_es,Gran Canaria,flag_es,Air Europa,aireuropa_tail,UX9156,"Air Europa Boeing 787-9, Air Europa Boeing 737-800",2:35
+LEMD,KMIA,Madrid,flag_es,Miami,flag_us,Air Europa,aireuropa_tail,UX97,Air Europa Boeing 787-9,8:40
+KMIA,LEMD,Miami,flag_us,Madrid,flag_es,Air Europa,aireuropa_tail,UX98,Air Europa Boeing 787-9,8:40
+OOMS,EDDF,Muscat,flag_om,Frankfurt,flag_de,Oman Air,Omanairtail,WY117,Generic Boeing 787-9,7:30
+EDDF,OOMS,Frankfurt,flag_de,Muscat,flag_om,Oman Air,Omanairtail,WY118,Generic Boeing 787-9,7:30
+OOMS,EDDM,Muscat,flag_om,Munich,flag_de,Oman Air,Omanairtail,WY127,Oman Air Boeing 787-8,6:00
+EDDM,OOMS,Munich,flag_de,Muscat,flag_om,Oman Air,Omanairtail,WY128,Oman Air Boeing 787-8,6:00
+OOMS,LFPG,Muscat,flag_om,Paris Charles de Gaulle,flag_fr,Oman Air,Omanairtail,WY131,Generic Boeing 787-9,6:30
+LFPG,OOMS,Paris Charles de Gaulle,flag_fr,Muscat,flag_om,Oman Air,Omanairtail,WY132,Generic Boeing 787-9,6:30
+OOMS,LSZH,Muscat,flag_om,Zurich,flag_ch,Oman Air,Omanairtail,WY153,Oman Air Boeing 787-8,6:00
+LSZH,OOMS,Zurich,flag_ch,Muscat,flag_om,Oman Air,Omanairtail,WY154,Oman Air Boeing 787-8,6:00
+OOMS,VGHS,Muscat,flag_om,Dhaka,flag_bd,Oman Air,Omanairtail,WY317,"Generic Boeing 787-9, Oman Air Boeing 787-8",4:30
+VGHS,OOMS,Dhaka,flag_bd,Muscat,flag_om,Oman Air,Omanairtail,WY318,"Generic Boeing 787-9, Oman Air Boeing 787-8",4:30
+OOMS,HECA,Muscat,flag_om,Cairo,flag_eg,Oman Air,Omanairtail,WY405,Generic Boeing 737-800,4:15
+HECA,OOMS,Cairo,flag_eg,Muscat,flag_om,Oman Air,Omanairtail,WY406,Generic Boeing 737-800,4:00
+OOMS,OJAI,Muscat,flag_om,Amman,flag_jo,Oman Air,Omanairtail,WY411,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",3:00
+OJAI,OOMS,Amman,flag_jo,Muscat,flag_om,Oman Air,Omanairtail,WY412,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",3:00
+OOMS,OBBI,Muscat,flag_om,Bahrain,flag_bh,Oman Air,Omanairtail,WY653,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",1:50
+OBBI,OOMS,Bahrain,flag_bh,Muscat,flag_om,Oman Air,Omanairtail,WY654,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",1:50
+OOMS,OOSA,Muscat,flag_om,Salalah,flag_om,Oman Air,Omanairtail,WY903,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",1:40
+OOSA,OOMS,Salalah,flag_om,Muscat,flag_om,Oman Air,Omanairtail,WY904,"Generic Boeing 737-800, Oman Air Boeing 737-8 MAX",1:40
+OOMS,OOKB,Muscat,flag_om,Khasab,flag_om,Oman Air,Omanairtail,WY933,"Generic Boeing 737-800, Oman Air E175",0:35
+OOKB,OOMS,Khasab,flag_om,Muscat,flag_om,Oman Air,Omanairtail,WY934,"Generic Boeing 737-800, Oman Air E175",0:35
