@@ -1,6 +1,6 @@
 Route Finder Bot ✈️
 
-A Discord bot built for Infinite Flight Virtual Airlines that generates randomized route schedules from a PostgreSQL database with support for featured airports, daily automatic postings, and distributed route selection.
+A Discord bot built for EgyptAir Virtual Group that generates randomized route schedules from a PostgreSQL database with support for featured airports, daily automatic postings, and distributed route selection.
 
 Features
 
