@@ -809,8 +809,8 @@ LTFM,UAIT,Istanbul,flag_tr,Turkistan,flag_kz,Turkish Airlines,TurkishTail,TK256,
 UAIT,LTFM,Turkistan,flag_kz,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK257,Turkish Airlines Boeing 737-900,3:55
 LTFM,LTCC,Istanbul,flag_tr,Diyarbakir,flag_tr,Turkish Airlines,TurkishTail,TK2602,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Turkish Airlines Airbus A320, Generic Airbus A319",1:30
 LTCC,LTFM,Diyarbakir,flag_tr,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK2603,"Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Turkish Airlines Airbus A320, Generic Airbus A319",1:30
-LTFM,UTTT,Istanbul,flag_tr,Tashkent,,Turkish Airlines,TurkishTail,TK266,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
-UTTT,LTFM,Tashkent,,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK267,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
+LTFM,UTTT,Istanbul,flag_tr,Tashkent,flag_uz,Turkish Airlines,TurkishTail,TK266,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
+UTTT,LTFM,Tashkent,flag_uz,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK267,"Turkish Airlines Airbus A330-300, Turkish Airlines Airbus A321",4:10
 LTFM,LTAP,Istanbul,flag_tr,Amasya,flag_tr,Turkish Airlines,TurkishTail,TK2854,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Generic Airbus A319",1:00
 LTAP,LTFM,Amasya,flag_tr,Istanbul,flag_tr,Turkish Airlines,TurkishTail,TK2855,"Turkish Airlines Boeing 737-900, Turkish Airlines Airbus A321, Turkish Airlines Boeing 737-8 MAX, Generic Airbus A319",1:00
 LTFM,KEWR,Istanbul,flag_tr,Newark,flag_us,Turkish Airlines,TurkishTail,TK29,"Turkish Airlines Airbus A330-300, Turkish Airlines Boeing 787-9",10:10
