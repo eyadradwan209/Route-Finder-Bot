@@ -82,9 +82,7 @@ async function handleAddAirport(interaction: ChatInputCommandInteraction) {
   }
 
   if (alreadyAdded.length > 0) {
-    messages.push(
-      `Already in featured airports: **${alreadyAdded.join(", ")}**`
-    );
+    messages.push(`Already in featured airports: **${alreadyAdded.join(", ")}**`);
   }
 
   await interaction.reply(messages.join("\n"));
@@ -92,7 +90,9 @@ async function handleAddAirport(interaction: ChatInputCommandInteraction) {
 
 async function handleRemoveAirport(interaction: ChatInputCommandInteraction) {
   const code = interaction.options.getString("code", true).toUpperCase().trim();
+
   const removed = removeAirport(code);
+
   if (removed) {
     await interaction.reply(`🗑️ **${code}** removed from featured airports.`);
   } else {
@@ -102,17 +102,25 @@ async function handleRemoveAirport(interaction: ChatInputCommandInteraction) {
 
 async function handleListAirports(interaction: ChatInputCommandInteraction) {
   const airports = listAirports();
+
   if (airports.length === 0) {
     await interaction.reply("No featured airports yet. Use `/addairport` to add some.");
     return;
   }
-  await interaction.reply(`🛫 **Featured airports** (${airports.length}):\n${airports.join(", ")}`);
+
+  await interaction.reply(
+    `🛫 **Featured airports** (${airports.length}):\n${airports.join(", ")}`
+  );
 }
 
 async function handleRouteCount(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply();
+
   const rows = await db.select({ id: routesTable.id }).from(routesTable);
-  await interaction.editReply(`📊 There are **${rows.length}** routes in the database.`);
+
+  await interaction.editReply(
+    `📊 There are **${rows.length}** routes in the database.`
+  );
 }
 
 async function handleSetSchedule(
@@ -120,24 +128,31 @@ async function handleSetSchedule(
   client: Client
 ) {
   const channel = interaction.options.getChannel("channel", true);
+
   if (channel.type !== ChannelType.GuildText) {
     await interaction.reply("Please select a text channel.");
     return;
   }
+
   setScheduleChannel(channel.id);
+
   await interaction.reply(
     `✅ Daily routes will be posted in <#${channel.id}> at **0000Z** every day for each featured airport.\nUse \`/testschedule\` to send a preview now.`
   );
+
   logger.info({ channelId: channel.id }, "Schedule channel set");
 }
 
 async function handleUnsetSchedule(interaction: ChatInputCommandInteraction) {
   const existing = getScheduleChannel();
+
   if (!existing) {
     await interaction.reply("No schedule is currently set.");
     return;
   }
+
   clearScheduleChannel();
+
   await interaction.reply("🛑 Daily route posts have been stopped.");
 }
 
@@ -146,33 +161,65 @@ async function handleTestSchedule(
   client: Client
 ) {
   const channelId = getScheduleChannel();
+
   if (!channelId) {
-    await interaction.reply(
-      "No schedule channel set. Use `/setschedule` first."
-    );
+    await interaction.reply("No schedule channel set. Use `/setschedule` first.");
     return;
   }
+
   await interaction.reply(`Posting today's routes to <#${channelId}> now...`);
+
   await postDailyRoutes(client);
 }
 
 async function handleInteraction(interaction: Interaction, client: Client) {
   if (!interaction.isChatInputCommand()) return;
+
   try {
     switch (interaction.commandName) {
-      case "routes":         await handleRoutes(interaction, client); break;
-      case "addairport":     await handleAddAirport(interaction); break;
-      case "removeairport":  await handleRemoveAirport(interaction); break;
-      case "listairports":   await handleListAirports(interaction); break;
-      case "routecount":     await handleRouteCount(interaction); break;
-      case "setschedule":    await handleSetSchedule(interaction, client); break;
-      case "unsetschedule":  await handleUnsetSchedule(interaction); break;
-      case "testschedule":   await handleTestSchedule(interaction, client); break;
-      default: await interaction.reply("Unknown command.");
+      case "routes":
+        await handleRoutes(interaction, client);
+        break;
+
+      case "addairport":
+        await handleAddAirport(interaction);
+        break;
+
+      case "removeairport":
+        await handleRemoveAirport(interaction);
+        break;
+
+      case "listairports":
+        await handleListAirports(interaction);
+        break;
+
+      case "routecount":
+        await handleRouteCount(interaction);
+        break;
+
+      case "setschedule":
+        await handleSetSchedule(interaction, client);
+        break;
+
+      case "unsetschedule":
+        await handleUnsetSchedule(interaction);
+        break;
+
+      case "testschedule":
+        await handleTestSchedule(interaction, client);
+        break;
+
+      default:
+        await interaction.reply("Unknown command.");
     }
   } catch (err) {
-    logger.error({ err, command: interaction.commandName }, "Error handling Discord command");
+    logger.error(
+      { err, command: interaction.commandName },
+      "Error handling Discord command"
+    );
+
     const msg = "An error occurred while processing that command.";
+
     if (interaction.deferred || interaction.replied) {
       await interaction.editReply(msg).catch(() => {});
     } else {
@@ -183,11 +230,14 @@ async function handleInteraction(interaction: Interaction, client: Client) {
 
 export async function startBot() {
   const token = process.env["DISCORD_BOT_TOKEN"];
-  if (!token) throw new Error("DISCORD_BOT_TOKEN is required");
 
-  await registerCommands();
+  if (!token) {
+    throw new Error("DISCORD_BOT_TOKEN is required");
+  }
 
-  const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+  const client = new Client({
+    intents: [GatewayIntentBits.Guilds],
+  });
 
   client.once("ready", (c) => {
     logger.info({ tag: c.user.tag }, "Discord bot is ready");
@@ -199,5 +249,14 @@ export async function startBot() {
   );
 
   await client.login(token);
+
+  registerCommands()
+    .then(() => {
+      logger.info("Discord slash commands registered");
+    })
+    .catch((err) => {
+      logger.error({ err }, "Failed to register Discord slash commands");
+    });
+
   return client;
 }
