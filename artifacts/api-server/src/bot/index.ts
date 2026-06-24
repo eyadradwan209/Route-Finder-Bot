@@ -254,7 +254,12 @@ export async function startBot() {
   );
 
   logger.info("Logging into Discord...");
-  await client.login(token);
+  await Promise.race([
+  client.login(token),
+  new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("Discord login timed out after 15 seconds")), 15000)
+    ),
+  ]);
   logger.info("Discord login successful");
 
   registerCommands()
