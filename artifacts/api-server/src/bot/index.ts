@@ -4,6 +4,7 @@ import {
   Interaction,
   ChatInputCommandInteraction,
   ChannelType,
+  Events,
 } from "discord.js";
 import { db } from "@workspace/db";
 import { routesTable } from "@workspace/db";
@@ -229,11 +230,15 @@ async function handleInteraction(interaction: Interaction, client: Client) {
 }
 
 export async function startBot() {
+  logger.info("startBot() was called");
+
   const token = process.env["DISCORD_BOT_TOKEN"];
 
   if (!token) {
     throw new Error("DISCORD_BOT_TOKEN is required");
   }
+
+  logger.info("Discord token exists");
 
   const client = new Client({
     intents: [GatewayIntentBits.Guilds],
@@ -248,7 +253,9 @@ export async function startBot() {
     handleInteraction(interaction, client)
   );
 
+  logger.info("Logging into Discord...");
   await client.login(token);
+  logger.info("Discord login successful");
 
   registerCommands()
     .then(() => {
