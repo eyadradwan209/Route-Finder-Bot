@@ -1,0 +1,15 @@
+{
+  "buildCommand": "PORT=5173 BASE_PATH=/ pnpm --filter @workspace/upload-ui run build",
+  "outputDirectory": "artifacts/upload-ui/dist/public",
+  "rewrites": [
+    {
+      "source": "/((?!api(?:/|$)).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "functions": {
+    "api/[...path].ts": {
+      "maxDuration": 60
+    }
+  }
+}

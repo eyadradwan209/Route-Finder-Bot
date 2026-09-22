@@ -1,0 +1,412 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: routes
+    description: Route management
+  - name: discord
+    description: Discord bot actions
+  - name: airports
+    description: Featured airport management
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /routes:
+    get:
+      operationId: getRoutes
+      tags: [routes]
+      summary: List all routes
+      responses:
+        "200":
+          description: List of routes
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteList"
+    delete:
+      operationId: deleteRoutes
+      tags: [routes]
+      summary: Delete all routes
+      responses:
+        "200":
+          description: All routes deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResult"
+
+  /routes/{id}:
+    patch:
+      operationId: updateRoute
+      tags: [routes]
+      summary: Update fields on a single route
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateRouteRequest"
+      responses:
+        "200":
+          description: Updated route
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateRouteResult"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+        "404":
+          description: Route not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+
+  /airports:
+    get:
+      operationId: listAirports
+      tags: [airports]
+      summary: List all featured airports
+      responses:
+        "200":
+          description: List of airport codes
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AirportList"
+    post:
+      operationId: addAirports
+      tags: [airports]
+      summary: Add one or more airports to the featured list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddAirportsRequest"
+      responses:
+        "200":
+          description: Airports added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AddAirportsResult"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+
+  /airports/{code}:
+    delete:
+      operationId: removeAirport
+      tags: [airports]
+      summary: Remove an airport from the featured list
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Airport removed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RemoveAirportResult"
+        "404":
+          description: Airport not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+
+  /discord/post-routes:
+    post:
+      operationId: postRoutes
+      tags: [discord]
+      summary: Pick and post daily routes to the schedule channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostRoutesRequest"
+      responses:
+        "200":
+          description: Routes posted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PostRoutesResult"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+        "503":
+          description: Bot not connected or channel not configured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+
+  /discord/send-message:
+    post:
+      operationId: sendMessage
+      tags: [discord]
+      summary: Send a custom message to the schedule channel as the bot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendMessageRequest"
+      responses:
+        "200":
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SendMessageResult"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+        "503":
+          description: Bot not connected or channel not configured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResult"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    Route:
+      type: object
+      properties:
+        id:
+          type: integer
+        origin:
+          type: string
+        originCity:
+          type: ["string", "null"]
+        originFlag:
+          type: ["string", "null"]
+        destination:
+          type: string
+        destinationCity:
+          type: ["string", "null"]
+        destinationFlag:
+          type: ["string", "null"]
+        airline:
+          type: ["string", "null"]
+        airlineEmoji:
+          type: ["string", "null"]
+        flightNumber:
+          type: ["string", "null"]
+        aircraft:
+          type: ["string", "null"]
+        duration:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - origin
+        - destination
+
+    RouteList:
+      type: object
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: "#/components/schemas/Route"
+        total:
+          type: integer
+      required:
+        - routes
+        - total
+
+    DeleteResult:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    PostRoutesRequest:
+      type: object
+      properties:
+        day:
+          type: string
+          description: Override the day name (e.g. "Monday"). Defaults to current UTC day.
+        includePilotPing:
+          type: boolean
+          description: Whether to include the pilot role mention. Defaults to true.
+
+    PostRoutesResult:
+      type: object
+      properties:
+        message:
+          type: string
+        count:
+          type: integer
+        day:
+          type: string
+      required:
+        - message
+        - count
+        - day
+
+    SendMessageRequest:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    SendMessageResult:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    ErrorResult:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    AirportList:
+      type: object
+      properties:
+        airports:
+          type: array
+          items:
+            type: string
+      required:
+        - airports
+
+    AddAirportsRequest:
+      type: object
+      properties:
+        codes:
+          type: string
+          description: Comma-separated ICAO codes (e.g. "EGLL,KJFK")
+      required:
+        - codes
+
+    AddAirportsResult:
+      type: object
+      properties:
+        added:
+          type: array
+          items:
+            type: string
+        existing:
+          type: array
+          items:
+            type: string
+        airports:
+          type: array
+          items:
+            type: string
+      required:
+        - added
+        - existing
+        - airports
+
+    UpdateRouteRequest:
+      type: object
+      properties:
+        origin:
+          type: string
+        originCity:
+          type: ["string", "null"]
+        originFlag:
+          type: ["string", "null"]
+        destination:
+          type: string
+        destinationCity:
+          type: ["string", "null"]
+        destinationFlag:
+          type: ["string", "null"]
+        airline:
+          type: ["string", "null"]
+        airlineEmoji:
+          type: ["string", "null"]
+        flightNumber:
+          type: ["string", "null"]
+        aircraft:
+          type: ["string", "null"]
+        duration:
+          type: ["string", "null"]
+
+    UpdateRouteResult:
+      type: object
+      properties:
+        route:
+          $ref: "#/components/schemas/Route"
+      required:
+        - route
+
+    RemoveAirportResult:
+      type: object
+      properties:
+        removed:
+          type: string
+        airports:
+          type: array
+          items:
+            type: string
+      required:
+        - removed
+        - airports
