@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
   "buildCommand": "PORT=5173 BASE_PATH=/ pnpm --filter @workspace/upload-ui run build",
   "outputDirectory": "artifacts/upload-ui/dist/public",
   "rewrites": [
