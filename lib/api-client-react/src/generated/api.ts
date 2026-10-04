@@ -313,7 +313,7 @@ export const getSendMessageUrl = () => {
 
 
 
-  return `/api/post-ro/api/post-routesutes`
+  return ``
 }
 
 /**
