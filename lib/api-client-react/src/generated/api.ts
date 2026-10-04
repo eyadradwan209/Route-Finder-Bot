@@ -242,7 +242,7 @@ export const getPostRoutesUrl = () => {
 
 
 
-  return `/api/discord/post-routes`
+  return `/api/post-routes`
 }
 
 /**
@@ -313,7 +313,7 @@ export const getSendMessageUrl = () => {
 
 
 
-  return `/api/discord/send-message`
+  return `/api/post-ro/api/post-routesutes`
 }
 
 /**
