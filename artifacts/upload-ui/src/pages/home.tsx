@@ -288,7 +288,7 @@ export default function Home() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("/api/routes/upload", { method: "POST", body: formData });
+      const response = await fetch("/api/upload", { method: "POST", body: formData });
       if (!response.ok) throw new Error("Failed to upload routes");
       toast({ title: "Upload Successful", description: "Successfully imported route data." });
       queryClient.invalidateQueries({ queryKey: getGetRoutesQueryKey() });
