@@ -703,3 +703,4 @@ export const useSendMessage = <TError = ErrorType<ErrorResult>,
       > => {
       return useMutation(getSendMessageMutationOptions(options));
     }
+
