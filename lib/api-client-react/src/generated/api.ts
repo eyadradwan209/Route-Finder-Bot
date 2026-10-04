@@ -497,7 +497,7 @@ export const getRemoveAirportUrl = (code: string,) => {
 
 
 
-  return ``
+  return `/api/remove-airport?code=${encodeURIComponent(code)}`
 }
 
 /**
