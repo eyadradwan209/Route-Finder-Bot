@@ -164,38 +164,57 @@ app.post("/api/send-message", async (req, res) => {
   }
 });
 
+app.get("/api/schedule", async (_req, res) => {
+  try {
+    await ensureSchema();
+    const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
+    const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
+    res.json({ schedule: schedule && typeof schedule === "object" ? schedule : {} });
+  } catch { res.status(500).json({ error: "Could not load the airport schedule." }); }
+});
+
+app.post("/api/schedule", async (req, res) => {
+  const date = String(req.body?.date ?? "");
+  const codes = String(req.body?.codes ?? "").split(/[\s,]+/).map((code) => code.trim().toUpperCase()).filter(Boolean);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !codes.length) return res.status(400).json({ error: "Choose a date and at least one airport." });
+  try {
+    await ensureSchema();
+    const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
+    const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
+    const next = schedule && typeof schedule === "object" ? schedule : {};
+    next[date] = [...new Set(codes)].sort();
+    await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(next)]);
+    res.json({ date, airports: next[date], schedule: next });
+  } catch { res.status(500).json({ error: "Could not save the airport schedule." }); }
+});
+
 app.post("/api/post-routes", async (req, res) => {
   try {
     await ensureSchema();
-    const stored = await pool.query("SELECT value FROM settings WHERE key = 'featured_airports'");
-    const airports = stored.rows[0] ? JSON.parse(stored.rows[0].value) : [];
-    if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: "No featured airports are configured." });
-    const picked: any[] = [];
-    const used = new Set<string>();
+    const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const defaultDate = tomorrow.toISOString().slice(0, 10);
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(String(req.body?.date ?? "")) ? req.body.date : defaultDate;
+    const featured = await pool.query("SELECT value FROM settings WHERE key = 'featured_airports'");
+    const scheduled = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
+    const schedule = scheduled.rows[0] ? JSON.parse(scheduled.rows[0].value) : {};
+    const airports = Array.isArray(schedule?.[date]) ? schedule[date] : (featured.rows[0] ? JSON.parse(featured.rows[0].value) : []);
+    if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: `No airports are scheduled for ${date}.` });
+    const picked: any[] = [], used = new Set<string>();
     for (const airport of airports) {
       if (picked.length >= 4) break;
       const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
       const route = result.rows.find((item: any) => !used.has([item.origin, item.destination].sort().join("-")));
       if (route) { used.add([route.origin, route.destination].sort().join("-")); picked.push(route); }
     }
-    if (!picked.length) return res.status(400).json({ error: "No routes found for the featured airports." });
-    const minutes = (duration: unknown) => {
-      const match = String(duration ?? "").match(/^(\d+):(\d{2})$/);
-      return match ? Number(match[1]) * 60 + Number(match[2]) : Number.POSITIVE_INFINITY;
-    };
-    picked.sort((first, second) => minutes(first.duration) - minutes(second.duration));
-    const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getUTCDay()];
-    const includePilotPing = req.body?.includePilotPing !== false;
-    const lines = picked.map((route: any) => {
-      const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`;
-      const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`;
-      return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | ");
-    });
-    await sendDiscordMessage(`${includePilotPing ? "<@&1208309349064376320>\n" : ""}**${day}**\n\n${lines.join("\n\n")}\n\n📌 NOTAMs are pinned to the channel`);
-    res.json({ message: `Posted ${picked.length} routes for ${day}`, count: picked.length, day });
-  } catch (error) {
-    res.status(503).json({ error: error instanceof Error ? error.message : "Could not post routes to Discord." });
-  }
+    if (!picked.length) return res.status(400).json({ error: "No routes found for the scheduled airports." });
+    const minutes = (duration: unknown) => { const match = String(duration ?? "").match(/^(\d+):(\d{2})$/); return match ? Number(match[1]) * 60 + Number(match[2]) : Infinity; };
+    picked.sort((a, b) => minutes(a.duration) - minutes(b.duration));
+    const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date(date + "T00:00:00Z").getUTCDay()];
+    const lines = picked.map((route: any) => { const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`; const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`; return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | "); });
+    await sendDiscordMessage(`${req.body?.includePilotPing !== false ? "<@&1208309349064376320>\n" : ""}**${day}**\n\n${lines.join("\n\n")}\n\n📌 NOTAMs are pinned to the channel`);
+    if (req.body?.manual !== true) { delete schedule[date]; await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(schedule)]); await pool.query("INSERT INTO settings (key, value) VALUES ('featured_airports', '[]') ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value"); }
+    res.json({ message: `Posted ${picked.length} routes for ${day}`, count: picked.length, day, date });
+  } catch (error) { res.status(503).json({ error: error instanceof Error ? error.message : "Could not post routes to Discord." }); }
 });
 
 export default app;
