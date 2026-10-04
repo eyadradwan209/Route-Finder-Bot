@@ -1,3 +1,5 @@
+export const config = { api: { bodyParser: false } };
+
 // @ts-nocheck
 import express from "express";
 import multer from "multer";
