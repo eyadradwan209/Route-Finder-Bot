@@ -179,6 +179,11 @@ app.post("/api/post-routes", async (req, res) => {
       if (route) { used.add([route.origin, route.destination].sort().join("-")); picked.push(route); }
     }
     if (!picked.length) return res.status(400).json({ error: "No routes found for the featured airports." });
+    const minutes = (duration: unknown) => {
+      const match = String(duration ?? "").match(/^(\d+):(\d{2})$/);
+      return match ? Number(match[1]) * 60 + Number(match[2]) : Number.POSITIVE_INFINITY;
+    };
+    picked.sort((first, second) => minutes(first.duration) - minutes(second.duration));
     const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getUTCDay()];
     const includePilotPing = req.body?.includePilotPing !== false;
     const lines = picked.map((route: any) => {
