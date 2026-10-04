@@ -114,4 +114,62 @@ app.delete("/api/airports/:code", async (req, res) => {
   catch { res.status(500).json({ error: "Could not remove airport." }); }
 });
 
+async function sendDiscordMessage(message: string) {
+  const token = process.env.DISCORD_BOT_TOKEN;
+  if (!token) throw new Error("DISCORD_BOT_TOKEN is not configured in Vercel.");
+  await ensureSchema();
+  const stored = await pool.query("SELECT value FROM settings WHERE key = 'schedule_channel_id'");
+  const channelId = stored.rows[0]?.value;
+  if (!channelId) throw new Error("No Discord schedule channel is configured.");
+  const response = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages`, {
+    method: "POST",
+    headers: { Authorization: `Bot ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ content: message }),
+  });
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Discord rejected the message (${response.status}): ${detail}`);
+  }
+}
+
+app.post("/api/send-message", async (req, res) => {
+  const message = String(req.body?.message ?? "").trim();
+  if (!message) return res.status(400).json({ error: "message is required" });
+  try {
+    await sendDiscordMessage(message);
+    res.json({ message: "Message sent" });
+  } catch (error) {
+    res.status(503).json({ error: error instanceof Error ? error.message : "Could not send the Discord message." });
+  }
+});
+
+app.post("/api/post-routes", async (req, res) => {
+  try {
+    await ensureSchema();
+    const stored = await pool.query("SELECT value FROM settings WHERE key = 'featured_airports'");
+    const airports = stored.rows[0] ? JSON.parse(stored.rows[0].value) : [];
+    if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: "No featured airports are configured." });
+    const picked: any[] = [];
+    const used = new Set<string>();
+    for (const airport of airports) {
+      if (picked.length >= 4) break;
+      const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
+      const route = result.rows.find((item: any) => !used.has([item.origin, item.destination].sort().join("-")));
+      if (route) { used.add([route.origin, route.destination].sort().join("-")); picked.push(route); }
+    }
+    if (!picked.length) return res.status(400).json({ error: "No routes found for the featured airports." });
+    const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getUTCDay()];
+    const includePilotPing = req.body?.includePilotPing !== false;
+    const lines = picked.map((route: any) => {
+      const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`;
+      const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`;
+      return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | ");
+    });
+    await sendDiscordMessage(`${includePilotPing ? "<@&1208309349064376320>\n" : ""}**${day}**\n\n${lines.join("\n\n")}\n\n📌 NOTAMs are pinned to the channel`);
+    res.json({ message: `Posted ${picked.length} routes for ${day}`, count: picked.length, day });
+  } catch (error) {
+    res.status(503).json({ error: error instanceof Error ? error.message : "Could not post routes to Discord." });
+  }
+});
+
 export default app;
