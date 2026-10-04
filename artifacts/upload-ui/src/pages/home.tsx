@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   useGetRoutes,
@@ -96,6 +96,8 @@ export default function Home() {
   const [scheduleDate, setScheduleDate] = useState("");
   const [scheduleAirports, setScheduleAirports] = useState("");
   const [isSavingSchedule, setIsSavingSchedule] = useState(false);
+  const [savedSchedules, setSavedSchedules] = useState<Record<string, string[]>>({});
+  const [isLoadingSchedules, setIsLoadingSchedules] = useState(true);
 
   // Edit state
   const [editingRoute, setEditingRoute] = useState<Route | null>(null);
@@ -111,6 +113,20 @@ export default function Home() {
   const addAirportsMutation = useAddAirports();
   const removeAirportMutation = useRemoveAirport();
   const updateRoute = useUpdateRoute();
+
+  const loadSchedules = async () => {
+    setIsLoadingSchedules(true);
+    try {
+      const response = await fetch("/api/schedule");
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not load saved days.");
+      setSavedSchedules(result.schedule || {});
+    } catch (error: any) {
+      toast({ title: "Schedule Failed", description: error?.message || "Could not load saved days.", variant: "destructive" });
+    } finally { setIsLoadingSchedules(false); }
+  };
+
+  useEffect(() => { void loadSchedules(); }, []);
 
   const openEdit = (route: Route) => {
     setEditingRoute(route);
@@ -209,10 +225,28 @@ export default function Home() {
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Could not save the schedule.");
       toast({ title: "Day Scheduled", description: result.airports.join(", ") + " saved for " + result.date + "." });
+      setSavedSchedules(result.schedule || {});
       setScheduleAirports("");
     } catch (error: any) {
       toast({ title: "Schedule Failed", description: error?.message || "Could not save the schedule.", variant: "destructive" });
     } finally { setIsSavingSchedule(false); }
+  };
+
+  const handleEditSchedule = (date: string, airports: string[]) => {
+    setScheduleDate(date);
+    setScheduleAirports(airports.join(", "));
+  };
+
+  const handleRemoveSchedule = async (date: string) => {
+    try {
+      const response = await fetch("/api/remove-schedule?date=" + encodeURIComponent(date), { method: "POST" });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not remove the saved day.");
+      setSavedSchedules(result.schedule || {});
+      toast({ title: "Saved Day Removed", description: date + " was removed from your schedule." });
+    } catch (error: any) {
+      toast({ title: "Remove Failed", description: error?.message || "Could not remove the saved day.", variant: "destructive" });
+    }
   };
 
   const handlePostRoutes = () => {
@@ -569,7 +603,18 @@ export default function Home() {
             <CardContent className="pt-4 flex-1 flex flex-col gap-4">
               <div className="space-y-2"><Label htmlFor="scheduleDate" className="font-mono text-xs uppercase tracking-wider">Post Date (UTC)</Label><Input id="scheduleDate" type="date" value={scheduleDate} onChange={(e) => setScheduleDate(e.target.value)} className="font-mono" /></div>
               <div className="space-y-2"><Label htmlFor="scheduleAirports" className="font-mono text-xs uppercase tracking-wider">Airports</Label><Input id="scheduleAirports" placeholder="e.g. EGLL, KJFK" value={scheduleAirports} onChange={(e) => setScheduleAirports(e.target.value)} className="font-mono" /></div>
-              <Button onClick={handleSaveSchedule} disabled={isSavingSchedule || !scheduleDate || !scheduleAirports.trim()} className="w-full font-mono mt-auto"><CalendarDays className="w-4 h-4 mr-2" />{isSavingSchedule ? "Saving..." : "Save Day"}</Button>
+              <Button onClick={handleSaveSchedule} disabled={isSavingSchedule || !scheduleDate || !scheduleAirports.trim()} className="w-full font-mono"><CalendarDays className="w-4 h-4 mr-2" />{isSavingSchedule ? "Saving..." : "Save Day"}</Button>
+              <div className="border-t pt-3 space-y-2">
+                <Label className="font-mono text-xs uppercase tracking-wider">Saved Future Days</Label>
+                <div className="space-y-2 max-h-48 overflow-y-auto">
+                  {isLoadingSchedules ? <div className="text-xs font-mono text-muted-foreground">Loading saved days...</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).length === 0 ? <div className="text-xs font-mono text-muted-foreground">No future days saved yet.</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).map(([date, airports]) => (
+                    <div key={date} className="border rounded-md p-2 space-y-2">
+                      <div className="flex items-center justify-between gap-2"><span className="font-mono text-xs font-bold">{date} UTC</span><div className="flex gap-1"><Button size="sm" variant="outline" className="h-7 px-2 text-xs" onClick={() => handleEditSchedule(date, airports)}>Edit</Button><Button size="sm" variant="ghost" className="h-7 px-2 text-xs text-destructive" onClick={() => handleRemoveSchedule(date)}>Remove</Button></div></div>
+                      <div className="font-mono text-xs text-muted-foreground break-words">{airports.join(", ")}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
