@@ -119,7 +119,7 @@ async function sendDiscordMessage(message: string) {
   if (!token) throw new Error("DISCORD_BOT_TOKEN is not configured in Vercel.");
   await ensureSchema();
   const stored = await pool.query("SELECT value FROM settings WHERE key = 'schedule_channel_id'");
-  const channelId = stored.rows[0]?.value;
+  const channelId = process.env.DISCORD_CHANNEL_ID || stored.rows[0]?.value;
   if (!channelId) throw new Error("No Discord schedule channel is configured.");
   const response = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages`, {
     method: "POST",
