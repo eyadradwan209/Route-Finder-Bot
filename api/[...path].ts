@@ -48,7 +48,7 @@ app.get("/api/routes", async (_req, res) => {
   }
 });
 
-app.post("/api/routes/upload", upload.single("file"), async (req, res) => {
+app.post("/api/upload", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "Choose a CSV file first." });
     await ensureSchema();
