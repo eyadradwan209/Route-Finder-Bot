@@ -218,7 +218,7 @@ app.post("/api/post-routes", async (req, res) => {
 });
 
 
-app.delete("/api/remove-airport", async (req, res) => {
+app.post("/api/remove-airport", async (req, res) => {
   const code = String(req.query.code ?? "").trim().toUpperCase();
   if (!code) return res.status(400).json({ error: "Airport code is required." });
   try { await ensureSchema(); const result = await pool.query("SELECT value FROM settings WHERE key = 'featured_airports'"); const current = result.rows[0] ? JSON.parse(result.rows[0].value) : []; if (!Array.isArray(current) || !current.includes(code)) return res.status(404).json({ error: "Airport not found." }); const airports = current.filter((airport: string) => airport !== code); await pool.query("INSERT INTO settings (key, value) VALUES ('featured_airports', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(airports)]); res.json({ removed: code, airports }); }
