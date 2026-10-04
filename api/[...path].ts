@@ -1,6 +1,5 @@
-export const config = { api: { bodyParser: false } };
-
 // @ts-nocheck
+export const config = { api: { bodyParser: false } };
 import express from "express";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
