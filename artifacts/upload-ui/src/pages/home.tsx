@@ -93,6 +93,9 @@ export default function Home() {
   const [includePilotPing, setIncludePilotPing] = useState(true);
   const [customMessage, setCustomMessage] = useState("");
   const [newAirports, setNewAirports] = useState("");
+  const [scheduleDate, setScheduleDate] = useState("");
+  const [scheduleAirports, setScheduleAirports] = useState("");
+  const [isSavingSchedule, setIsSavingSchedule] = useState(false);
 
   // Edit state
   const [editingRoute, setEditingRoute] = useState<Route | null>(null);
@@ -197,12 +200,28 @@ export default function Home() {
     );
   };
 
+
+  const handleSaveSchedule = async () => {
+    if (!scheduleDate || !scheduleAirports.trim()) return;
+    setIsSavingSchedule(true);
+    try {
+      const response = await fetch("/api/schedule", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: scheduleDate, codes: scheduleAirports }) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not save the schedule.");
+      toast({ title: "Day Scheduled", description: result.airports.join(", ") + " saved for " + result.date + "." });
+      setScheduleAirports("");
+    } catch (error: any) {
+      toast({ title: "Schedule Failed", description: error?.message || "Could not save the schedule.", variant: "destructive" });
+    } finally { setIsSavingSchedule(false); }
+  };
+
   const handlePostRoutes = () => {
     postRoutes.mutate(
       {
         data: {
           ...(dayOverride.trim() ? { day: dayOverride.trim() } : {}),
           includePilotPing,
+          manual: true,
         },
       },
       {
@@ -539,6 +558,18 @@ export default function Home() {
                   )}
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card className="col-span-1 shadow-sm border-border bg-card flex flex-col">
+            <CardHeader className="pb-4 border-b">
+              <CardTitle className="text-sm font-medium text-foreground uppercase tracking-wider flex items-center gap-2"><CalendarDays className="w-4 h-4 text-primary" />Plan Future Airports</CardTitle>
+              <CardDescription className="font-mono text-xs">Save airport lists for upcoming UTC dates. The 19:00Z post uses the following day, then removes that day from the schedule.</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-4 flex-1 flex flex-col gap-4">
+              <div className="space-y-2"><Label htmlFor="scheduleDate" className="font-mono text-xs uppercase tracking-wider">Post Date (UTC)</Label><Input id="scheduleDate" type="date" value={scheduleDate} onChange={(e) => setScheduleDate(e.target.value)} className="font-mono" /></div>
+              <div className="space-y-2"><Label htmlFor="scheduleAirports" className="font-mono text-xs uppercase tracking-wider">Airports</Label><Input id="scheduleAirports" placeholder="e.g. EGLL, KJFK" value={scheduleAirports} onChange={(e) => setScheduleAirports(e.target.value)} className="font-mono" /></div>
+              <Button onClick={handleSaveSchedule} disabled={isSavingSchedule || !scheduleDate || !scheduleAirports.trim()} className="w-full font-mono mt-auto"><CalendarDays className="w-4 h-4 mr-2" />{isSavingSchedule ? "Saving..." : "Save Day"}</Button>
             </CardContent>
           </Card>
         </div>
