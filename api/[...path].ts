@@ -188,6 +188,21 @@ app.post("/api/schedule", async (req, res) => {
   } catch { res.status(500).json({ error: "Could not save the airport schedule." }); }
 });
 
+app.post("/api/remove-schedule", async (req, res) => {
+  const date = String(req.query.date ?? "");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return res.status(400).json({ error: "Choose a valid date." });
+  try {
+    await ensureSchema();
+    const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
+    const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
+    const next = schedule && typeof schedule === "object" ? schedule : {};
+    if (!Object.prototype.hasOwnProperty.call(next, date)) return res.status(404).json({ error: "Saved day not found." });
+    delete next[date];
+    await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(next)]);
+    res.json({ removed: date, schedule: next });
+  } catch { res.status(500).json({ error: "Could not remove the saved day." }); }
+});
+
 app.post("/api/post-routes", async (req, res) => {
   try {
     await ensureSchema();
