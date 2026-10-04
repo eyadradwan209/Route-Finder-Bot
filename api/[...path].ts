@@ -114,6 +114,12 @@ app.delete("/api/airports/:code", async (req, res) => {
   catch { res.status(500).json({ error: "Could not remove airport." }); }
 });
 
+function flagToEmoji(value: string) {
+  const match = value.match(/^flag_([a-z]{2})$/i);
+  if (!match) return value;
+  return [...match[1].toUpperCase()].map((letter) => String.fromCodePoint(0x1f1e6 + letter.charCodeAt(0) - 65)).join("");
+}
+
 async function sendDiscordMessage(message: string) {
   const token = process.env.DISCORD_BOT_TOKEN;
   if (!token) throw new Error("DISCORD_BOT_TOKEN is not configured in Vercel.");
@@ -121,10 +127,25 @@ async function sendDiscordMessage(message: string) {
   const stored = await pool.query("SELECT value FROM settings WHERE key = 'schedule_channel_id'");
   const channelId = process.env.DISCORD_CHANNEL_ID || stored.rows[0]?.value;
   if (!channelId) throw new Error("No Discord schedule channel is configured.");
+  const headers = { Authorization: `Bot ${token}`, "Content-Type": "application/json" };
+  let content = message.replace(/\bflag_[a-z]{2}\b/gi, flagToEmoji);
+  try {
+    const channel = await fetch(`https://discord.com/api/v10/channels/${channelId}`, { headers });
+    const guildId = channel.ok ? (await channel.json()).guild_id : undefined;
+    if (guildId) {
+      const emojisResponse = await fetch(`https://discord.com/api/v10/guilds/${guildId}/emojis`, { headers });
+      if (emojisResponse.ok) {
+        const emojis = await emojisResponse.json();
+        const byName = new Map(emojis.map((emoji: any) => [emoji.name, emoji]));
+        content = content.replace(/:([A-Za-z0-9_]+):/g, (raw, name) => {
+          const emoji = byName.get(name);
+          return emoji ? `<${emoji.animated ? "a" : ""}:${emoji.name}:${emoji.id}>` : raw;
+        });
+      }
+    }
+  } catch { /* Sending still works even if the emoji lookup is unavailable. */ }
   const response = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages`, {
-    method: "POST",
-    headers: { Authorization: `Bot ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ content: message }),
+    method: "POST", headers, body: JSON.stringify({ content }),
   });
   if (!response.ok) {
     const detail = await response.text();
