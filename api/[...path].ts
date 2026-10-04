@@ -1,6 +1,3 @@
-export default function handler() {
-  return new Response(
-    JSON.stringify({ status: "ok", service: "route-finder-bot" }),
-    { headers: { "content-type": "application/json" } },
-  );
+export default function handler(_req: any, res: any) {
+  res.status(200).json({ status: "ok", service: "route-finder-bot" });
 }
