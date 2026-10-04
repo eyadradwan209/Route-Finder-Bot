@@ -508,7 +508,7 @@ export const removeAirport = async (code: string, options?: RequestInit): Promis
   return customFetch<RemoveAirportResult>(getRemoveAirportUrl(code),
   {
     ...options,
-    method: 'DELETE'
+    method: 'POST'
 
 
   }
