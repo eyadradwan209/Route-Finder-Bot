@@ -218,21 +218,26 @@ app.post("/api/post-routes", async (req, res) => {
     const requestedCount = Number(req.body?.routeCount);
     const routeCount = Math.min(20, Math.max(1, Number.isFinite(requestedCount) ? requestedCount : (Number(scheduledDay?.routeCount) || 4)));
     if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: `No airports are scheduled for ${date}.` });
-    // Build one shared pool for every selected airport, then choose up to four
-    // distinct routes. The old loop chose only one route per airport, so a
-    // two-airport plan could never post more than two routes.
-    const candidates: any[] = [];
+    // Keep a separate pool for each airport and take turns choosing from them.
+    // That keeps multi-airport posts balanced (for example, two airports and
+    // four routes becomes two routes per airport whenever possible).
+    const candidatePools: any[][] = [];
     for (const airport of airports) {
       const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
-      candidates.push(...result.rows);
+      candidatePools.push(result.rows);
     }
     const picked: any[] = [], used = new Set<string>();
-    for (const route of candidates) {
-      if (picked.length >= routeCount) break;
-      const key = [route.origin, route.destination].sort().join("-");
-      if (used.has(key)) continue;
-      used.add(key);
-      picked.push(route);
+    let addedInRound = true;
+    while (picked.length < routeCount && addedInRound) {
+      addedInRound = false;
+      for (const pool of candidatePools) {
+        if (picked.length >= routeCount) break;
+        const route = pool.find((item: any) => !used.has([item.origin, item.destination].sort().join("-")));
+        if (!route) continue;
+        used.add([route.origin, route.destination].sort().join("-"));
+        picked.push(route);
+        addedInRound = true;
+      }
     }
     if (!picked.length) return res.status(400).json({ error: "No routes found for the scheduled airports." });
     const minutes = (duration: unknown) => { const match = String(duration ?? "").match(/^(\d+):(\d{2})$/); return match ? Number(match[1]) * 60 + Number(match[2]) : Infinity; };
