@@ -214,12 +214,21 @@ app.post("/api/post-routes", async (req, res) => {
     const schedule = scheduled.rows[0] ? JSON.parse(scheduled.rows[0].value) : {};
     const airports = Array.isArray(schedule?.[date]) ? schedule[date] : (featured.rows[0] ? JSON.parse(featured.rows[0].value) : []);
     if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: `No airports are scheduled for ${date}.` });
-    const picked: any[] = [], used = new Set<string>();
+    // Build one shared pool for every selected airport, then choose up to four
+    // distinct routes. The old loop chose only one route per airport, so a
+    // two-airport plan could never post more than two routes.
+    const candidates: any[] = [];
     for (const airport of airports) {
-      if (picked.length >= 4) break;
       const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
-      const route = result.rows.find((item: any) => !used.has([item.origin, item.destination].sort().join("-")));
-      if (route) { used.add([route.origin, route.destination].sort().join("-")); picked.push(route); }
+      candidates.push(...result.rows);
+    }
+    const picked: any[] = [], used = new Set<string>();
+    for (const route of candidates) {
+      if (picked.length >= 4) break;
+      const key = [route.origin, route.destination].sort().join("-");
+      if (used.has(key)) continue;
+      used.add(key);
+      picked.push(route);
     }
     if (!picked.length) return res.status(400).json({ error: "No routes found for the scheduled airports." });
     const minutes = (duration: unknown) => { const match = String(duration ?? "").match(/^(\d+):(\d{2})$/); return match ? Number(match[1]) * 60 + Number(match[2]) : Infinity; };
