@@ -176,15 +176,16 @@ app.get("/api/schedule", async (_req, res) => {
 app.post("/api/schedule", async (req, res) => {
   const date = String(req.body?.date ?? "");
   const codes = String(req.body?.codes ?? "").split(/[\s,]+/).map((code) => code.trim().toUpperCase()).filter(Boolean);
+  const routeCount = Math.min(20, Math.max(1, Number(req.body?.routeCount) || 4));
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !codes.length) return res.status(400).json({ error: "Choose a date and at least one airport." });
   try {
     await ensureSchema();
     const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
     const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
     const next = schedule && typeof schedule === "object" ? schedule : {};
-    next[date] = [...new Set(codes)].sort();
+    next[date] = { airports: [...new Set(codes)].sort(), routeCount };
     await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(next)]);
-    res.json({ date, airports: next[date], schedule: next });
+    res.json({ date, airports: next[date].airports, routeCount, schedule: next });
   } catch { res.status(500).json({ error: "Could not save the airport schedule." }); }
 });
 
@@ -212,7 +213,10 @@ app.post("/api/post-routes", async (req, res) => {
     const featured = await pool.query("SELECT value FROM settings WHERE key = 'featured_airports'");
     const scheduled = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
     const schedule = scheduled.rows[0] ? JSON.parse(scheduled.rows[0].value) : {};
-    const airports = Array.isArray(schedule?.[date]) ? schedule[date] : (featured.rows[0] ? JSON.parse(featured.rows[0].value) : []);
+    const scheduledDay = schedule?.[date];
+    const airports = Array.isArray(scheduledDay) ? scheduledDay : (Array.isArray(scheduledDay?.airports) ? scheduledDay.airports : (featured.rows[0] ? JSON.parse(featured.rows[0].value) : []));
+    const requestedCount = Number(req.body?.routeCount);
+    const routeCount = Math.min(20, Math.max(1, Number.isFinite(requestedCount) ? requestedCount : (Number(scheduledDay?.routeCount) || 4)));
     if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: `No airports are scheduled for ${date}.` });
     // Build one shared pool for every selected airport, then choose up to four
     // distinct routes. The old loop chose only one route per airport, so a
@@ -224,7 +228,7 @@ app.post("/api/post-routes", async (req, res) => {
     }
     const picked: any[] = [], used = new Set<string>();
     for (const route of candidates) {
-      if (picked.length >= 4) break;
+      if (picked.length >= routeCount) break;
       const key = [route.origin, route.destination].sort().join("-");
       if (used.has(key)) continue;
       used.add(key);

@@ -68,6 +68,8 @@ type EditForm = {
   duration: string;
 };
 
+type SavedSchedule = { airports: string[]; routeCount: number } | string[];
+
 function routeToForm(route: Route): EditForm {
   return {
     origin: route.origin ?? "",
@@ -90,13 +92,15 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [dayOverride, setDayOverride] = useState("");
+  const [manualRouteCount, setManualRouteCount] = useState("4");
   const [includePilotPing, setIncludePilotPing] = useState(true);
   const [customMessage, setCustomMessage] = useState("");
   const [newAirports, setNewAirports] = useState("");
   const [scheduleDate, setScheduleDate] = useState("");
   const [scheduleAirports, setScheduleAirports] = useState("");
+  const [scheduleRouteCount, setScheduleRouteCount] = useState("4");
   const [isSavingSchedule, setIsSavingSchedule] = useState(false);
-  const [savedSchedules, setSavedSchedules] = useState<Record<string, string[]>>({});
+  const [savedSchedules, setSavedSchedules] = useState<Record<string, SavedSchedule>>({});
   const [isLoadingSchedules, setIsLoadingSchedules] = useState(true);
 
   // Edit state
@@ -221,7 +225,7 @@ export default function Home() {
     if (!scheduleDate || !scheduleAirports.trim()) return;
     setIsSavingSchedule(true);
     try {
-      const response = await fetch("/api/schedule", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: scheduleDate, codes: scheduleAirports }) });
+      const response = await fetch("/api/schedule", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: scheduleDate, codes: scheduleAirports, routeCount: Number(scheduleRouteCount) }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Could not save the schedule.");
       toast({ title: "Day Scheduled", description: result.airports.join(", ") + " saved for " + result.date + "." });
@@ -232,9 +236,13 @@ export default function Home() {
     } finally { setIsSavingSchedule(false); }
   };
 
-  const handleEditSchedule = (date: string, airports: string[]) => {
+  const getScheduleDetails = (entry: SavedSchedule) => Array.isArray(entry) ? { airports: entry, routeCount: 4 } : { airports: entry.airports || [], routeCount: entry.routeCount || 4 };
+
+  const handleEditSchedule = (date: string, entry: SavedSchedule) => {
+    const details = getScheduleDetails(entry);
     setScheduleDate(date);
-    setScheduleAirports(airports.join(", "));
+    setScheduleAirports(details.airports.join(", "));
+    setScheduleRouteCount(String(details.routeCount));
   };
 
   const handleRemoveSchedule = async (date: string) => {
@@ -254,6 +262,7 @@ export default function Home() {
       {
         data: {
           ...(dayOverride.trim() ? { day: dayOverride.trim() } : {}),
+          routeCount: Number(manualRouteCount),
           includePilotPing,
           manual: true,
         },
@@ -491,6 +500,10 @@ export default function Home() {
                 />
                 <p className="text-xs text-muted-foreground">Leave blank to use current UTC day automatically.</p>
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="manualRouteCount" className="font-mono text-xs uppercase tracking-wider">Routes to Select</Label>
+                <Input id="manualRouteCount" type="number" min="1" max="20" value={manualRouteCount} onChange={(e) => setManualRouteCount(e.target.value)} className="font-mono" />
+              </div>
               <label className="flex items-center gap-2 cursor-pointer">
                 <Checkbox
                   checked={includePilotPing}
@@ -603,16 +616,17 @@ export default function Home() {
             <CardContent className="pt-4 flex-1 flex flex-col gap-4">
               <div className="space-y-2"><Label htmlFor="scheduleDate" className="font-mono text-xs uppercase tracking-wider">Post Date (UTC)</Label><Input id="scheduleDate" type="date" value={scheduleDate} onChange={(e) => setScheduleDate(e.target.value)} className="font-mono" /></div>
               <div className="space-y-2"><Label htmlFor="scheduleAirports" className="font-mono text-xs uppercase tracking-wider">Airports</Label><Input id="scheduleAirports" placeholder="e.g. EGLL, KJFK" value={scheduleAirports} onChange={(e) => setScheduleAirports(e.target.value)} className="font-mono" /></div>
+              <div className="space-y-2"><Label htmlFor="scheduleRouteCount" className="font-mono text-xs uppercase tracking-wider">Routes to Select</Label><Input id="scheduleRouteCount" type="number" min="1" max="20" value={scheduleRouteCount} onChange={(e) => setScheduleRouteCount(e.target.value)} className="font-mono" /></div>
               <Button onClick={handleSaveSchedule} disabled={isSavingSchedule || !scheduleDate || !scheduleAirports.trim()} className="w-full font-mono"><CalendarDays className="w-4 h-4 mr-2" />{isSavingSchedule ? "Saving..." : "Save Day"}</Button>
               <div className="border-t pt-3 space-y-2">
                 <Label className="font-mono text-xs uppercase tracking-wider">Saved Future Days</Label>
                 <div className="space-y-2 max-h-48 overflow-y-auto">
-                  {isLoadingSchedules ? <div className="text-xs font-mono text-muted-foreground">Loading saved days...</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).length === 0 ? <div className="text-xs font-mono text-muted-foreground">No future days saved yet.</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).map(([date, airports]) => (
+                  {isLoadingSchedules ? <div className="text-xs font-mono text-muted-foreground">Loading saved days...</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).length === 0 ? <div className="text-xs font-mono text-muted-foreground">No future days saved yet.</div> : Object.entries(savedSchedules).sort(([a], [b]) => a.localeCompare(b)).map(([date, entry]) => { const details = getScheduleDetails(entry); return (
                     <div key={date} className="border rounded-md p-2 space-y-2">
-                      <div className="flex items-center justify-between gap-2"><span className="font-mono text-xs font-bold">{date} UTC</span><div className="flex gap-1"><Button size="sm" variant="outline" className="h-7 px-2 text-xs" onClick={() => handleEditSchedule(date, airports)}>Edit</Button><Button size="sm" variant="ghost" className="h-7 px-2 text-xs text-destructive" onClick={() => handleRemoveSchedule(date)}>Remove</Button></div></div>
-                      <div className="font-mono text-xs text-muted-foreground break-words">{airports.join(", ")}</div>
+                      <div className="flex items-center justify-between gap-2"><span className="font-mono text-xs font-bold">{date} UTC · {details.routeCount} routes</span><div className="flex gap-1"><Button size="sm" variant="outline" className="h-7 px-2 text-xs" onClick={() => handleEditSchedule(date, entry)}>Edit</Button><Button size="sm" variant="ghost" className="h-7 px-2 text-xs text-destructive" onClick={() => handleRemoveSchedule(date)}>Remove</Button></div></div>
+                      <div className="font-mono text-xs text-muted-foreground break-words">{details.airports.join(", ")}</div>
                     </div>
-                  ))}
+                  )})}
                 </div>
               </div>
             </CardContent>
