@@ -222,9 +222,12 @@ app.post("/api/post-routes", async (req, res) => {
     // That keeps multi-airport posts balanced (for example, two airports and
     // four routes becomes two routes per airport whenever possible).
     const candidatePools: any[][] = [];
+    const isEgyptAir = (route: any) => String(route.airline ?? "").toLowerCase().replace(/[^a-z]/g, "").includes("egyptair");
     for (const airport of airports) {
-      const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
-      candidatePools.push(result.rows);
+      const result = await pool.query("SELECT origin, origin_city AS \"originCity\", origin_flag AS \"originFlag\", destination, destination_city AS \"destinationCity\", destination_flag AS \"destinationFlag\", airline, airline_emoji AS \"airlineEmoji\", flight_number AS \"flightNumber\", aircraft, duration FROM routes WHERE UPPER(origin) = $1 OR UPPER(destination) = $1 ORDER BY RANDOM() LIMIT 20", [String(airport).toUpperCase()]);
+      // The database order is already random; this stable sort simply moves
+      // EgyptAir options ahead of other matching routes in each airport pool.
+      candidatePools.push(result.rows.sort((a: any, b: any) => Number(isEgyptAir(b)) - Number(isEgyptAir(a))));
     }
     const picked: any[] = [], used = new Set<string>();
     let addedInRound = true;
