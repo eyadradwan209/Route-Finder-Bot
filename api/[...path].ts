@@ -229,15 +229,32 @@ app.post("/api/post-routes", async (req, res) => {
       // EgyptAir options ahead of other matching routes in each airport pool.
       candidatePools.push(result.rows.sort((a: any, b: any) => Number(isEgyptAir(b)) - Number(isEgyptAir(a))));
     }
+    const selectedAirportCodes = new Set(airports.map((airport: string) => String(airport).toUpperCase()));
+    const routeKey = (route: any) => [route.origin, route.destination].sort().join("-");
+    const directSelectedRoutes = candidatePools.flat()
+      .filter((route: any) => selectedAirportCodes.has(String(route.origin).toUpperCase()) && selectedAirportCodes.has(String(route.destination).toUpperCase()))
+      .sort((a: any, b: any) => Number(isEgyptAir(b)) - Number(isEgyptAir(a)));
     const picked: any[] = [], used = new Set<string>();
+
+    // Always include direct connections between selected airports first. A
+    // route from one chosen airport straight to another is useful for the
+    // schedule and should not lose out to unrelated matches.
+    for (const route of directSelectedRoutes) {
+      if (picked.length >= routeCount) break;
+      const key = routeKey(route);
+      if (used.has(key)) continue;
+      used.add(key);
+      picked.push(route);
+    }
+
     let addedInRound = true;
     while (picked.length < routeCount && addedInRound) {
       addedInRound = false;
       for (const pool of candidatePools) {
         if (picked.length >= routeCount) break;
-        const route = pool.find((item: any) => !used.has([item.origin, item.destination].sort().join("-")));
+        const route = pool.find((item: any) => !used.has(routeKey(item)));
         if (!route) continue;
-        used.add([route.origin, route.destination].sort().join("-"));
+        used.add(routeKey(route));
         picked.push(route);
         addedInRound = true;
       }
