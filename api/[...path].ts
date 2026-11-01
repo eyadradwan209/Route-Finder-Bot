@@ -48,6 +48,14 @@ app.get("/api/routes", async (_req, res) => {
   }
 });
 
+app.get("/api/airlines", async (_req, res) => {
+  try {
+    await ensureSchema();
+    const result = await pool.query(`SELECT DISTINCT ON (airline) airline, airline_emoji AS "airlineEmoji" FROM routes WHERE airline IS NOT NULL AND airline <> '' ORDER BY airline, created_at DESC`);
+    res.json({ airlines: result.rows });
+  } catch { res.status(500).json({ error: "Could not load airline options." }); }
+});
+
 app.post("/api/upload", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "Choose a CSV file first." });

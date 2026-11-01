@@ -70,6 +70,7 @@ type EditForm = {
 
 type OneTimeRoute = { origin: string; originCity: string; originFlag: string; destination: string; destinationCity: string; destinationFlag: string; airline: string; airlineEmoji: string; flightNumber: string; aircraft: string; duration: string };
 type SavedSchedule = { airports: string[]; routeCount: number; customRoutes?: OneTimeRoute[] } | string[];
+type AirlineOption = { airline: string; airlineEmoji: string };
 
 function routeToForm(route: Route): EditForm {
   return {
@@ -106,6 +107,8 @@ export default function Home() {
   const [oneTimeRouteDate, setOneTimeRouteDate] = useState("");
   const [oneTimeRoute, setOneTimeRoute] = useState<OneTimeRoute>({ origin: "", originCity: "", originFlag: "", destination: "", destinationCity: "", destinationFlag: "", airline: "United Airlines", airlineEmoji: "", flightNumber: "", aircraft: "", duration: "" });
   const [isSavingOneTimeRoute, setIsSavingOneTimeRoute] = useState(false);
+  const [airlineOptions, setAirlineOptions] = useState<AirlineOption[]>([]);
+  const [isCustomAirline, setIsCustomAirline] = useState(true);
 
   // Edit state
   const [editingRoute, setEditingRoute] = useState<Route | null>(null);
@@ -134,7 +137,15 @@ export default function Home() {
     } finally { setIsLoadingSchedules(false); }
   };
 
-  useEffect(() => { void loadSchedules(); }, []);
+  const loadAirlineOptions = async () => {
+    try {
+      const response = await fetch("/api/airlines");
+      const result = await response.json();
+      if (response.ok) setAirlineOptions(result.airlines || []);
+    } catch { /* The custom airline fields remain available if this cannot load. */ }
+  };
+
+  useEffect(() => { void loadSchedules(); void loadAirlineOptions(); }, []);
 
   const openEdit = (route: Route) => {
     setEditingRoute(route);
@@ -668,9 +679,10 @@ export default function Home() {
                 <Input placeholder="Destination city" value={oneTimeRoute.destinationCity} onChange={(e) => setOneTimeRoute((route) => ({ ...route, destinationCity: e.target.value }))} className="font-mono" />
                 <Input placeholder="Origin flag (e.g. flag_us)" value={oneTimeRoute.originFlag} onChange={(e) => setOneTimeRoute((route) => ({ ...route, originFlag: e.target.value }))} className="font-mono" />
                 <Input placeholder="Destination flag (e.g. flag_ca)" value={oneTimeRoute.destinationFlag} onChange={(e) => setOneTimeRoute((route) => ({ ...route, destinationFlag: e.target.value }))} className="font-mono" />
-                <Input placeholder="Airline" value={oneTimeRoute.airline} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airline: e.target.value }))} className="font-mono" />
-                <Input placeholder="Livery emoji name" value={oneTimeRoute.airlineEmoji} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airlineEmoji: e.target.value }))} className="font-mono" />
+                <select value={isCustomAirline ? "__custom__" : oneTimeRoute.airline} onChange={(e) => { const selected = e.target.value; if (selected === "__custom__") { setIsCustomAirline(true); setOneTimeRoute((route) => ({ ...route, airline: "", airlineEmoji: "" })); } else { const option = airlineOptions.find((item) => item.airline === selected); if (option) { setIsCustomAirline(false); setOneTimeRoute((route) => ({ ...route, airline: option.airline, airlineEmoji: option.airlineEmoji || "" })); } } }} className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-mono ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring"><option value="__custom__">Custom airline…</option>{airlineOptions.map((option) => <option key={option.airline} value={option.airline}>{option.airline}</option>)}</select>
+                <Input placeholder="Tail logo name" value={oneTimeRoute.airlineEmoji} disabled={!isCustomAirline} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airlineEmoji: e.target.value }))} className="font-mono" />
               </div>
+              {isCustomAirline && <Input placeholder="Airline name" value={oneTimeRoute.airline} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airline: e.target.value }))} className="font-mono" />}
               <Input placeholder="Aircraft (e.g. Boeing 787-9)" value={oneTimeRoute.aircraft} onChange={(e) => setOneTimeRoute((route) => ({ ...route, aircraft: e.target.value }))} className="font-mono" />
               <Button onClick={handleSaveOneTimeRoute} disabled={isSavingOneTimeRoute || !oneTimeRouteDate || !oneTimeRoute.origin || !oneTimeRoute.destination || !oneTimeRoute.flightNumber} className="w-full font-mono mt-auto"><Plane className="w-4 h-4 mr-2" />{isSavingOneTimeRoute ? "Saving..." : "Save One-Time Route"}</Button>
             </CardContent>
