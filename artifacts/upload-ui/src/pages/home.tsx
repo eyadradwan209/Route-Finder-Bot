@@ -68,7 +68,8 @@ type EditForm = {
   duration: string;
 };
 
-type SavedSchedule = { airports: string[]; routeCount: number } | string[];
+type OneTimeRoute = { origin: string; originCity: string; originFlag: string; destination: string; destinationCity: string; destinationFlag: string; airline: string; airlineEmoji: string; flightNumber: string; aircraft: string; duration: string };
+type SavedSchedule = { airports: string[]; routeCount: number; customRoutes?: OneTimeRoute[] } | string[];
 
 function routeToForm(route: Route): EditForm {
   return {
@@ -102,6 +103,9 @@ export default function Home() {
   const [isSavingSchedule, setIsSavingSchedule] = useState(false);
   const [savedSchedules, setSavedSchedules] = useState<Record<string, SavedSchedule>>({});
   const [isLoadingSchedules, setIsLoadingSchedules] = useState(true);
+  const [oneTimeRouteDate, setOneTimeRouteDate] = useState("");
+  const [oneTimeRoute, setOneTimeRoute] = useState<OneTimeRoute>({ origin: "", originCity: "", originFlag: "", destination: "", destinationCity: "", destinationFlag: "", airline: "United Airlines", airlineEmoji: "", flightNumber: "", aircraft: "", duration: "" });
+  const [isSavingOneTimeRoute, setIsSavingOneTimeRoute] = useState(false);
 
   // Edit state
   const [editingRoute, setEditingRoute] = useState<Route | null>(null);
@@ -236,7 +240,7 @@ export default function Home() {
     } finally { setIsSavingSchedule(false); }
   };
 
-  const getScheduleDetails = (entry: SavedSchedule) => Array.isArray(entry) ? { airports: entry, routeCount: 4 } : { airports: entry.airports || [], routeCount: entry.routeCount || 4 };
+  const getScheduleDetails = (entry: SavedSchedule) => Array.isArray(entry) ? { airports: entry, routeCount: 4, customRoutes: [] as OneTimeRoute[] } : { airports: entry.airports || [], routeCount: entry.routeCount || 4, customRoutes: entry.customRoutes || [] };
 
   const handleEditSchedule = (date: string, entry: SavedSchedule) => {
     const details = getScheduleDetails(entry);
@@ -255,6 +259,21 @@ export default function Home() {
     } catch (error: any) {
       toast({ title: "Remove Failed", description: error?.message || "Could not remove the saved day.", variant: "destructive" });
     }
+  };
+
+  const handleSaveOneTimeRoute = async () => {
+    if (!oneTimeRouteDate || !oneTimeRoute.origin.trim() || !oneTimeRoute.destination.trim() || !oneTimeRoute.flightNumber.trim()) return;
+    setIsSavingOneTimeRoute(true);
+    try {
+      const response = await fetch("/api/custom-route", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: oneTimeRouteDate, ...oneTimeRoute }) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not save the one-time route.");
+      setSavedSchedules(result.schedule || {});
+      toast({ title: "One-Time Route Saved", description: `${oneTimeRoute.flightNumber} will be posted on ${oneTimeRouteDate}.` });
+      setOneTimeRoute((current) => ({ ...current, flightNumber: "", duration: "" }));
+    } catch (error: any) {
+      toast({ title: "Save Failed", description: error?.message || "Could not save the one-time route.", variant: "destructive" });
+    } finally { setIsSavingOneTimeRoute(false); }
   };
 
   const handlePostRoutes = () => {
@@ -625,10 +644,35 @@ export default function Home() {
                     <div key={date} className="border rounded-md p-2 space-y-2">
                       <div className="flex items-center justify-between gap-2"><span className="font-mono text-xs font-bold">{date} UTC · {details.routeCount} routes</span><div className="flex gap-1"><Button size="sm" variant="outline" className="h-7 px-2 text-xs" onClick={() => handleEditSchedule(date, entry)}>Edit</Button><Button size="sm" variant="ghost" className="h-7 px-2 text-xs text-destructive" onClick={() => handleRemoveSchedule(date)}>Remove</Button></div></div>
                       <div className="font-mono text-xs text-muted-foreground break-words">{details.airports.join(", ")}</div>
+                      {details.customRoutes.length > 0 && <div className="font-mono text-xs text-primary break-words">One-time: {details.customRoutes.map((route) => route.flightNumber).join(", ")}</div>}
                     </div>
                   )})}
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card className="col-span-1 shadow-sm border-border bg-card flex flex-col">
+            <CardHeader className="pb-4 border-b">
+              <CardTitle className="text-sm font-medium text-foreground uppercase tracking-wider flex items-center gap-2"><Plane className="w-4 h-4 text-primary" />One-Time Codeshare Route</CardTitle>
+              <CardDescription className="font-mono text-xs">Add a custom route for one UTC date. The bot posts it once, then removes it with that day’s schedule.</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-4 flex-1 flex flex-col gap-3">
+              <div className="space-y-2"><Label htmlFor="oneTimeRouteDate" className="font-mono text-xs uppercase tracking-wider">Post Date (UTC)</Label><Input id="oneTimeRouteDate" type="date" value={oneTimeRouteDate} onChange={(e) => setOneTimeRouteDate(e.target.value)} className="font-mono" /></div>
+              <div className="grid grid-cols-2 gap-2">
+                <Input placeholder="Flight number (e.g. UA123)" value={oneTimeRoute.flightNumber} onChange={(e) => setOneTimeRoute((route) => ({ ...route, flightNumber: e.target.value }))} className="font-mono" />
+                <Input placeholder="Duration (e.g. 8:30)" value={oneTimeRoute.duration} onChange={(e) => setOneTimeRoute((route) => ({ ...route, duration: e.target.value }))} className="font-mono" />
+                <Input placeholder="Origin ICAO" value={oneTimeRoute.origin} onChange={(e) => setOneTimeRoute((route) => ({ ...route, origin: e.target.value.toUpperCase() }))} className="font-mono" />
+                <Input placeholder="Origin city" value={oneTimeRoute.originCity} onChange={(e) => setOneTimeRoute((route) => ({ ...route, originCity: e.target.value }))} className="font-mono" />
+                <Input placeholder="Destination ICAO" value={oneTimeRoute.destination} onChange={(e) => setOneTimeRoute((route) => ({ ...route, destination: e.target.value.toUpperCase() }))} className="font-mono" />
+                <Input placeholder="Destination city" value={oneTimeRoute.destinationCity} onChange={(e) => setOneTimeRoute((route) => ({ ...route, destinationCity: e.target.value }))} className="font-mono" />
+                <Input placeholder="Origin flag (e.g. flag_us)" value={oneTimeRoute.originFlag} onChange={(e) => setOneTimeRoute((route) => ({ ...route, originFlag: e.target.value }))} className="font-mono" />
+                <Input placeholder="Destination flag (e.g. flag_ca)" value={oneTimeRoute.destinationFlag} onChange={(e) => setOneTimeRoute((route) => ({ ...route, destinationFlag: e.target.value }))} className="font-mono" />
+                <Input placeholder="Airline" value={oneTimeRoute.airline} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airline: e.target.value }))} className="font-mono" />
+                <Input placeholder="Livery emoji name" value={oneTimeRoute.airlineEmoji} onChange={(e) => setOneTimeRoute((route) => ({ ...route, airlineEmoji: e.target.value }))} className="font-mono" />
+              </div>
+              <Input placeholder="Aircraft (e.g. Boeing 787-9)" value={oneTimeRoute.aircraft} onChange={(e) => setOneTimeRoute((route) => ({ ...route, aircraft: e.target.value }))} className="font-mono" />
+              <Button onClick={handleSaveOneTimeRoute} disabled={isSavingOneTimeRoute || !oneTimeRouteDate || !oneTimeRoute.origin || !oneTimeRoute.destination || !oneTimeRoute.flightNumber} className="w-full font-mono mt-auto"><Plane className="w-4 h-4 mr-2" />{isSavingOneTimeRoute ? "Saving..." : "Save One-Time Route"}</Button>
             </CardContent>
           </Card>
         </div>

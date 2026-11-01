@@ -183,10 +183,35 @@ app.post("/api/schedule", async (req, res) => {
     const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
     const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
     const next = schedule && typeof schedule === "object" ? schedule : {};
-    next[date] = { airports: [...new Set(codes)].sort(), routeCount };
+    const previous = next[date];
+    next[date] = { airports: [...new Set(codes)].sort(), routeCount, customRoutes: Array.isArray(previous?.customRoutes) ? previous.customRoutes : [] };
     await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(next)]);
     res.json({ date, airports: next[date].airports, routeCount, schedule: next });
   } catch { res.status(500).json({ error: "Could not save the airport schedule." }); }
+});
+
+app.post("/api/custom-route", async (req, res) => {
+  const date = String(req.body?.date ?? "");
+  const route = {
+    origin: String(req.body?.origin ?? "").trim().toUpperCase(), originCity: String(req.body?.originCity ?? "").trim(), originFlag: String(req.body?.originFlag ?? "").trim(),
+    destination: String(req.body?.destination ?? "").trim().toUpperCase(), destinationCity: String(req.body?.destinationCity ?? "").trim(), destinationFlag: String(req.body?.destinationFlag ?? "").trim(),
+    airline: String(req.body?.airline ?? "").trim(), airlineEmoji: String(req.body?.airlineEmoji ?? "").trim(), flightNumber: String(req.body?.flightNumber ?? "").trim(),
+    aircraft: String(req.body?.aircraft ?? "").trim(), duration: String(req.body?.duration ?? "").trim(),
+  };
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !route.origin || !route.destination || !route.flightNumber) return res.status(400).json({ error: "Choose a date, origin, destination, and flight number." });
+  try {
+    await ensureSchema();
+    const stored = await pool.query("SELECT value FROM settings WHERE key = 'airport_schedule'");
+    const schedule = stored.rows[0] ? JSON.parse(stored.rows[0].value) : {};
+    const next = schedule && typeof schedule === "object" ? schedule : {};
+    const previous = next[date];
+    const airports = Array.isArray(previous) ? previous : (Array.isArray(previous?.airports) ? previous.airports : []);
+    const routeCount = Array.isArray(previous) ? 4 : (Number.isFinite(Number(previous?.routeCount)) ? Number(previous.routeCount) : 0);
+    const customRoutes = Array.isArray(previous?.customRoutes) ? previous.customRoutes : [];
+    next[date] = { airports, routeCount, customRoutes: [...customRoutes, route] };
+    await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(next)]);
+    res.json({ date, route, schedule: next });
+  } catch { res.status(500).json({ error: "Could not save the one-time route." }); }
 });
 
 app.post("/api/remove-schedule", async (req, res) => {
@@ -215,9 +240,11 @@ app.post("/api/post-routes", async (req, res) => {
     const schedule = scheduled.rows[0] ? JSON.parse(scheduled.rows[0].value) : {};
     const scheduledDay = schedule?.[date];
     const airports = Array.isArray(scheduledDay) ? scheduledDay : (Array.isArray(scheduledDay?.airports) ? scheduledDay.airports : (featured.rows[0] ? JSON.parse(featured.rows[0].value) : []));
+    const customRoutes = Array.isArray(scheduledDay?.customRoutes) ? scheduledDay.customRoutes : [];
     const requestedCount = Number(req.body?.routeCount);
-    const routeCount = Math.min(20, Math.max(1, Number.isFinite(requestedCount) ? requestedCount : (Number(scheduledDay?.routeCount) || 4)));
-    if (!Array.isArray(airports) || !airports.length) return res.status(400).json({ error: `No airports are scheduled for ${date}.` });
+    const configuredCount = Number(scheduledDay?.routeCount);
+    const routeCount = Math.min(20, Math.max(0, Number.isFinite(requestedCount) ? requestedCount : (Number.isFinite(configuredCount) ? configuredCount : 4)));
+    if ((!Array.isArray(airports) || !airports.length) && !customRoutes.length) return res.status(400).json({ error: `No airports or one-time routes are scheduled for ${date}.` });
     // Keep a separate pool for each airport and take turns choosing from them.
     // That keeps multi-airport posts balanced (for example, two airports and
     // four routes becomes two routes per airport whenever possible).
@@ -259,14 +286,14 @@ app.post("/api/post-routes", async (req, res) => {
         addedInRound = true;
       }
     }
-    if (!picked.length) return res.status(400).json({ error: "No routes found for the scheduled airports." });
+    if (!picked.length && !customRoutes.length) return res.status(400).json({ error: "No routes found for the scheduled airports." });
     const minutes = (duration: unknown) => { const match = String(duration ?? "").match(/^(\d+):(\d{2})$/); return match ? Number(match[1]) * 60 + Number(match[2]) : Infinity; };
-    picked.sort((a, b) => minutes(a.duration) - minutes(b.duration));
+    const routesToPost = [...customRoutes, ...picked].sort((a, b) => minutes(a.duration) - minutes(b.duration));
     const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date(date + "T00:00:00Z").getUTCDay()];
-    const lines = picked.map((route: any) => { const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`; const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`; return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | "); });
+    const lines = routesToPost.map((route: any) => { const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`; const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`; return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | "); });
     await sendDiscordMessage(`${req.body?.includePilotPing !== false ? "<@&1208309349064376320>\n" : ""}**${day}**\n\n${lines.join("\n\n")}\n\n📌 NOTAMs are pinned to the channel`);
     if (req.body?.manual !== true) { delete schedule[date]; await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(schedule)]); await pool.query("INSERT INTO settings (key, value) VALUES ('featured_airports', '[]') ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value"); }
-    res.json({ message: `Posted ${picked.length} routes for ${day}`, count: picked.length, day, date });
+    res.json({ message: `Posted ${routesToPost.length} routes for ${day}`, count: routesToPost.length, day, date });
   } catch (error) { res.status(503).json({ error: error instanceof Error ? error.message : "Could not post routes to Discord." }); }
 });
 
