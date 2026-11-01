@@ -52,7 +52,12 @@ app.get("/api/airlines", async (_req, res) => {
   try {
     await ensureSchema();
     const result = await pool.query(`SELECT DISTINCT ON (airline) airline, airline_emoji AS "airlineEmoji" FROM routes WHERE airline IS NOT NULL AND airline <> '' ORDER BY airline, created_at DESC`);
-    res.json({ airlines: result.rows });
+    // United can be used for one-time codeshares even when it has no permanent
+    // route in the database yet.
+    const airlines = [...result.rows];
+    if (!airlines.some((item: any) => item.airline === "United Airlines")) airlines.push({ airline: "United Airlines", airlineEmoji: "UAtail" });
+    airlines.sort((a: any, b: any) => a.airline.localeCompare(b.airline));
+    res.json({ airlines });
   } catch { res.status(500).json({ error: "Could not load airline options." }); }
 });
 
