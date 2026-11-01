@@ -55,7 +55,7 @@ app.get("/api/airlines", async (_req, res) => {
     // United can be used for one-time codeshares even when it has no permanent
     // route in the database yet.
     const airlines = [...result.rows];
-    if (!airlines.some((item: any) => item.airline === "United Airlines")) airlines.push({ airline: "United Airlines", airlineEmoji: "UAtail" });
+    if (!airlines.some((item: any) => item.airline === "United Airlines")) airlines.push({ airline: "United Airlines", airlineEmoji: "unitedtail" });
     airlines.sort((a: any, b: any) => a.airline.localeCompare(b.airline));
     res.json({ airlines });
   } catch { res.status(500).json({ error: "Could not load airline options." }); }
