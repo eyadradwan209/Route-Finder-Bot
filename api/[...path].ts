@@ -303,7 +303,13 @@ app.post("/api/post-routes", async (req, res) => {
     const minutes = (duration: unknown) => { const match = String(duration ?? "").match(/^(\d+):(\d{2})$/); return match ? Number(match[1]) * 60 + Number(match[2]) : Infinity; };
     const routesToPost = [...customRoutes, ...picked].sort((a, b) => minutes(a.duration) - minutes(b.duration));
     const day = String(req.body?.day ?? "").trim() || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date(date + "T00:00:00Z").getUTCDay()];
-    const lines = routesToPost.map((route: any) => { const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`; const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`; return [route.airlineEmoji ? `:${route.airlineEmoji}:` : "", route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | "); });
+    const lines = routesToPost.map((route: any) => {
+      const origin = `${route.originCity || ""}${route.originFlag ? " " + route.originFlag : ""}(${route.origin})`;
+      const destination = `${route.destinationCity || ""}${route.destinationFlag ? " " + route.destinationFlag : ""}(${route.destination})`;
+      const tail = route.airlineEmoji ? `:${route.airlineEmoji}:` : "";
+      const details = [route.flightNumber || "", `${origin} —> ${destination}`, route.aircraft || "", route.duration || ""].filter(Boolean).join(" | ");
+      return [tail, details].filter(Boolean).join(" ");
+    });
     await sendDiscordMessage(`${req.body?.includePilotPing !== false ? "<@&1208309349064376320>\n" : ""}**${day}**\n\n${lines.join("\n\n")}\n\n📌 NOTAMs are pinned to the channel`);
     if (req.body?.manual !== true) { delete schedule[date]; await pool.query("INSERT INTO settings (key, value) VALUES ('airport_schedule', $1) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value", [JSON.stringify(schedule)]); await pool.query("INSERT INTO settings (key, value) VALUES ('featured_airports', '[]') ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value"); }
     res.json({ message: `Posted ${routesToPost.length} routes for ${day}`, count: routesToPost.length, day, date });
