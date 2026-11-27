@@ -94,6 +94,7 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [dayOverride, setDayOverride] = useState("");
+  const [postDate, setPostDate] = useState("");
   const [manualRouteCount, setManualRouteCount] = useState("4");
   const [includePilotPing, setIncludePilotPing] = useState(true);
   const [customMessage, setCustomMessage] = useState("");
@@ -167,6 +168,7 @@ export default function Home() {
       {
         id: editingRoute.id,
         data: {
+          ...(postDate ? { date: postDate } : {}),
           origin: editForm.origin || undefined,
           originCity: editForm.originCity || null,
           originFlag: editForm.originFlag || null,
@@ -514,10 +516,15 @@ export default function Home() {
                 Post Daily Routes
               </CardTitle>
               <CardDescription className="font-mono text-xs">
-                Trigger the bot to post today's route selection to the configured Discord channel.
+                Post routes for a selected date to the configured Discord channel.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-4 flex-1 flex flex-col gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="postDate" className="font-mono text-xs uppercase tracking-wider">Date to Post</Label>
+                <Input id="postDate" type="date" value={postDate} onChange={(e) => setPostDate(e.target.value)} className="font-mono" />
+                <p className="text-xs text-muted-foreground">Choose the date whose routes you want to post. Leave blank for tomorrow in UTC.</p>
+              </div>
               <div className="space-y-2">
                 <Label htmlFor="dayOverride" className="font-mono text-xs uppercase tracking-wider">Day Override (Optional)</Label>
                 <Input
@@ -528,7 +535,7 @@ export default function Home() {
                   className="font-mono"
                   data-testid="input-day-override"
                 />
-                <p className="text-xs text-muted-foreground">Leave blank to use current UTC day automatically.</p>
+                <p className="text-xs text-muted-foreground">Leave blank to use the selected date's day.</p>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="manualRouteCount" className="font-mono text-xs uppercase tracking-wider">Routes to Select</Label>

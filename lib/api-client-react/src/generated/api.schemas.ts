@@ -44,6 +44,7 @@ export interface DeleteResult {
 }
 
 export interface PostRoutesRequest {
+  date?: string;
   /** Override the day name (e.g. "Monday"). Defaults to current UTC day. */
   day?: string;
   /** Whether to include the pilot role mention. Defaults to true. */
