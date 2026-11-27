@@ -168,7 +168,6 @@ export default function Home() {
       {
         id: editingRoute.id,
         data: {
-          ...(postDate ? { date: postDate } : {}),
           origin: editForm.origin || undefined,
           originCity: editForm.originCity || null,
           originFlag: editForm.originFlag || null,
@@ -293,6 +292,7 @@ export default function Home() {
     postRoutes.mutate(
       {
         data: {
+          ...(postDate ? { date: postDate } : {}),
           ...(dayOverride.trim() ? { day: dayOverride.trim() } : {}),
           routeCount: Number(manualRouteCount),
           includePilotPing,
